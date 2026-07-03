@@ -292,7 +292,7 @@ const Skiper39 = () => {
           Join thousands of satisfied clients
         </span>
       </div>
-      <div className="absolute bottom-0 h-full w-full opacity-60">
+      <div className="absolute bottom-0 h-full w-full opacity-90 drop-shadow-md">
         <CrowdCanvas src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png" rows={15} cols={7} />
       </div>
     </div>
