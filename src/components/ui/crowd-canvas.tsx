@@ -163,6 +163,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 
     // MAIN
     const img = document.createElement("img");
+    img.crossOrigin = "anonymous";
     const stage = {
       width: 0,
       height: 0,
@@ -292,7 +293,7 @@ const Skiper39 = () => {
         </span>
       </div>
       <div className="absolute bottom-0 h-full w-full opacity-60">
-        <CrowdCanvas src="/images/peeps/all-peeps.png" rows={15} cols={7} />
+        <CrowdCanvas src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png" rows={15} cols={7} />
       </div>
     </div>
   );
