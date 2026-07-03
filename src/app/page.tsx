@@ -159,7 +159,6 @@ export default function Home() {
                 <span className="text-2xl md:text-3xl text-[var(--color-gold)]/60 font-heading italic">CAD Design</span>
                 <span className="text-xl md:text-2xl text-black/20 font-body uppercase tracking-wider font-bold">360° Animation</span>
                 <span className="text-2xl md:text-3xl text-[var(--color-gold)]/60 font-heading italic">Global Agency</span>
-                <span className="text-xl md:text-2xl text-black/20 font-body uppercase tracking-wider font-bold">Marketing & Web</span>
               </div>
             ))}
           </div>

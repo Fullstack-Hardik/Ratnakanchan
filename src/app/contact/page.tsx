@@ -158,7 +158,6 @@ export default function ContactPage() {
                   <option>Jewelry Retouching (High Volume)</option>
                   <option>CAD Modeling & Renders</option>
                   <option>360° Video Animation</option>
-                  <option>Website Design</option>
                   <option>General Inquiry</option>
                 </select>
               </div>

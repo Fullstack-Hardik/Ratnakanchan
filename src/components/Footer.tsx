@@ -49,7 +49,6 @@ export default function Footer() {
             <li><Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Jewelry Retouching</Link></li>
             <li><Link href="/cad" className="hover:text-[var(--color-gold)] transition-colors">CAD Designing</Link></li>
             <li><Link href="/" className="hover:text-[var(--color-gold)] transition-colors">360° Animations</Link></li>
-            <li><Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Web Development</Link></li>
           </ul>
         </div>
 
