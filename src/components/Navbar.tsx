@@ -22,12 +22,9 @@ export default function Navbar() {
         
         {/* LOGO - Left */}
         <div className="flex-shrink-0">
-           <Link href="/" className="flex flex-col">
-             <div className="text-2xl md:text-3xl font-heading font-bold text-black tracking-wider leading-none">
-                RATNA<span className="text-[var(--color-gold)]">KANCHAN</span>
-             </div>
-             <div className="text-[10px] tracking-[0.3em] font-body text-gray-500 uppercase mt-1 leading-none">Creations</div>
-           </Link>
+          <Link href="/" className="flex items-center">
+            <img src="https://ratnakanchan.com/wp-content/uploads/2025/01/cropped-logo-new1123-249x59.png" alt="Ratnakanchan Creations" className="h-10 w-auto" />
+          </Link>
         </div>
 
         {/* DESKTOP LINKS - Middle */}

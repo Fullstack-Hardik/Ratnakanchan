@@ -34,12 +34,11 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/10 pb-16 relative z-10">
         
-        <div className="lg:col-span-1">
-          <div className="text-2xl font-heading font-bold tracking-wider leading-none mb-6">
-            RATNA<span className="text-[var(--color-gold)]">KANCHAN</span>
-            <div className="text-[10px] tracking-[0.3em] font-body text-gray-400 uppercase mt-2">Creations</div>
-          </div>
-          <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">
+        <div className="mb-6">
+          <Link href="/" className="flex items-center">
+            <img src="https://ratnakanchan.com/wp-content/uploads/2025/01/cropped-logo-new1123-249x59.png" alt="Ratnakanchan Creations" className="h-12 w-auto brightness-0 invert" />
+          </Link>
+          <p className="mt-4 text-gray-400 font-light text-sm max-w-xs leading-relaxed">
             Elevating jewelry imagery through pixel-perfect precision, secure data handling, and overnight turnarounds.
           </p>
         </div>
