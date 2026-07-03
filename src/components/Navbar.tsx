@@ -51,6 +51,16 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE MENU TOGGLE */}
+        <div className="flex lg:hidden items-center gap-4">
+          <a href="https://wa.link/" className="text-[#25D366]">
+             <MessageCircle size={24} />
+          </a>
+          <button onClick={() => setIsMobileMenuOpen(true)} className="text-black p-1">
+            <Menu size={28} />
+          </button>
+        </div>
+      </div>
+
       {/* MOBILE MENU (Side Drawer) */}
       <div 
         className={`lg:hidden fixed top-0 right-0 w-[80vw] h-screen bg-white shadow-2xl z-50 transform transition-transform duration-500 ease-in-out flex flex-col ${
