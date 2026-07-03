@@ -1,7 +1,24 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    inquiry: 'General Inquiry',
+    details: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { firstName, lastName, email, phone, inquiry, details } = formData;
+    const message = `Hi Ratnakanchan Creations,%0A%0AI am ${firstName} ${lastName}.%0A%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Inquiry:* ${inquiry}%0A%0A*Details:*%0A${details}`;
+    window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+  };
+
   return (
     <main className="pt-24 min-h-screen bg-white text-black font-body">
       
@@ -112,32 +129,32 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="bg-white p-8 md:p-12 shadow-2xl rounded-sm border border-gray-100"
           >
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">First Name</label>
-                  <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Jane" />
+                  <input required value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Jane" />
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Last Name</label>
-                  <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Doe" />
+                  <input required value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Doe" />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Email Address</label>
-                  <input type="email" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="jane@brand.com" />
+                  <input required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} type="email" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="jane@brand.com" />
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Phone Number</label>
-                  <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="+1 (555) 000-0000" />
+                  <input required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="+1 (555) 000-0000" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">How can we help?</label>
-                <select className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm appearance-none">
+                <select value={formData.inquiry} onChange={(e) => setFormData({...formData, inquiry: e.target.value})} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm appearance-none">
                   <option>Jewelry Retouching (High Volume)</option>
                   <option>CAD Modeling & Renders</option>
                   <option>360° Video Animation</option>
@@ -148,12 +165,12 @@ export default function ContactPage() {
 
               <div>
                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Project Details</label>
-                <textarea rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm resize-none" placeholder="Tell us about your volume, timelines, or specific design requirements..."></textarea>
+                <textarea required value={formData.details} onChange={(e) => setFormData({...formData, details: e.target.value})} rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm resize-none" placeholder="Tell us about your volume, timelines, or specific design requirements..."></textarea>
               </div>
 
               <div className="pt-4">
-                <button type="button" className="w-full bg-black text-white font-semibold uppercase tracking-widest text-sm py-4 rounded-sm hover:bg-[var(--color-gold)] transition-colors shadow-md">
-                  Send Message
+                <button type="submit" className="w-full bg-black text-white font-semibold uppercase tracking-widest text-sm py-4 rounded-sm hover:bg-[var(--color-gold)] transition-colors shadow-md">
+                  Send Message via WhatsApp
                 </button>
               </div>
             </form>

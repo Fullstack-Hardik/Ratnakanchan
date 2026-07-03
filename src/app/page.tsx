@@ -96,12 +96,15 @@ export default function Home() {
           >
              {/* Fix for mobile: md:grayscale means colorful on mobile by default */}
              <motion.img 
-              initial={{ scale: 1.2 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 2, ease: "easeOut" }}
+              initial={{ scale: 1.2, filter: "grayscale(100%)" }}
+              animate={{ scale: 1, filter: "grayscale(0%)" }}
+              transition={{ 
+                scale: { duration: 2, ease: "easeOut" },
+                filter: { delay: 1, duration: 1.5, ease: "easeOut" }
+              }}
               src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/97b13484-9088-41a1-be0e-aac832f13705_1600w.jpg" 
               alt="Luxury Jewelry Editing"
-              className="absolute inset-0 w-full h-full object-cover md:grayscale hover:grayscale-0 transition-all duration-1000"
+              className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Soft gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-black/10"></div>

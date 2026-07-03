@@ -8,13 +8,13 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="pt-24 min-h-screen bg-[#0A0A0A] text-white font-body overflow-hidden">
+    <main className="pt-24 min-h-screen bg-[#F8F6F2] text-black font-body overflow-hidden">
       
       {/* Hero Section */}
       <section className="relative py-32 px-6 flex items-center min-h-[70vh]">
         <div className="absolute inset-0 z-0">
           <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/da81b8a5-ec37-4de5-86fb-e9896c5bb37b_1600w.jpg" alt="Workspace" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F2] via-white/80 to-[#F8F6F2]"></div>
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10 text-center">
@@ -32,7 +32,7 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             initial="hidden"
             animate="visible"
-            className="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed mt-10 space-y-6"
+            className="text-lg md:text-xl text-gray-700 font-light max-w-3xl mx-auto leading-relaxed mt-10 space-y-6"
           >
             <p>
               Ratnakanchan Creations is one of the most professional and trustworthy jewelry photo editing service providers in Mumbai, India. Established in 2007, we have built a strong customer base across the globe, including the USA, Australia, UK, Dubai, and other parts of the world, with thousands of satisfied clients.
@@ -94,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Technical Knowledge Section */}
-      <section className="py-24 px-6 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-24 px-6 bg-white relative overflow-hidden">
         {/* Decorative background element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-gold)] opacity-5 blur-[150px] rounded-full pointer-events-none"></div>
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpBlur}
-            className="text-4xl md:text-5xl font-heading mb-4"
+            className="text-4xl md:text-5xl font-heading mb-4 text-black"
           >
             Unmatched Technical Knowledge
           </motion.h2>
@@ -113,7 +113,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpBlur}
-            className="text-gray-400 font-light text-lg"
+            className="text-gray-500 font-light text-lg"
           >
             We don't just edit images; we understand jewelry engineering.
           </motion.p>
@@ -126,7 +126,7 @@ export default function AboutPage() {
             { title: "Types of Earring Posts", desc: "Accurate modeling of push-backs, screw-backs, and omega clips." },
             { title: "Diamond Types & Settings", desc: "Mastery over pave, channel, flush, and tension diamond settings." },
             { title: "Gold Color Accuracy", desc: "Perfectly calibrated 10k, 14k, and 18k White, Rose, and Yellow Gold." }
-          ].map((item, idx) => (
+            ].map((item, idx) => (
             <motion.div
               key={idx}
               initial="hidden"
@@ -136,10 +136,10 @@ export default function AboutPage() {
                 hidden: { opacity: 0, x: idx % 2 === 0 ? -40 : 40, filter: 'blur(10px)' },
                 visible: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.8, delay: idx * 0.1 } }
               }}
-              className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-sm hover:bg-white/10 transition-colors"
+              className="bg-[#F8F6F2] border border-gray-100 p-8 rounded-sm shadow-sm hover:shadow-md transition-all"
             >
               <h3 className="text-2xl font-heading text-[var(--color-gold)] mb-3">{item.title}</h3>
-              <p className="text-gray-300 font-light">{item.desc}</p>
+              <p className="text-gray-600 font-light">{item.desc}</p>
             </motion.div>
           ))}
           
