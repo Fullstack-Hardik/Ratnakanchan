@@ -1,7 +1,41 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import { Carousel_003 } from '@/components/ui/skiper-carousel';
+import { Skiper39 } from '@/components/ui/crowd-canvas';
+
+function AnimatedCounter({ value, text }: { value: number, text: string }) {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const spring = useSpring(0, {
+    mass: 1,
+    stiffness: 50,
+    damping: 15,
+  });
+
+  const display = useTransform(spring, (current) => 
+    Math.round(current).toLocaleString()
+  );
+
+  React.useEffect(() => {
+    if (inView) {
+      spring.set(value);
+    }
+  }, [inView, spring, value]);
+
+  return (
+    <div className="flex flex-col items-center text-center p-6" ref={ref}>
+      <div className="flex items-baseline mb-2">
+        <motion.h3 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-[var(--color-gold)]">
+          {display}
+        </motion.h3>
+        <span className="text-4xl md:text-5xl font-heading text-[var(--color-gold)]">+</span>
+      </div>
+      <p className="text-sm md:text-base uppercase tracking-widest font-semibold text-black/60">{text}</p>
+    </div>
+  );
+}
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -133,117 +167,20 @@ export default function Home() {
 
       </section>
 
-      {/* ABOUT EXPERTISE - Redesigned to be Glassmorphic & Animated */}
-      <section id="about" className="relative py-24 sm:py-32 overflow-hidden flex items-center min-h-[90vh]">
-        {/* Animated Background */}
-        <div className="absolute inset-0 z-0">
-          <motion.img 
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            viewport={{ once: true }}
-            src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/da81b8a5-ec37-4de5-86fb-e9896c5bb37b_1600w.jpg" 
-            alt="Workspace" 
-            className="w-full h-full object-cover" 
-          />
-          <div className="absolute inset-0 bg-[#0A0A0A]/80 backdrop-blur-[4px]"></div>
-          {/* Animated floating gradients */}
-          <motion.div 
-            animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-[500px] h-[500px] bg-[var(--color-gold)]/20 rounded-full blur-[120px]"
-          ></motion.div>
-          <motion.div 
-            animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--color-gold)]/10 rounded-full blur-[100px]"
-          ></motion.div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase mb-6">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span>
-                About Us
-              </div>
-              <h2 className="leading-[1.1] text-white tracking-tight">
-                <span className="block text-5xl md:text-7xl font-heading font-medium mb-2">17+ Years of</span>
-                <span className="block text-6xl md:text-8xl text-[var(--color-gold)] font-heading italic">Excellence</span>
-              </h2>
-              <p className="mt-8 text-lg md:text-xl leading-relaxed text-white/80 font-light max-w-xl">
-                Based in Mumbai, Ratnakanchan Creations blends traditional jewelry knowledge with cutting-edge digital rendering. We handle high-volume e-commerce retouching and bespoke CAD visualizations for brands worldwide.
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="#services" className="inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold tracking-widest uppercase text-black bg-[var(--color-gold)] hover:bg-white transition-all shadow-lg hover:shadow-[var(--color-gold)]/20">
-                  Our Services
-                </a>
-                <a href="mailto:info@ratnakanchan.com" className="inline-flex items-center justify-center gap-2 text-sm font-semibold tracking-widest uppercase text-white bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-8 py-4 hover:bg-white/10 transition-all">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-                  <span>info@ratnakanchan.com</span>
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="relative mt-8 lg:mt-0"
-            >
-              {/* Glassmorphism Cards Container */}
-              <div className="grid gap-6">
-                
-                {/* Card 1 */}
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl relative overflow-hidden"
-                >
-                  <div className="absolute -right-10 -top-10 w-32 h-32 bg-[var(--color-gold)]/30 rounded-full blur-[40px]"></div>
-                  <div className="relative z-10 flex items-start gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[var(--color-gold)]">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                    <div>
-                      <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">100+</h3>
-                      <p className="text-sm font-medium uppercase tracking-widest text-[var(--color-gold)]">Global Clients</p>
-                      <p className="text-white/60 text-sm mt-3 font-light leading-relaxed">Trusted by independent designers and high-volume e-commerce brands across the globe.</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Card 2 */}
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl relative overflow-hidden lg:ml-12"
-                >
-                  <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-[var(--color-gold)]/30 rounded-full blur-[40px]"></div>
-                  <div className="relative z-10 flex items-start gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[var(--color-gold)]">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <div>
-                      <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">24/7</h3>
-                      <p className="text-sm font-medium uppercase tracking-widest text-[var(--color-gold)]">Dedicated Support</p>
-                      <p className="text-white/60 text-sm mt-3 font-light leading-relaxed">Overnight turnaround times available for urgent campaigns and seasonal drops.</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-              </div>
-            </motion.div>
-
+      {/* STATS COUNTER SECTION */}
+      <section className="py-24 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <AnimatedCounter value={500} text="Projects Delivered" />
+            <AnimatedCounter value={1200} text="Images Retouched" />
+            <AnimatedCounter value={20000} text="Videos Rendered" />
+            <AnimatedCounter value={2000} text="Happy Clients" />
           </div>
         </div>
       </section>
+
+      {/* CROWD CANVAS SECTION */}
+      <Skiper39 />
 
       {/* SWIPER CAROUSEL (Skiper 49) */}
       <section className="py-24 bg-[#FAFAFA] border-y border-gray-200 overflow-hidden">
