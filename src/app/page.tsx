@@ -23,8 +23,8 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="pt-20 min-h-[95vh] flex flex-col relative overflow-hidden bg-[#FAFAFA]">
         
-        <div className="flex-1 flex flex-col md:flex-row relative z-10 max-w-7xl mx-auto w-full">
-          <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 py-16 md:py-0 relative z-20">
+        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 max-w-7xl mx-auto w-full pt-8 md:pt-0">
+          <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 py-10 md:py-0 relative z-20">
             
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -92,7 +92,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 h-[60vh] md:h-auto relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] shadow-2xl z-10 mt-12 md:mt-0"
+            className="w-full md:w-1/2 h-[50vh] md:h-auto relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
              {/* Fix for mobile: md:grayscale means colorful on mobile by default */}
              <motion.img 
@@ -133,33 +133,59 @@ export default function Home() {
 
       </section>
 
-      {/* ABOUT EXPERTISE */}
-      <section id="about" className="bg-[#0A0A0A] py-24 sm:py-32 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* ABOUT EXPERTISE - Redesigned to be Glassmorphic & Animated */}
+      <section id="about" className="relative py-24 sm:py-32 overflow-hidden flex items-center min-h-[90vh]">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <motion.img 
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+            src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/da81b8a5-ec37-4de5-86fb-e9896c5bb37b_1600w.jpg" 
+            alt="Workspace" 
+            className="w-full h-full object-cover" 
+          />
+          <div className="absolute inset-0 bg-[#0A0A0A]/80 backdrop-blur-[4px]"></div>
+          {/* Animated floating gradients */}
+          <motion.div 
+            animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-[500px] h-[500px] bg-[var(--color-gold)]/20 rounded-full blur-[120px]"
+          ></motion.div>
+          <motion.div 
+            animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--color-gold)]/10 rounded-full blur-[100px]"
+          ></motion.div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="lg:col-span-7"
             >
-              <h2 className="leading-none text-white tracking-tight">
-                <span className="block text-5xl md:text-7xl lg:text-8xl font-heading font-medium">
-                  <span className="block tracking-tighter">17+ Years of</span>
-                  <span className="block text-[var(--color-gold)] italic mt-2">Excellence</span>
-                </span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase mb-6">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span>
+                About Us
+              </div>
+              <h2 className="leading-[1.1] text-white tracking-tight">
+                <span className="block text-5xl md:text-7xl font-heading font-medium mb-2">17+ Years of</span>
+                <span className="block text-6xl md:text-8xl text-[var(--color-gold)] font-heading italic">Excellence</span>
               </h2>
-              <p className="sm:mt-8 sm:text-2xl leading-relaxed max-w-2xl text-lg text-white/70 tracking-tight mt-6 font-light">
+              <p className="mt-8 text-lg md:text-xl leading-relaxed text-white/80 font-light max-w-xl">
                 Based in Mumbai, Ratnakanchan Creations blends traditional jewelry knowledge with cutting-edge digital rendering. We handle high-volume e-commerce retouching and bespoke CAD visualizations for brands worldwide.
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-sm px-8 py-4 text-sm font-medium tracking-widest uppercase text-black bg-white hover:bg-gray-100 transition-colors">
+                <a href="#services" className="inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold tracking-widest uppercase text-black bg-[var(--color-gold)] hover:bg-white transition-all shadow-lg hover:shadow-[var(--color-gold)]/20">
                   Our Services
                 </a>
-                <a href="mailto:info@ratnakanchan.com" className="inline-flex items-center justify-center gap-2 text-sm font-medium tracking-widest uppercase text-white bg-white/5 border border-white/10 rounded-sm px-8 py-4 hover:bg-white/10 transition-colors">
+                <a href="mailto:info@ratnakanchan.com" className="inline-flex items-center justify-center gap-2 text-sm font-semibold tracking-widest uppercase text-white bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-8 py-4 hover:bg-white/10 transition-all">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
                   <span>info@ratnakanchan.com</span>
                 </a>
@@ -169,28 +195,49 @@ export default function Home() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="lg:col-span-5 relative mt-8 lg:mt-0"
+              className="relative mt-8 lg:mt-0"
             >
-              <div className="relative aspect-[4/5] overflow-hidden shadow-2xl bg-white/5 rounded-sm border border-white/10 group">
-                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/da81b8a5-ec37-4de5-86fb-e9896c5bb37b_1600w.jpg" alt="Atelier workspace" className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 transition-transform duration-1000" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              {/* Glassmorphism Cards Container */}
+              <div className="grid gap-6">
+                
+                {/* Card 1 */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl relative overflow-hidden"
+                >
+                  <div className="absolute -right-10 -top-10 w-32 h-32 bg-[var(--color-gold)]/30 rounded-full blur-[40px]"></div>
+                  <div className="relative z-10 flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[var(--color-gold)]">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div>
+                      <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">100+</h3>
+                      <p className="text-sm font-medium uppercase tracking-widest text-[var(--color-gold)]">Global Clients</p>
+                      <p className="text-white/60 text-sm mt-3 font-light leading-relaxed">Trusted by independent designers and high-volume e-commerce brands across the globe.</p>
+                    </div>
+                  </div>
+                </motion.div>
 
-                <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-4">
-                  <div className="rounded-sm bg-white/10 backdrop-blur-md border border-white/15 p-4 shadow-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="text-2xl font-heading font-bold text-white">100+</div>
+                {/* Card 2 */}
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl relative overflow-hidden lg:ml-12"
+                >
+                  <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-[var(--color-gold)]/30 rounded-full blur-[40px]"></div>
+                  <div className="relative z-10 flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[var(--color-gold)]">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
-                    <p className="text-xs font-medium uppercase tracking-widest text-white/70">Global Clients</p>
-                  </div>
-                  <div className="rounded-sm bg-white/10 backdrop-blur-md border border-white/15 p-4 shadow-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="text-2xl font-heading font-bold text-white">24/7</div>
+                    <div>
+                      <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">24/7</h3>
+                      <p className="text-sm font-medium uppercase tracking-widest text-[var(--color-gold)]">Dedicated Support</p>
+                      <p className="text-white/60 text-sm mt-3 font-light leading-relaxed">Overnight turnaround times available for urgent campaigns and seasonal drops.</p>
                     </div>
-                    <p className="text-xs font-medium uppercase tracking-widest text-[var(--color-gold)]">Support</p>
                   </div>
-                </div>
+                </motion.div>
+
               </div>
             </motion.div>
 
