@@ -59,7 +59,7 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-gray-400 font-light">
             <li><Link href="/about" className="hover:text-[var(--color-gold)] transition-colors">About Us</Link></li>
             <li><Link href="/gallery" className="hover:text-[var(--color-gold)] transition-colors">Gallery</Link></li>
-            <li><Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing & Bulk</Link></li>
+            <li><Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing</Link></li>
             <li><Link href="/contact" className="hover:text-[var(--color-gold)] transition-colors">Contact</Link></li>
           </ul>
         </div>

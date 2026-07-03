@@ -36,6 +36,7 @@ export default function Navbar() {
           <Link href="/cad" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><PenTool size={14} /> CAD</Link>
           <Link href="/gallery" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><Image size={14} /> Gallery</Link>
           <Link href="/blog" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><FileText size={14} /> Blog</Link>
+          <Link href="/pricing" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><FileText size={14} /> Pricing</Link>
           <Link href="/about" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><Info size={14} /> About</Link>
           <Link href="/contact" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><Mail size={14} /> Contact</Link>
         </div>
@@ -77,6 +78,7 @@ export default function Navbar() {
           <Link href="/cad" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><PenTool size={20} className="text-[var(--color-gold)]" /> CAD Services</Link>
           <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><Image size={20} className="text-[var(--color-gold)]" /> Gallery</Link>
           <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><FileText size={20} className="text-[var(--color-gold)]" /> Blog</Link>
+          <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><FileText size={20} className="text-[var(--color-gold)]" /> Pricing</Link>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><Info size={20} className="text-[var(--color-gold)]" /> About Us</Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><Mail size={20} className="text-[var(--color-gold)]" /> Contact</Link>
           
