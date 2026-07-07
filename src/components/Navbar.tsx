@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, MessageCircle, Menu, X, Home, PenTool, Image, FileText, Mail, Info } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Home, PenTool, Image, FileText, Mail, Info, ChevronDown, Monitor, Box, Video } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +30,19 @@ export default function Navbar() {
         {/* DESKTOP LINKS - Middle */}
         <div className="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold text-gray-700">
           <Link href="/" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><Home size={14} /> Home</Link>
-          <Link href="/cad" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><PenTool size={14} /> CAD</Link>
+          
+          <div className="relative group">
+            <button className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors py-2 uppercase tracking-widest font-semibold font-body text-xs">
+              <PenTool size={14} /> Services <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200"/>
+            </button>
+            <div className="absolute top-full left-0 mt-0 w-[280px] bg-white/95 backdrop-blur-md shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-3 px-2 border border-gray-100">
+              <Link href="/jewelry-retouching" className="px-4 py-3 hover:bg-gray-50 rounded-lg hover:text-[var(--color-gold)] transition-colors flex items-center gap-3 normal-case tracking-normal font-body text-sm"><Image size={16} className="text-[var(--color-gold)]" /> Jewelry Retouching</Link>
+              <Link href="/cad-designing-rendering" className="px-4 py-3 hover:bg-gray-50 rounded-lg hover:text-[var(--color-gold)] transition-colors flex items-center gap-3 normal-case tracking-normal font-body text-sm"><Box size={16} className="text-[var(--color-gold)]" /> CAD Designing & Rendering</Link>
+              <Link href="/360-animation-rendering" className="px-4 py-3 hover:bg-gray-50 rounded-lg hover:text-[var(--color-gold)] transition-colors flex items-center gap-3 normal-case tracking-normal font-body text-sm"><Video size={16} className="text-[var(--color-gold)]" /> 360° Animation Rendering</Link>
+              <Link href="/marketing-printing-services" className="px-4 py-3 hover:bg-gray-50 rounded-lg hover:text-[var(--color-gold)] transition-colors flex items-center gap-3 normal-case tracking-normal font-body text-sm"><FileText size={16} className="text-[var(--color-gold)]" /> Marketing & Printing Services</Link>
+              <Link href="/website-designing" className="px-4 py-3 hover:bg-gray-50 rounded-lg hover:text-[var(--color-gold)] transition-colors flex items-center gap-3 normal-case tracking-normal font-body text-sm"><Monitor size={16} className="text-[var(--color-gold)]" /> Website Designing</Link>
+            </div>
+          </div>
           <Link href="/gallery" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><Image size={14} /> Gallery</Link>
           <Link href="/blog" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><FileText size={14} /> Blog</Link>
           <Link href="/pricing" className="flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors"><FileText size={14} /> Pricing</Link>
@@ -72,7 +84,17 @@ export default function Navbar() {
         </div>
         <div className="flex flex-col space-y-8 px-8 py-4 flex-grow overflow-y-auto">
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><Home size={20} className="text-[var(--color-gold)]" /> Home</Link>
-          <Link href="/cad" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><PenTool size={20} className="text-[var(--color-gold)]" /> CAD Services</Link>
+          
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800"><PenTool size={20} className="text-[var(--color-gold)]" /> Services</div>
+            <div className="flex flex-col space-y-4 pl-9">
+              <Link href="/jewelry-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-semibold text-gray-600 hover:text-[var(--color-gold)] transition-colors">Jewelry Retouching</Link>
+              <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-semibold text-gray-600 hover:text-[var(--color-gold)] transition-colors">CAD Designing & Rendering</Link>
+              <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-semibold text-gray-600 hover:text-[var(--color-gold)] transition-colors">360° Animation Rendering</Link>
+              <Link href="/marketing-printing-services" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-semibold text-gray-600 hover:text-[var(--color-gold)] transition-colors">Marketing & Printing Services</Link>
+              <Link href="/website-designing" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-semibold text-gray-600 hover:text-[var(--color-gold)] transition-colors">Website Designing</Link>
+            </div>
+          </div>
           <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><Image size={20} className="text-[var(--color-gold)]" /> Gallery</Link>
           <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><FileText size={20} className="text-[var(--color-gold)]" /> Blog</Link>
           <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 text-base uppercase tracking-widest font-semibold text-gray-800 hover:text-[var(--color-gold)] transition-colors"><FileText size={20} className="text-[var(--color-gold)]" /> Pricing</Link>

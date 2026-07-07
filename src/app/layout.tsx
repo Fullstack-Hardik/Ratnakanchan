@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-body' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-heading' });
+const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
   title: "Ratnakanchan Creations | Luxury Jewelry Photo Retouching & CAD Design",
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-body bg-white text-black selection:bg-[var(--color-gold)] selection:text-white`}>
+      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} font-body bg-white text-black selection:bg-[var(--color-gold)] selection:text-white`}>
         <SmoothScroll>
           <Navbar />
           {children}

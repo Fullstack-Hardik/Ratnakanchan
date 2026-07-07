@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import { Carousel_003 } from '@/components/ui/skiper-carousel';
-import { Skiper39 } from '@/components/ui/crowd-canvas';
 
 function AnimatedCounter({ value, text }: { value: number, text: string }) {
   const ref = React.useRef(null);
@@ -178,8 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CROWD CANVAS SECTION */}
-      <Skiper39 />
+
 
       {/* SWIPER CAROUSEL (Skiper 49) */}
       <section className="py-24 bg-[#FAFAFA] border-y border-gray-200 overflow-hidden">

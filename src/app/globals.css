@@ -10,6 +10,13 @@
   --color-neutral-light: #F8F6F2;
   --color-white: #FFFFFF;
 
+  /* Technical Minimalist Theme Colors */
+  --color-tech-bg: #F8F6F2;
+  --color-tech-border: rgba(31, 35, 40, 0.2);
+  --color-tech-accent: #C5A059;
+  --color-tech-dark: #1F2328;
+  --color-tech-muted: #78716C;
+
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
 
