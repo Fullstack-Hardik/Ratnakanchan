@@ -10,6 +10,12 @@ import ScrollVelocity from '@/components/ui/ScrollVelocity';
 
 export default function JewelryRetouching() {
   const [isMounted, setIsMounted] = useState(false);
+  const heroRef = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = React.useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroY = React.useTransform(heroProgress, [0, 1], ["0%", "40%"]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -52,8 +58,22 @@ export default function JewelryRetouching() {
     <main className="min-h-screen bg-stone-50 text-stone-900 pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
       
       {/* Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 pt-16 pb-32">
-        <div className="flex flex-col items-center text-center">
+      <section ref={heroRef} className="relative w-full max-w-7xl mx-auto px-6 pt-24 pb-48 z-10 flex flex-col justify-center min-h-[70vh] rounded-[3rem] overflow-hidden mb-16 shadow-sm border border-stone-200">
+        
+        {/* Parallax Image Background */}
+        <motion.div 
+          style={{ y: heroY }}
+          className="absolute inset-0 w-full h-full -z-10"
+        >
+           <img 
+              src="/images/retouching-clipping.png" 
+              alt="Jewelry Retouching Hero"
+              className="w-full h-full object-cover opacity-60"
+            />
+           <div className="absolute inset-0 bg-gradient-to-tr from-stone-50/95 via-stone-50/70 to-transparent pointer-events-none"></div>
+        </motion.div>
+
+        <div className="flex flex-col items-center text-center relative z-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
