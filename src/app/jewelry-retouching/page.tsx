@@ -115,14 +115,13 @@ export default function JewelryRetouching() {
       </section>
 
       {/* Video Showcase Section */}
-      <section className="w-full max-w-[98%] mx-auto py-24 px-6 bg-stone-900 text-white rounded-[4rem] my-20 border border-stone-800 shadow-2xl overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none mix-blend-screen"></div>
-        <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
+      <section className="w-full max-w-7xl mx-auto py-24 px-6 bg-white rounded-[4rem] my-20 shadow-sm border border-stone-200 overflow-hidden relative">
+        <div className="flex flex-col items-center text-center relative z-10">
           <motion.h2 
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="text-4xl md:text-6xl font-heading font-medium tracking-tight mb-16"
+             className="text-4xl md:text-6xl font-heading font-medium tracking-tight mb-16 text-stone-900"
           >
             The Art of <span className="italic text-[var(--color-gold)]">Transformation</span>
           </motion.h2>
@@ -132,18 +131,17 @@ export default function JewelryRetouching() {
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
-             className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-stone-700 bg-black relative group"
+             className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 relative group"
           >
              <video 
-               autoPlay={true} 
-               loop={true} 
-               muted={true} 
-               playsInline={true}
-               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+               autoPlay
+               loop
+               muted
+               playsInline
+               className="w-full h-full object-cover"
              >
                <source src="/videos/retouching.mp4" type="video/mp4" />
              </video>
-             <div className="absolute inset-0 border-[4px] md:border-[8px] border-white/5 pointer-events-none rounded-[2rem] md:rounded-[3rem]"></div>
           </motion.div>
         </div>
       </section>
