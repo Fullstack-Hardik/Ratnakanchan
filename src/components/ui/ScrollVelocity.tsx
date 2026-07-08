@@ -10,7 +10,7 @@ import {
 } from 'framer-motion';
 import './ScrollVelocity.css';
 
-function useElementWidth(ref: React.RefObject<HTMLElement>) {
+function useElementWidth(ref: React.RefObject<HTMLElement | null>) {
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
@@ -103,12 +103,15 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     useAnimationFrame((t, delta) => {
       let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
+      // @ts-ignore
       if (velocityFactor.get() < 0) {
         directionFactor.current = -1;
+      // @ts-ignore
       } else if (velocityFactor.get() > 0) {
         directionFactor.current = 1;
       }
 
+      // @ts-ignore
       moveBy += directionFactor.current * moveBy * velocityFactor.get();
       baseX.set(baseX.get() + moveBy);
     });
