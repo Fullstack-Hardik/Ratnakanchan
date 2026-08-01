@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-secondary: #C5A059;
+  --color-gold: #C5A059;
+  --color-light-gold: #DCC287;
+  --color-dark-gold: #A68545;
+  --color-neutral-dark: #1F2328;
+  --color-neutral-light: #F8F6F2;
+  --color-white: #FFFFFF;
+
+  /* Technical Minimalist Theme Colors */
+  --color-tech-bg: #F8F6F2;
+  --color-tech-border: rgba(31, 35, 40, 0.2);
+  --color-tech-accent: #C5A059;
+  --color-tech-dark: #1F2328;
+  --color-tech-muted: #78716C;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-black font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-black;
+  }
+  
+  ::selection {
+    @apply bg-[var(--color-gold)] text-white;
+  }
+}
+
+@layer utilities {
+  .image-hover-zoom {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .image-hover-zoom:hover {
+    transform: scale(1.03);
+  }
+}
