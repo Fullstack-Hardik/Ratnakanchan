@@ -224,7 +224,7 @@ export default function GalleryPage() {
 
         {/* Skiper30 Parallax Component */}
         <Skiper30 images={rawImages} />
-        
+
         {/* Sticky Cards Animation */}
         <div className="w-full bg-[#111]">
           <StickyCard002 cards={galleryImages} />
