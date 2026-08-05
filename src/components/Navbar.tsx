@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* LOGO - Left */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
-            <img src="/images/logo.jpeg" alt="Ratnakanchan Creations Logo" className="h-8 sm:h-10 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
+            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
           </Link>
         </div>
 
@@ -56,14 +56,14 @@ export default function Navbar() {
           <a href="tel:+919876543210" className="text-black/60 hover:text-[var(--color-gold)] transition-colors">
             <Phone size={16} strokeWidth={2} />
           </a>
-          <a href="https://wa.link/" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors">
             <MessageCircle size={16} strokeWidth={2.5} /> WhatsApp
           </a>
         </div>
 
         {/* MOBILE MENU TOGGLE */}
         <div className="flex lg:hidden items-center gap-4">
-          <a href="https://wa.link/" className="text-[#25D366]">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-[#25D366]">
              <MessageCircle size={20} strokeWidth={2.5} />
           </a>
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-black/80 p-1">
@@ -105,7 +105,7 @@ export default function Navbar() {
           
           <div className="border-t border-gray-100 pt-8 mt-auto flex flex-col gap-6">
             <a href="tel:+919876543210" className="flex items-center gap-3 text-xs tracking-widest uppercase text-black/60 hover:text-[var(--color-gold)] transition-colors"><Phone size={16}/> Call Us</a>
-            <a href="https://wa.link/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors"><MessageCircle size={16}/> WhatsApp Chat</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors"><MessageCircle size={16}/> WhatsApp Chat</a>
           </div>
         </div>
       </div>

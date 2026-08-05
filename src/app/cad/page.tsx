@@ -49,7 +49,7 @@ export default function CadPage() {
               <li className="flex items-center gap-3 text-sm uppercase tracking-widest font-semibold"><span className="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span> Photorealistic Rendering</li>
               <li className="flex items-center gap-3 text-sm uppercase tracking-widest font-semibold"><span className="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span> 360° Video Animations</li>
             </ul>
-            <a href="https://wa.link/" className="inline-flex items-center gap-2 border-b-2 border-black pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
+            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border-b-2 border-black pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
               Get a Quote
             </a>
           </motion.div>

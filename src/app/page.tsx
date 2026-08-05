@@ -123,7 +123,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <a href="https://wa.link/" target="_blank" rel="noreferrer" className="text-center relative overflow-hidden bg-black text-white px-8 py-4 font-medium uppercase tracking-widest text-sm group rounded-sm shadow-xl hover:scale-105 transition-all">
+                <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-center relative overflow-hidden bg-black text-white px-8 py-4 font-medium uppercase tracking-widest text-sm group rounded-sm shadow-xl hover:scale-105 transition-all">
                   <span className="relative z-10">Get Free Sample</span>
                   <div className="absolute inset-0 bg-[var(--color-gold)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-0 ease-out"></div>
                 </a>

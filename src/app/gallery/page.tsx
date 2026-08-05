@@ -232,7 +232,7 @@ export default function GalleryPage() {
 
         <section className="py-24 text-center bg-[#111]">
           <h2 className="text-3xl font-heading mb-6">Ready for pixel-perfect clarity?</h2>
-          <a href="https://wa.link/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border-b-2 border-white pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border-b-2 border-white pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
             Request a Free Sample
           </a>
         </section>
