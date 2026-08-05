@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* LOGO - Left */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
-            <img src="https://ratnakanchan.com/wp-content/uploads/2025/01/cropped-logo-new1123-249x59.png" alt="Ratnakanchan Creations" className="h-5 sm:h-6 w-auto opacity-90 transition-opacity hover:opacity-100" />
+            <img src="/images/logo.jpeg" alt="Ratnakanchan Creations Logo" className="h-8 sm:h-10 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
           </Link>
         </div>
 
