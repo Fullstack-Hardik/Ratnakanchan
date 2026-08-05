@@ -43,8 +43,18 @@ export default function ContactPage() {
       </section>
 
       {/* Content & Map Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section className="py-20 px-6 bg-white relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src="/hand_jewelry_bg.png" 
+            alt="Jewelry Background" 
+            className="w-full h-full object-cover opacity-[0.08]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}

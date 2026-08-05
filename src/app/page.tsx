@@ -185,7 +185,7 @@ export default function Home() {
 
       {/* STATS COUNTER SECTION - NATURE / DARK LEAVES BACKGROUND */}
       <section 
-        className="py-12 md:py-20 border-y border-white/10 relative overflow-hidden mt-8 md:mt-12 bg-black shadow-inner"
+        className="py-6 md:py-10 border-y border-white/10 relative overflow-hidden mt-6 md:mt-8 bg-black shadow-inner"
         style={{ 
           backgroundImage: 'url(/dark_leaves_bg.png)', 
           backgroundSize: 'cover', 
@@ -205,7 +205,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
 
       {/* SWIPER CAROUSEL (Skiper 49) */}

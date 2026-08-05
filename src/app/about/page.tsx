@@ -11,31 +11,36 @@ export default function AboutPage() {
     <main className="pt-24 min-h-screen bg-[#F8F6F2] text-black font-body overflow-hidden">
       
       {/* Hero Section */}
-      <section className="relative py-32 px-6 flex items-center min-h-[70vh]">
+      <section className="relative py-32 md:py-40 px-6 flex items-center min-h-[70vh] overflow-hidden bg-white">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/da81b8a5-ec37-4de5-86fb-e9896c5bb37b_1600w.jpg" alt="Workspace" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F2] via-white/80 to-[#F8F6F2]"></div>
+          <img 
+            src="/hand_jewelry_bg.png" 
+            alt="Hand with Jewelry" 
+            className="w-full h-full object-cover opacity-[0.15] md:opacity-[0.25]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white"></div>
         </div>
-        
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
+
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, filter: 'blur(20px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="text-6xl md:text-8xl font-heading mb-6 tracking-tight">
-              Elevating <span className="text-[var(--color-gold)] italic">Jewelry</span> Imagery
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading mb-10 text-black">
+              Elevating Jewelry Imagery
             </h1>
           </motion.div>
           
           <motion.div
-            variants={fadeUpBlur}
-            initial="hidden"
-            animate="visible"
-            className="text-lg md:text-xl text-gray-700 font-light max-w-3xl mx-auto leading-relaxed mt-10 space-y-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="space-y-8 text-lg md:text-xl text-gray-700 font-light leading-relaxed"
           >
             <p>
-              Ratnakanchan Creations is one of the most professional and trustworthy jewelry photo editing service providers in Mumbai, India. Established in 2007, we have built a strong customer base across the globe, including the USA, Australia, UK, Dubai, and other parts of the world, with thousands of satisfied clients.
+              <strong className="font-semibold text-black">Ratnakanchan Creations</strong> is one of the most professional and trustworthy jewelry photo editing service providers in Mumbai, India. Established in 2007, we have built a strong customer base across the globe, including the USA, Australia, UK, Dubai, and other parts of the world, with thousands of satisfied clients.
             </p>
             <p>
               In today’s rapidly evolving industry, with shrinking verticals, new standards, and constantly shifting parameters, information is a critical asset. At Ratnakanchan Creations, we blend style and substance to help you thrive. Through innovative thinking and a steadfast commitment to quality and excellence, we empower you to enhance your growth potential.
