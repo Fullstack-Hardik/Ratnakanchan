@@ -11,6 +11,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 relative z-10">
         
+        <div className="lg:col-span-5 mb-6 pr-8">
           <Link href="/" className="inline-block mb-8">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-14 sm:h-20 w-auto object-contain" />
           </Link>
