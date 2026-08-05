@@ -13,7 +13,7 @@ export default function Footer() {
         
         <div className="lg:col-span-5 mb-6 pr-8">
           <Link href="/" className="inline-block mb-8">
-            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-14 sm:h-20 w-auto object-contain" />
+            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-14 sm:h-20 w-auto object-contain brightness-0 invert opacity-90" />
           </Link>
           <p className="text-gray-400 font-light text-base max-w-sm leading-relaxed mb-8">
             Elevating jewelry imagery through pixel-perfect precision, secure data handling, and overnight turnarounds. Setting the global standard since 2007.
