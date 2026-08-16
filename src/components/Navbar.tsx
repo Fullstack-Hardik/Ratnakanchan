@@ -40,7 +40,6 @@ export default function Navbar() {
               <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Designing & Rendering</Link>
               <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">360° Animation Rendering</Link>
               <Link href="/marketing-printing-services" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Marketing & Printing Services</Link>
-              <Link href="/website-designing" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Website Designing</Link>
             </div>
           </div>
           
@@ -93,7 +92,6 @@ export default function Navbar() {
               <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD & Rendering</Link>
               <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">360° Animation</Link>
               <Link href="/marketing-printing-services" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Marketing</Link>
-              <Link href="/website-designing" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Website Design</Link>
             </div>
           </div>
           

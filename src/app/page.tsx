@@ -4,6 +4,25 @@ import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import { Carousel_003 } from '@/components/ui/skiper-carousel';
 import Hero3DBackground from '@/components/Hero3DBackground';
 
+const heroImages = [
+  {
+    src: '/premium_diamond_hero.png',
+    alt: 'Luxury Diamond Ring Retouching',
+  },
+  {
+    src: '/images/cad-retouching-hero.jpg',
+    alt: 'Professional 3D CAD Retouching & Rendering',
+  },
+  {
+    src: '/images/nft-digital-art-hero.jpg',
+    alt: 'Futuristic NFT & Digital Art Visuals',
+  },
+  {
+    src: '/images/website-design-hero.jpg',
+    alt: 'Modern E-Commerce Web Design Interface',
+  },
+];
+
 function AnimatedCounter({ value, text, delay = 0 }: { value: number, text: string, delay?: number }) {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -48,17 +67,13 @@ function AnimatedCounter({ value, text, delay = 0 }: { value: number, text: stri
 }
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const totalSlides = 3;
-
-  const nextSlide = () => setCurrentSlide(prev => (prev === totalSlides ? 1 : prev + 1));
-  const prevSlide = () => setCurrentSlide(prev => (prev === 1 ? totalSlides : prev - 1));
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 6000);
-    return () => clearInterval(interval);
+    const heroInterval = setInterval(() => {
+      setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(heroInterval);
   }, []);
 
   return (
@@ -138,23 +153,38 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 h-[50vh] md:h-auto relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
+            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
-             {/* Fix for mobile: md:grayscale means colorful on mobile by default */}
+            {heroImages.map((img, idx) => (
               <motion.img 
-              initial={{ scale: 1.2, filter: "grayscale(100%)", rotate: 5 }}
-              animate={{ scale: 1, filter: "grayscale(0%)", rotate: 0 }}
-              transition={{ 
-                scale: { duration: 2.5, ease: "easeOut" },
-                rotate: { duration: 2.5, ease: "easeOut" },
-                filter: { delay: 1, duration: 1.5, ease: "easeOut" }
-              }}
-              src="/premium_diamond_hero.png" 
-              alt="Luxury Diamond Ring"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+                key={img.src}
+                src={img.src} 
+                alt={img.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ))}
+
             {/* Soft gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-black/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none"></div>
+
+            {/* Carousel Indicators */}
+            <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              {heroImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveHeroIndex(idx)}
+                  aria-label={`Slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    idx === activeHeroIndex
+                      ? 'w-6 bg-[var(--color-gold)]'
+                      : 'w-2 bg-white/40 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
 
@@ -277,110 +307,6 @@ export default function Home() {
             </motion.div>
           ))}
 
-        </div>
-      </section>
-
-      {/* TESTIMONIALS SLIDER */}
-      <section id="testimonials" className="overflow-hidden bg-[#F8F6F2] border-y border-gray-200 relative">
-        <div className="max-w-7xl mx-auto px-6 py-24 sm:py-32 relative">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-x-6 gap-y-6"
-          >
-            <div>
-              <div className="inline-flex text-xs text-black/70 bg-white border border-gray-200 shadow-sm rounded-full px-4 py-2 items-center gap-2 font-medium tracking-widest uppercase">
-                <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]"></span>
-                Partner Success
-              </div>
-              <h2 className="sm:text-6xl leading-[1.1] text-4xl font-heading mt-6">What jewelers are saying.</h2>
-            </div>
-            <div className="shrink-0 flex items-center gap-6">
-              <div className="text-sm text-gray-400 font-body">
-                <span className="text-xl font-medium tracking-tight text-black">0{currentSlide}</span> 
-                <span className="mx-2">/</span> 
-                <span>03</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <button onClick={prevSlide} className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-black hover:bg-gray-50 transition-all">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m15 18-6-6 6-6"/></svg>
-                </button>
-                <button onClick={nextSlide} className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-black hover:bg-gray-50 transition-all">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m9 18 6-6-6-6"/></svg>
-                </button>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="mt-16 relative min-h-[400px]">
-            <article className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center transition-opacity duration-700 absolute inset-0 ${currentSlide === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-              <div className="lg:col-span-4">
-                <div className="rounded-sm overflow-hidden bg-white shadow-xl aspect-[4/5] relative">
-                  <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a50b35f0-09bf-4a77-8d53-270981b17e22_1600w.jpg" alt="Signet Ring Render" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="flex items-start gap-6">
-                  <div className="shrink-0 hidden md:inline-flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-[var(--color-gold)]">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                  </div>
-                  <div>
-                    <h3 className="mt-1 text-3xl sm:text-4xl font-heading text-black">Sarah Ahmed</h3>
-                    <p className="text-xs text-gray-500 uppercase tracking-widest mt-2 mb-6">Operations Manager, NYC E-Commerce</p>
-                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed font-light italic">
-                      “Ratnakanchan delivered outstanding bulk retouching results with great professionalism and timely execution. Their precision on diamond masking and metal color correction saved our holiday launch completely.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center transition-opacity duration-700 absolute inset-0 ${currentSlide === 2 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-              <div className="lg:col-span-4">
-                <div className="rounded-sm overflow-hidden bg-white shadow-xl aspect-[4/5] relative">
-                  <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" alt="Earring Render" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="flex items-start gap-6">
-                  <div className="shrink-0 hidden md:inline-flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-[var(--color-gold)]">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                  </div>
-                  <div>
-                    <h3 className="mt-1 text-3xl sm:text-4xl font-heading text-black">Marco Lee</h3>
-                    <p className="text-xs text-gray-500 uppercase tracking-widest mt-2 mb-6">Independent Designer, Australia</p>
-                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed font-light italic">
-                      “The CAD rendering check-ins were spot on. We were able to visualize the wax model in its final form perfectly. Their 4-angle photorealistic renders were flawlessly executed end to end.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center transition-opacity duration-700 absolute inset-0 ${currentSlide === 3 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-              <div className="lg:col-span-4">
-                <div className="rounded-sm overflow-hidden bg-white shadow-xl aspect-[4/5] relative">
-                  <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7998a59f-416e-4cb4-8999-bdf11936bc71_1600w.jpg" alt="Necklace 360" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="flex items-start gap-6">
-                  <div className="shrink-0 hidden md:inline-flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-[var(--color-gold)]">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                  </div>
-                  <div>
-                    <h3 className="mt-1 text-3xl sm:text-4xl font-heading text-black">Aisha Patel</h3>
-                    <p className="text-xs text-gray-500 uppercase tracking-widest mt-2 mb-6">Marketing Director, Dubai Boutique</p>
-                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed font-light italic">
-                      “Clear protocols, incredibly fast delivery, and stunning 360° video animations that doubled our social media engagement. I’d trust this team with any high-end jewelry marketing asset.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
         </div>
       </section>
 
