@@ -1,13 +1,18 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ReactLenis from "lenis/react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import Lenis from "lenis";
+import {
+  motion,
+  AnimatePresence,
+  MotionValue,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
+import ReactLenis from "lenis/react";
+import { X } from "lucide-react";
 
 interface CardData {
   id: number | string;
@@ -15,124 +20,95 @@ interface CardData {
   alt?: string;
 }
 
-interface StickyCard002Props {
-  cards: CardData[];
-  className?: string;
-  containerClassName?: string;
-  imageClassName?: string;
-}
+/* ─────────────────────────────────────────────────────
+   Lightbox — Premium Apple‑like Image Viewer
+   ───────────────────────────────────────────────────── */
+const Lightbox = ({
+  src,
+  alt,
+  onClose,
+}: {
+  src: string;
+  alt: string;
+  onClose: () => void;
+}) => {
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
-const StickyCard002 = ({
-  cards,
-  className,
-  containerClassName,
-  imageClassName,
-}: StickyCard002Props) => {
-  const container = useRef(null);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  /* Lock body scroll */
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeBtnRef.current?.focus();
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
 
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      const imageElements = imageRefs.current;
-      const totalCards = imageElements.length;
-
-      if (!imageElements[0]) return;
-
-      gsap.set(imageElements[0], { y: "0%", scale: 1, rotation: 0 });
-
-      for (let i = 1; i < totalCards; i++) {
-        if (!imageElements[i]) continue;
-        gsap.set(imageElements[i], { y: "100%", scale: 1, rotation: 0 });
-      }
-
-      const scrollTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".sticky-cards",
-          start: "top top",
-          end: `+=${window.innerHeight * (totalCards - 1)}`,
-          pin: true,
-          scrub: 0.5,
-          pinSpacing: true,
-        },
-      });
-
-      for (let i = 0; i < totalCards - 1; i++) {
-        const currentImage = imageElements[i];
-        const nextImage = imageElements[i + 1];
-        const position = i;
-        if (!currentImage || !nextImage) continue;
-
-        scrollTimeline.to(
-          currentImage,
-          {
-            scale: 0.7,
-            rotation: 5,
-            duration: 1,
-            ease: "none",
-          },
-          position,
-        );
-
-        scrollTimeline.to(
-          nextImage,
-          {
-            y: "0%",
-            duration: 1,
-            ease: "none",
-          },
-          position,
-        );
-      }
-
-      const resizeObserver = new ResizeObserver(() => {
-        ScrollTrigger.refresh();
-      });
-
-      if (container.current) {
-        resizeObserver.observe(container.current);
-      }
-
-      return () => {
-        resizeObserver.disconnect();
-        scrollTimeline.kill();
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    },
-    { scope: container },
-  );
+  /* ESC to close */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
 
   return (
-    <div className={cn("relative h-full w-full", className)} ref={container}>
-      <div className="sticky-cards relative flex h-[100vh] w-full items-center justify-center overflow-hidden p-3 lg:p-8">
-        <div
-          className={cn(
-            "relative h-[80vh] w-full max-w-md overflow-hidden rounded-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl shadow-2xl",
-            containerClassName,
-          )}
-        >
-          {cards.map((card, i) => (
-            <img
-              key={card.id}
-              src={card.image}
-              alt={card.alt || ""}
-              className={cn(
-                "absolute h-full w-full object-cover",
-                imageClassName,
-              )}
-              ref={(el) => {
-                imageRefs.current[i] = el;
-              }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    <motion.div
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt || "Gallery image viewer"}
+      className="fixed inset-0 z-[100] flex items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* Backdrop */}
+      <motion.div
+        className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.35 }}
+        onClick={onClose}
+      />
+
+      {/* Close Button */}
+      <button
+        ref={closeBtnRef}
+        onClick={onClose}
+        aria-label="Close image viewer"
+        className="absolute top-5 right-5 z-[110] w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:ring-offset-2 focus:ring-offset-black"
+      >
+        <X size={20} />
+      </button>
+
+      {/* Image */}
+      <motion.img
+        src={src}
+        alt={alt}
+        initial={{ scale: 0.85, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-[105] max-w-[92vw] max-h-[88vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+        draggable={false}
+      />
+    </motion.div>
   );
 };
 
-const Skiper30 = ({ images }: { images: string[] }) => {
+/* ─────────────────────────────────────────────────────
+   Desktop: Skiper30 Parallax Gallery (4‑column)
+   ───────────────────────────────────────────────────── */
+const Skiper30 = ({
+  images,
+  onImageClick,
+}: {
+  images: string[];
+  onImageClick: (src: string, alt: string) => void;
+}) => {
   const gallery = useRef<HTMLDivElement>(null);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -166,10 +142,26 @@ const Skiper30 = ({ images }: { images: string[] }) => {
         ref={gallery}
         className="relative box-border flex h-[150vh] gap-[2vw] overflow-hidden bg-[#0A0A0A] p-[2vw]"
       >
-        <Column images={[images[0], images[1], images[2]]} y={y} />
-        <Column images={[images[3], images[4], images[0]]} y={y2} />
-        <Column images={[images[1], images[2], images[3]]} y={y3} />
-        <Column images={[images[4], images[0], images[1]]} y={y4} />
+        <Column
+          images={[images[0], images[1], images[2]]}
+          y={y}
+          onImageClick={onImageClick}
+        />
+        <Column
+          images={[images[3], images[4], images[0]]}
+          y={y2}
+          onImageClick={onImageClick}
+        />
+        <Column
+          images={[images[1], images[2], images[3]]}
+          y={y3}
+          onImageClick={onImageClick}
+        />
+        <Column
+          images={[images[4], images[0], images[1]]}
+          y={y4}
+          onImageClick={onImageClick}
+        />
       </div>
     </div>
   );
@@ -178,65 +170,221 @@ const Skiper30 = ({ images }: { images: string[] }) => {
 type ColumnProps = {
   images: string[];
   y: MotionValue<number>;
+  onImageClick: (src: string, alt: string) => void;
 };
 
-const Column = ({ images, y }: ColumnProps) => {
+const Column = ({ images, y, onImageClick }: ColumnProps) => {
   return (
     <motion.div
       className="relative -top-[45%] flex h-full w-1/4 min-w-[250px] flex-col gap-[2vw] first:top-[-45%] [&:nth-child(2)]:top-[-95%] [&:nth-child(3)]:top-[-45%] [&:nth-child(4)]:top-[-75%]"
       style={{ y }}
     >
       {images.map((src, i) => (
-        <div key={i} className="relative h-full w-full overflow-hidden rounded-sm">
-          <img
+        <div
+          key={i}
+          className="relative h-full w-full overflow-hidden rounded-sm cursor-pointer group"
+          onClick={() => onImageClick(src, "Gallery image")}
+        >
+          <Image
             src={src}
-            alt="gallery image"
-            className="pointer-events-none object-cover w-full h-full"
+            alt="Gallery image"
+            fill
+            sizes="(max-width: 768px) 50vw, 25vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
         </div>
       ))}
     </motion.div>
   );
 };
 
-export default function GalleryPage() {
-  const galleryImages = [
-    { id: 1, image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/97b13484-9088-41a1-be0e-aac832f13705_1600w.jpg", alt: "Luxury Ring" },
-    { id: 2, image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1270766f-db0e-4d5b-85db-1cfedef9ac56_1600w.jpg", alt: "Jewelry Retouching" },
-    { id: 3, image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7ff11b2-928c-4005-bf7d-47d33d2b58d0_1600w.jpg", alt: "CAD Design" },
-    { id: 4, image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a50b35f0-09bf-4a77-8d53-270981b17e22_1600w.jpg", alt: "Signet Ring" },
-    { id: 5, image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7998a59f-416e-4cb4-8999-bdf11936bc71_1600w.jpg", alt: "Necklace 360" },
-  ];
+/* ─────────────────────────────────────────────────────
+   Mobile: 2‑Column Grid with Scroll Animations
+   ───────────────────────────────────────────────────── */
+const MobileGalleryItem = ({
+  src,
+  alt,
+  index,
+  onImageClick,
+}: {
+  src: string;
+  alt: string;
+  index: number;
+  onImageClick: (src: string, alt: string) => void;
+}) => {
+  const shouldReduceMotion = useReducedMotion();
 
-  const rawImages = galleryImages.map(g => g.image);
+  return (
+    <motion.div
+      initial={
+        shouldReduceMotion
+          ? { opacity: 1 }
+          : { opacity: 0, y: 30, scale: 0.96 }
+      }
+      whileInView={
+        shouldReduceMotion
+          ? { opacity: 1 }
+          : { opacity: 1, y: 0, scale: 1 }
+      }
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{
+        duration: 0.5,
+        delay: (index % 2) * 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+      className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-stone-100 cursor-pointer group"
+      onClick={() => onImageClick(src, alt)}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 50vw, 100vw"
+        className="object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+    </motion.div>
+  );
+};
+
+const MobileGallery = ({
+  cards,
+  onImageClick,
+}: {
+  cards: CardData[];
+  onImageClick: (src: string, alt: string) => void;
+}) => {
+  /* Double up the images to fill the grid nicely */
+  const allImages = [...cards, ...cards];
+
+  return (
+    <div className="w-full bg-[#111] px-3 py-8">
+      <div className="grid grid-cols-2 gap-3">
+        {allImages.map((card, i) => (
+          <MobileGalleryItem
+            key={`${card.id}-${i}`}
+            src={card.image}
+            alt={card.alt || "Gallery image"}
+            index={i}
+            onImageClick={onImageClick}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ─────────────────────────────────────────────────────
+   Responsive Wrapper — picks desktop vs. mobile
+   ───────────────────────────────────────────────────── */
+const ResponsiveGallery = ({
+  cards,
+  onImageClick,
+}: {
+  cards: CardData[];
+  onImageClick: (src: string, alt: string) => void;
+}) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    setMounted(true);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  if (!mounted) return null;
+
+  const rawImages = cards.map((c) => c.image);
+
+  if (isMobile) {
+    return <MobileGallery cards={cards} onImageClick={onImageClick} />;
+  }
+
+  return <Skiper30 images={rawImages} onImageClick={onImageClick} />;
+};
+
+/* ─────────────────────────────────────────────────────
+   Gallery Page
+   ───────────────────────────────────────────────────── */
+export default function GalleryPage() {
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
+
+  const handleImageClick = useCallback((src: string, alt: string) => {
+    setLightbox({ src, alt });
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setLightbox(null);
+  }, []);
+
+  const galleryImages: CardData[] = [
+    { id: 1, image: "/images/gallery/IMG_0364.jpg", alt: "Luxury Ring Retouching" },
+    { id: 2, image: "/images/gallery/Earring_1.png", alt: "Diamond Stud Earring Render" },
+    { id: 3, image: "/images/gallery/hhpavc12.jpg", alt: "High-end Ring Render" },
+    { id: 4, image: "/images/gallery/Ring_1.png", alt: "Engagement Ring Render" },
+    { id: 5, image: "/images/gallery/light 2 .jpg", alt: "Luxury Lighting Studio" },
+    { id: 6, image: "/images/gallery/Earring_5.png", alt: "Diamond Earring Side Profile" },
+    { id: 7, image: "/images/gallery/n10102a.jpg", alt: "Precision Diamond Setting" },
+    { id: 8, image: "/images/gallery/Ring_4.png", alt: "Ring 360 Spin View" },
+    { id: 9, image: "/images/gallery/11 copy.jpg", alt: "Conceptual Design Rendering" },
+    { id: 10, image: "/images/gallery/Earring_9.png", alt: "Diamond Stud Detail" },
+    { id: 11, image: "/images/gallery/01-01-558_R.jpg", alt: "Retouched Jewelry Final Output" },
+    { id: 12, image: "/images/gallery/Ring_8.png", alt: "Ring Bottom Profile" },
+    { id: 13, image: "/images/gallery/03-01-483_E.jpg", alt: "Earring Post Retouching" },
+  ];
 
   return (
     <ReactLenis root>
       <main className="bg-[#111] text-white">
         <section className="pt-32 pb-16 px-6 text-center bg-[#111]">
-          <h1 className="text-5xl md:text-7xl font-heading mb-6 tracking-tight">
-            Our <span className="text-[var(--color-gold)] italic">Gallery</span>
+          <h1 className="text-5xl md:text-7xl font-heading text-white mb-6 tracking-tight">
+            Our{" "}
+            <span className="text-[var(--color-gold)] italic">Gallery</span>
           </h1>
           <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
-            Scroll down to explore our precision-crafted jewelry renders, retouching excellence, and meticulous 3D models.
+            Scroll down to explore our precision-crafted jewelry renders,
+            retouching excellence, and meticulous 3D models.
           </p>
         </section>
 
-        {/* Skiper30 Parallax Component */}
-        <Skiper30 images={rawImages} />
-
-        {/* Sticky Cards Animation */}
-        <div className="w-full bg-[#111]">
-          <StickyCard002 cards={galleryImages} />
-        </div>
+        {/* Responsive Gallery — Desktop: Skiper30 parallax, Mobile: 2‑col grid */}
+        <ResponsiveGallery
+          cards={galleryImages}
+          onImageClick={handleImageClick}
+        />
 
         <section className="py-24 text-center bg-[#111]">
-          <h2 className="text-3xl font-heading mb-6">Ready for pixel-perfect clarity?</h2>
-          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border-b-2 border-white pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
+          <h2 className="text-3xl font-heading text-white mb-6">
+            Ready for pixel-perfect clarity?
+          </h2>
+          <a
+            href="https://wa.me/919876543210"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 border-b-2 border-white pb-1 uppercase tracking-widest text-sm font-semibold text-white hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors"
+          >
             Request a Free Sample
           </a>
         </section>
       </main>
+
+      {/* Lightbox Overlay */}
+      <AnimatePresence>
+        {lightbox && (
+          <Lightbox
+            src={lightbox.src}
+            alt={lightbox.alt}
+            onClose={handleClose}
+          />
+        )}
+      </AnimatePresence>
     </ReactLenis>
   );
 }

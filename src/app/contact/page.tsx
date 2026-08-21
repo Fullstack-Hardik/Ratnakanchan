@@ -47,9 +47,9 @@ export default function ContactPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img 
-            src="/hand_jewelry_bg.png" 
+            src="/images/hero/Contact pg.jpg" 
             alt="Jewelry Background" 
-            className="w-full h-full object-cover opacity-[0.08]"
+            className="w-full h-full object-cover opacity-10 mix-blend-luminosity"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
         </div>

@@ -4,10 +4,17 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Play, Box, Sparkles, Layers, Video } from 'lucide-react';
+import { ArrowRight, Play, Box, Sparkles, Layers, Video, Ruler, CheckCircle2, MonitorPlay } from 'lucide-react';
 
 export default function CadDesigningPage() {
   const [isMounted, setIsMounted] = useState(false);
+  const [activeMaterial, setActiveMaterial] = useState('yg');
+
+  const materials = [
+    { id: 'yg', name: 'Yellow Gold', color: 'bg-yellow-400', image: '/images/cad-renders/YG.jpg' },
+    { id: 'wg', name: 'White Gold', color: 'bg-stone-200', image: '/images/cad-renders/WG.jpg' },
+    { id: 'rg', name: 'Rose Gold', color: 'bg-rose-300', image: '/images/cad-renders/RG.jpg' }
+  ];
 
   useEffect(() => {
     setIsMounted(true);
@@ -24,7 +31,7 @@ export default function CadDesigningPage() {
         {/* Massive Circular Background Image */}
         <div className="absolute -top-[5%] -right-[30%] md:-right-[10%] w-[120vw] md:w-[65vw] aspect-square rounded-full overflow-hidden -z-10 shadow-2xl border-4 border-white/50">
            <img 
-              src="/images/cad-hero-bright.png" 
+              src="/images/cad-renders/RING.jpg" 
               alt="CAD Designing Hero"
               className="w-full h-full object-cover scale-110"
             />
@@ -56,11 +63,11 @@ export default function CadDesigningPage() {
            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-gold)]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 relative z-10">
-              <div className="md:border-r border-stone-700 md:pr-8">
+              <div className="md:border-r border-stone-200 md:pr-8">
                 <div className="text-4xl font-heading font-bold text-[var(--color-gold)] mb-2">Rhino & Matrix</div>
                 <div className="text-sm font-body text-stone-400 uppercase tracking-widest">Industry Standard Tools</div>
               </div>
-              <div className="md:border-r border-stone-700 md:px-8">
+              <div className="md:border-r border-stone-200 md:px-8">
                 <div className="text-4xl font-heading font-bold text-[var(--color-gold)] mb-2">Fast Turnaround</div>
                 <div className="text-sm font-body text-stone-400 uppercase tracking-widest">Reduced Modeling Time</div>
               </div>
@@ -81,7 +88,7 @@ export default function CadDesigningPage() {
               <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-[var(--color-gold)]/10 rounded-full -z-10"></div>
               
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-                <img src="/images/cad-software.png" alt="CAD to Rendered Image" className="w-full h-auto object-cover" />
+                <img src="/images/cad-renders/RING.jpg" alt="CAD Design Background" className="w-full h-full object-cover opacity-[0.85]" />
               </div>
               
               <div className="absolute -top-8 -left-8 bg-white p-6 rounded-3xl shadow-xl hidden md:block">
@@ -96,9 +103,18 @@ export default function CadDesigningPage() {
               <p className="text-lg font-body text-stone-600 leading-relaxed">
                 High Quality Photo Rendering is very important, as they can be used to enhance proposals, presentations and website sales. The customer wants to see 3D models as they would appear in real life, using specific gemstones and material colors, in a specific environment or angle.
               </p>
-              <p className="text-lg font-body text-stone-600 leading-relaxed">
-                We offer professional jewelry rendering for any type of project. Our talented jewelry CAD designers are able to create realistic 3D photo renderings where every single detail is visually represented. The visual simplicity is conditioned by hard work for each detail.
-              </p>
+              
+              <div className="flex gap-4 mt-4">
+                {materials.map((m) => (
+                    <button 
+                        key={m.id} 
+                        onClick={() => setActiveMaterial(m.id)}
+                        className={`px-4 py-2 rounded-full border ${activeMaterial === m.id ? 'border-[var(--color-gold)] bg-stone-50' : 'border-stone-200'}`}
+                    >
+                        {m.name}
+                    </button>
+                ))}
+              </div>
             </div>
 
          </div>
@@ -114,22 +130,18 @@ export default function CadDesigningPage() {
                 If a simple 3D photo rendering is not enough, we offer professional video rendering services. Whether it’s for a YouTube channel or a presentation, we will offer impressive high resolution videos to make your project a success.
               </p>
               <p className="text-lg font-body text-stone-600 leading-relaxed">
-                Video rendering enables 3D models to be represented as video outputs. We will help you choose interesting backgrounds and interactive animations. Due to highly mastered video rendering tricks, we produce high resolution videos that perfectly visualize your jewelry design.
+                Video rendering enables 3D models to be represented as video outputs. We will help you choose interesting backgrounds and interactive animations.
               </p>
             </div>
 
             <div className="relative lg:order-2 order-1">
               <div className="absolute -top-12 -left-12 w-48 h-48 bg-[var(--color-gold)]/10 rounded-full -z-10"></div>
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-stone-100">
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                  className="w-full aspect-[4/3] object-cover"
-                >
-                  <source src="/videos/WhatsApp%20Video%202026-07-07%20at%207.55.45%20PM.mp4" type="video/mp4" />
-                </video>
+                 <img 
+                   src={materials.find(m => m.id === activeMaterial)?.image} 
+                   alt={`${materials.find(m => m.id === activeMaterial)?.name} Render`}
+                   className="w-full h-full object-contain"
+                 />
               </div>
             </div>
 
@@ -150,15 +162,11 @@ export default function CadDesigningPage() {
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
            <div className="rounded-[3rem] overflow-hidden shadow-2xl border border-stone-200 bg-stone-50">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full aspect-video object-cover"
-              >
-                <source src="/videos/gemini_generated_video_6ba995d4.mp4" type="video/mp4" />
-              </video>
+               <img 
+                 src="/images/gallery/Ring_4.png" 
+                 alt="360 Degree View Render"
+                 className="w-full aspect-video object-cover"
+               />
            </div>
         </div>
 

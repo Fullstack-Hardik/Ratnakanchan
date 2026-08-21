@@ -2,7 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+
+const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/ratnakanchan',
+  facebook: 'https://www.facebook.com/ratnakanchan',
+  whatsapp: 'https://wa.me/919876543210',
+};
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +46,8 @@ export default function Navbar() {
               <Link href="/jewelry-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching</Link>
               <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Designing & Rendering</Link>
               <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">360° Animation Rendering</Link>
-              <Link href="/marketing-printing-services" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Marketing & Printing Services</Link>
+              <Link href="/cad-model-animations" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Model Animations</Link>
+              <Link href="/cad-model-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Model Rendering</Link>
             </div>
           </div>
           
@@ -50,20 +58,45 @@ export default function Navbar() {
           <Link href="/contact" className="hover:text-black transition-colors">Contact</Link>
         </div>
 
-        {/* CTA BUTTONS - Right */}
-        <div className="hidden lg:flex items-center space-x-5">
-          <a href="tel:+919876543210" className="text-black/60 hover:text-[var(--color-gold)] transition-colors">
-            <Phone size={16} strokeWidth={2} />
+        {/* SOCIAL ICONS - Right (Desktop) */}
+        <div className="hidden lg:flex items-center space-x-4">
+          <a
+            href={SOCIAL_LINKS.instagram}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Follow us on Instagram"
+            className="text-black/50 hover:text-[#E1306C] transition-colors duration-300"
+          >
+            <FaInstagram size={17} />
           </a>
-          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors">
-            <MessageCircle size={16} strokeWidth={2.5} /> WhatsApp
+          <a
+            href={SOCIAL_LINKS.facebook}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Follow us on Facebook"
+            className="text-black/50 hover:text-[#1877F2] transition-colors duration-300"
+          >
+            <FaFacebookF size={15} />
+          </a>
+          <a
+            href={SOCIAL_LINKS.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="text-black/50 hover:text-[#25D366] transition-colors duration-300"
+          >
+            <FaWhatsapp size={17} />
+          </a>
+          <div className="w-px h-4 bg-black/10 mx-1"></div>
+          <a href="tel:+919876543210" aria-label="Call us" className="text-black/50 hover:text-[var(--color-gold)] transition-colors duration-300">
+            <Phone size={15} strokeWidth={2} />
           </a>
         </div>
 
         {/* MOBILE MENU TOGGLE */}
         <div className="flex lg:hidden items-center gap-4">
-          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-[#25D366]">
-             <MessageCircle size={20} strokeWidth={2.5} />
+          <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366]">
+             <FaWhatsapp size={20} />
           </a>
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-black/80 p-1">
             <Menu size={24} />
@@ -91,7 +124,8 @@ export default function Navbar() {
               <Link href="/jewelry-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Jewelry Retouching</Link>
               <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD & Rendering</Link>
               <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">360° Animation</Link>
-              <Link href="/marketing-printing-services" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Marketing</Link>
+              <Link href="/cad-model-animations" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD Model Animations</Link>
+              <Link href="/cad-model-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD Model Rendering</Link>
             </div>
           </div>
           
@@ -103,7 +137,19 @@ export default function Navbar() {
           
           <div className="border-t border-gray-100 pt-8 mt-auto flex flex-col gap-6">
             <a href="tel:+919876543210" className="flex items-center gap-3 text-xs tracking-widest uppercase text-black/60 hover:text-[var(--color-gold)] transition-colors"><Phone size={16}/> Call Us</a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-xs tracking-widest uppercase text-[#25D366] hover:text-[#20bd5a] transition-colors"><MessageCircle size={16}/> WhatsApp Chat</a>
+            
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-5 pt-2">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/40 hover:text-[#E1306C] transition-colors duration-300">
+                <FaInstagram size={20} />
+              </a>
+              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/40 hover:text-[#1877F2] transition-colors duration-300">
+                <FaFacebookF size={18} />
+              </a>
+              <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="text-black/40 hover:text-[#25D366] transition-colors duration-300">
+                <FaWhatsapp size={20} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

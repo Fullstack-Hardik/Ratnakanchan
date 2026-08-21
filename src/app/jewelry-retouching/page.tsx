@@ -5,8 +5,69 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Scissors, Wand2, Sparkles, Diamond, Sun, Droplets, PlayCircle } from 'lucide-react';
+import { ArrowRight, Scissors, Wand2, Sparkles, Diamond, Sun, Droplets, PlayCircle, MoveHorizontal } from 'lucide-react';
 import ScrollVelocity from '@/components/ui/ScrollVelocity';
+
+const BeforeAfterSlider = ({ beforeImage, afterImage, alt }: { beforeImage: string, afterImage: string, alt: string }) => {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(percent);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging) handleMove(e.clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (isDragging) handleMove(e.touches[0].clientX);
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-ew-resize select-none group"
+      onMouseMove={handleMouseMove}
+      onMouseUp={() => setIsDragging(false)}
+      onMouseLeave={() => setIsDragging(false)}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => setIsDragging(false)}
+      onMouseDown={() => setIsDragging(true)}
+      onTouchStart={() => setIsDragging(true)}
+    >
+      {/* After Image (Background, Right Side) */}
+      <img src={afterImage} alt={alt + " After"} className="absolute inset-0 w-full h-full object-cover pointer-events-none" draggable={false} />
+      
+      {/* Before Image (Foreground, Left Side, Clipped) */}
+      <div 
+        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+      >
+        <img src={beforeImage} alt={alt + " Before"} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+      </div>
+
+      {/* Slider Line & Handle */}
+      <div 
+        className="absolute top-0 bottom-0 w-1 bg-white/80 cursor-ew-resize flex items-center justify-center transition-all duration-300"
+        style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+      >
+        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-2xl border border-stone-200 text-stone-600 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+          <MoveHorizontal size={18} />
+        </div>
+      </div>
+
+      {/* Labels */}
+      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">Before</div>
+      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">After</div>
+    </div>
+  );
+};
 
 export default function JewelryRetouching() {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,23 +87,26 @@ export default function JewelryRetouching() {
   const features = [
     {
       title: "Clipping Path & Masking",
-      desc: "Perfect selections for multi-paths, complex maskings, ghost mannequins, and neck joint services using expert manual tools.",
+      desc: "Perfect selections for multi-paths, complex maskings, and precision isolation. Every detail is retained.",
       icon: <Scissors className="w-6 h-6" />,
-      image: "/images/retouching-clipping.png",
+      before: "/images/retouching/Ring 1 Before.jpg",
+      after: "/images/retouching/Ring 1 After.jpg",
       delay: 0.1
     },
     {
       title: "Color & Contrast Editing",
-      desc: "Restore dull metals to brilliant gold and silver. Improve gemstone vibrancy, color correct, and master brightness levels.",
+      desc: "Restore dull metals to brilliant gold and silver. Improve gemstone vibrancy, color correct, and master brightness.",
       icon: <Wand2 className="w-6 h-6" />,
-      image: "/images/retouching-color.png",
+      before: "/images/retouching/4 Before.jpg",
+      after: "/images/retouching/4 After.jpg",
       delay: 0.2
     },
     {
-      title: "Noise & Dust Removal",
+      title: "Flawless Enhancements",
       desc: "Remove poor reflections, dust, and imperfections to create a completely flawless, highly reflective, pristine surface.",
       icon: <Sparkles className="w-6 h-6" />,
-      image: "/images/retouching-noise.png",
+      before: "/images/retouching/Front Banner Before.jpg",
+      after: "/images/retouching/Front Banner After.jpg",
       delay: 0.3
     }
   ];
@@ -63,14 +127,14 @@ export default function JewelryRetouching() {
         {/* Parallax Image Background */}
         <motion.div 
           style={{ y: heroY }}
-          className="absolute inset-0 w-full h-full -z-10"
+          className="absolute inset-0 w-full h-full -z-10 bg-stone-900"
         >
            <img 
-              src="/images/retouching-clipping.png" 
+              src="/images/hero/Use As Header in Retouching Service.jpg" 
               alt="Jewelry Retouching Hero"
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover opacity-50 mix-blend-overlay"
             />
-           <div className="absolute inset-0 bg-gradient-to-tr from-stone-50/95 via-stone-50/70 to-transparent pointer-events-none"></div>
+           <div className="absolute inset-0 bg-gradient-to-tr from-stone-900/90 via-stone-900/50 to-transparent pointer-events-none"></div>
         </motion.div>
 
         <div className="flex flex-col items-center text-center relative z-20">
@@ -78,17 +142,17 @@ export default function JewelryRetouching() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-stone-200 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md shadow-sm border border-white/20 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-[var(--color-gold)]"></span>
-            <span className="text-xs font-bold text-stone-600 font-body uppercase tracking-widest">E-Commerce Ready</span>
+            <span className="w-2 h-2 rounded-full bg-[var(--color-gold)] shadow-[0_0_10px_var(--color-gold)]"></span>
+            <span className="text-xs font-bold text-white/90 font-body uppercase tracking-widest">E-Commerce Ready</span>
           </motion.div>
           
           <motion.h1 
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.2 }}
-             className="text-5xl md:text-8xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8 max-w-4xl"
+             className="text-5xl md:text-8xl font-medium tracking-tighter font-heading leading-[1.05] text-white mb-8 max-w-4xl"
           >
             Flawless <span className="italic text-[var(--color-gold)] font-normal">Retouching</span>
             <br/> for Luxury Brands.
@@ -98,7 +162,7 @@ export default function JewelryRetouching() {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.4 }}
-             className="text-xl md:text-2xl font-body text-stone-600 leading-relaxed max-w-2xl mb-12"
+             className="text-xl md:text-2xl font-body text-white/70 leading-relaxed max-w-2xl mb-12"
           >
             Providing expert photo editing, cropping, resizing, and precision formatting. We ensure you get the absolute best quality for your images in any quantity.
           </motion.p>
@@ -114,41 +178,46 @@ export default function JewelryRetouching() {
         />
       </section>
 
-      {/* Video Showcase Section */}
-      <section className="w-full max-w-7xl mx-auto py-24 px-6 bg-white rounded-[4rem] my-20 shadow-sm border border-stone-200 overflow-hidden relative">
-        <div className="flex flex-col items-center text-center relative z-10">
+      {/* Large Lifestyle Before/After Showcase */}
+      <section className="w-full max-w-7xl mx-auto py-24 px-6 relative z-10">
+        <div className="flex flex-col items-center text-center relative z-10 mb-16">
           <motion.h2 
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="text-4xl md:text-6xl font-heading font-medium tracking-tight mb-16 text-stone-900"
+             className="text-4xl md:text-6xl font-heading font-medium tracking-tight mb-4 text-stone-900"
           >
             The Art of <span className="italic text-[var(--color-gold)]">Transformation</span>
           </motion.h2>
-          
-          <motion.div 
-             initial={{ opacity: 0, scale: 0.95 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8 }}
-             className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 relative group"
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-stone-500 font-body max-w-2xl"
           >
-             <video 
-               autoPlay
-               loop
-               muted
-               playsInline
-               className="w-full h-full object-cover"
-             >
-               <source src="/videos/retouching.mp4" type="video/mp4" />
-             </video>
-          </motion.div>
+            Drag the slider to experience the dramatic difference our high-end retouching makes on lifestyle and product photography.
+          </motion.p>
         </div>
+        
+        <motion.div 
+           initial={{ opacity: 0, scale: 0.95 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
+           className="w-full shadow-2xl rounded-3xl p-2 bg-white border border-stone-100"
+        >
+           <BeforeAfterSlider 
+              beforeImage="/images/retouching/Lifestyle Before.jpg"
+              afterImage="/images/retouching/Lifestyle After.jpg"
+              alt="Lifestyle Jewelry Retouching"
+           />
+        </motion.div>
       </section>
 
-      {/* Premium Animated Cards Section */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Premium Animated Cards Section with Before/After Sliders */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
             <motion.div 
               key={idx}
@@ -156,30 +225,31 @@ export default function JewelryRetouching() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: feature.delay }}
-              className="group relative bg-white rounded-[2.5rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full"
+              className="group relative bg-white rounded-[2.5rem] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full"
             >
                {/* Hover Gradient Overlay */}
                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                
-               {/* Icon */}
-               <div className="w-14 h-14 rounded-2xl bg-stone-50 border border-stone-200 flex items-center justify-center text-[var(--color-gold)] mb-8 group-hover:scale-110 transition-transform duration-500">
-                  {feature.icon}
+               <div className="px-2 pt-2">
+                 {/* Icon */}
+                 <div className="w-14 h-14 rounded-2xl bg-stone-50 border border-stone-200 flex items-center justify-center text-[var(--color-gold)] mb-6 group-hover:scale-110 transition-transform duration-500">
+                    {feature.icon}
+                 </div>
+
+                 {/* Text */}
+                 <h3 className="text-2xl font-heading font-bold text-stone-900 mb-4">{feature.title}</h3>
+                 <p className="text-stone-500 font-body leading-relaxed mb-8 flex-grow">
+                   {feature.desc}
+                 </p>
                </div>
 
-               {/* Text */}
-               <h3 className="text-2xl font-heading font-bold text-stone-900 mb-4">{feature.title}</h3>
-               <p className="text-stone-500 font-body leading-relaxed mb-10 flex-grow">
-                 {feature.desc}
-               </p>
-
-               {/* Image Wrapper (Animated on hover) */}
-               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mt-auto">
-                 <img 
-                   src={feature.image} 
-                   alt={feature.title} 
-                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+               {/* Before/After Slider inside Card */}
+               <div className="mt-auto w-full">
+                 <BeforeAfterSlider 
+                    beforeImage={feature.before}
+                    afterImage={feature.after}
+                    alt={feature.title}
                  />
-                 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
                </div>
             </motion.div>
           ))}

@@ -6,20 +6,20 @@ import Hero3DBackground from '@/components/Hero3DBackground';
 
 const heroImages = [
   {
-    src: '/premium_diamond_hero.png',
-    alt: 'Luxury Diamond Ring Retouching',
+    src: '/images/hero/Model Phto Retouching Service.jpeg',
+    alt: 'Professional Jewelry Model Retouching',
   },
   {
-    src: '/images/cad-retouching-hero.jpg',
-    alt: 'Professional 3D CAD Retouching & Rendering',
+    src: '/images/hero/LifeStyleImage.jpg',
+    alt: 'Luxury Jewelry Lifestyle Retouching',
   },
   {
-    src: '/images/nft-digital-art-hero.jpg',
-    alt: 'Futuristic NFT & Digital Art Visuals',
+    src: '/images/retouching/Front Banner After.jpg',
+    alt: 'Flawless Diamond Retouching and Shadow Creation',
   },
   {
-    src: '/images/website-design-hero.jpg',
-    alt: 'Modern E-Commerce Web Design Interface',
+    src: '/images/hero/Contact pg.jpg',
+    alt: 'Precision Jewelry Visualization',
   },
 ];
 
@@ -246,13 +246,13 @@ export default function Home() {
         <div className="flex h-full w-full items-center justify-center overflow-hidden">
           <Carousel_003 
             images={[
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/97b13484-9088-41a1-be0e-aac832f13705_1600w.jpg", alt: "Luxury Ring" },
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1270766f-db0e-4d5b-85db-1cfedef9ac56_1600w.jpg", alt: "Jewelry Retouching" },
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7ff11b2-928c-4005-bf7d-47d33d2b58d0_1600w.jpg", alt: "CAD Design" },
-              { src: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop", alt: "Earring Render" },
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a50b35f0-09bf-4a77-8d53-270981b17e22_1600w.jpg", alt: "Signet Ring" },
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7998a59f-416e-4cb4-8999-bdf11936bc71_1600w.jpg", alt: "Necklace 360" },
-              { src: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fabedb0d-467e-45ed-930f-2a561895a076_1600w.jpg", alt: "360 Video" },
+              { src: "/images/gallery/hhpavc12.jpg", alt: "High-end Ring Retouching" },
+              { src: "/images/gallery/IMG_0364.jpg", alt: "Jewelry Retouching" },
+              { src: "/images/gallery/light 2 .jpg", alt: "Luxury Lighting Render" },
+              { src: "/images/gallery/Earring_1.png", alt: "Diamond Stud Earring" },
+              { src: "/images/gallery/Ring_1.png", alt: "Diamond Ring Render" },
+              { src: "/images/gallery/01-01-558_R.jpg", alt: "Ring Before and After" },
+              { src: "/images/gallery/11 copy.jpg", alt: "Conceptual Render" },
             ]} 
             showPagination 
             loop 
@@ -285,9 +285,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           
           {[
-            { id: 1, name: 'Jewelry Retouching', price: '$0.5', img: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1270766f-db0e-4d5b-85db-1cfedef9ac56_1600w.jpg', desc: 'Clipping paths, e-commerce photo editing, diamond masking, metal color correction, and natural shadow generation.' },
-            { id: 2, name: 'CAD Designing & Renders', price: '$20', img: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7ff11b2-928c-4005-bf7d-47d33d2b58d0_1600w.jpg', desc: 'Transform sketches into precise CAD models (STL) and generate photorealistic 4-angle image renders.' },
-            { id: 3, name: '360° Animation Render', price: '$25', img: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fabedb0d-467e-45ed-930f-2a561895a076_1600w.jpg', desc: 'Immersive turntable video renders at 700x700 or custom sizes. Perfect for e-commerce and Instagram reels.' },
+            { id: 1, name: 'Jewelry Retouching', price: '$0.5', img: '/images/hero/Use As Header in Retouching Service.jpg', desc: 'Clipping paths, e-commerce photo editing, diamond masking, metal color correction, and natural shadow generation.' },
+            { id: 2, name: 'CAD Designing & Renders', price: '$20', img: '/images/cad-renders/RING.jpg', desc: 'Transform sketches into precise CAD models (STL) and generate photorealistic 4-angle image renders.' },
+            { id: 3, name: '360° Animation Render', price: '$25', img: '/images/gallery/Ring_4.png', desc: 'Immersive turntable video renders at 700x700 or custom sizes. Perfect for e-commerce and Instagram reels.' },
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
