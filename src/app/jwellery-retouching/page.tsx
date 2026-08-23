@@ -119,13 +119,33 @@ export default function JewelryRetouching() {
     <main className="min-h-screen bg-stone-50 text-stone-900 pt-14 md:pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
 
       {/* Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-0 md:px-6 mb-16 mt-0 md:mt-8">
-        <div className="relative w-full rounded-none md:rounded-[3rem] overflow-hidden shadow-xl bg-stone-100 flex items-center justify-center">
-          <img
-            src="/images/retouching/image.png"
-            alt="Jewelry Retouching Hero"
-            className="w-full h-auto object-cover pointer-events-none"
-          />
+      <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-20 z-10">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2 flex flex-col items-start relative z-20">
+            <span className="text-sm font-bold text-[var(--color-gold)] mb-6 block font-body tracking-widest uppercase">
+              Professional Jewelry Retouching
+            </span>
+            <h1 className="text-5xl md:text-7xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8">
+              Flawless <br /> <span className="italic">Perfection</span>
+            </h1>
+            <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
+              Transform your raw jewelry photos into breathtaking, high-end visuals. Our expert retouching services cover clipping, color correction, scratch removal, and flawless metallic enhancement to make every piece shine.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-3 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-colors px-8 py-4 rounded-full font-body font-semibold tracking-wide shadow-xl">
+              Start Your Project <ArrowRight size={18} />
+            </Link>
+          </div>
+
+          {/* Image Container */}
+          <div className="w-full lg:w-1/2 relative z-10 flex items-center justify-center">
+            <div className="rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white w-full aspect-square bg-stone-200 flex items-center justify-center text-stone-400 text-sm tracking-widest uppercase">
+              {/* Placeholder for the user's uploaded image */}
+               [ Image Placeholder ]
+            </div>
+            {/* Decorative Background Element */}
+            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-[var(--color-gold)]/20 rounded-full blur-3xl -z-10"></div>
+          </div>
         </div>
       </section>
 
