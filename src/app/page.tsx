@@ -208,75 +208,106 @@ export default function Home() {
 
       </section>
 
-      {/* STATS COUNTER SECTION - NATURE / DARK LEAVES BACKGROUND */}
-      <section 
-        className="py-6 md:py-10 border-y border-white/10 relative overflow-hidden mt-6 md:mt-8 bg-black shadow-inner"
-        style={{ 
-          backgroundImage: 'url(/dark_leaves_bg.png)', 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center' 
-        }}
-      >
+      {/* WHAT YOU GET FROM US SECTION */}
+      <section className="py-16 md:py-24 bg-white max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading mb-4 uppercase tracking-wider">What You Get From Us</h2>
+          <p className="text-gray-500 max-w-4xl mx-auto text-sm md:text-base leading-relaxed">
+            Experience our unmatched quality standards for your visual assets. Digital presence plays a crucial role in standing out from the competition and capturing the target audience. As the leading jewelry photo retouching and 360° video animation company, we guarantee pristine visuals that elevate your brand value and drive more sales. From simple cleanups to complex CAD designs, we have got you covered.
+          </p>
+        </div>
         
-        {/* Dark radial overlay to keep text readable while showing leaves on edges */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.5)_0%,_rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <AnimatedCounter value={500} text="Projects Delivered" delay={0} />
-            <AnimatedCounter value={1200} text="Images Retouched" delay={0.4} />
-            <AnimatedCounter value={20000} text="Videos Rendered" delay={0.8} />
-            <AnimatedCounter value={2000} text="Happy Clients" delay={1.2} />
+        <div className="flex flex-wrap justify-center gap-12 md:gap-24">
+          <div className="flex flex-col items-center">
+            <svg className="w-12 h-12 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span className="font-semibold text-sm text-center">24/7 Service</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <svg className="w-12 h-12 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span className="font-semibold text-sm text-center">Quality Service<br/>Guaranteed</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <svg className="w-12 h-12 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            <span className="font-semibold text-sm text-center">Less Turnaround Time</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <svg className="w-12 h-12 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            <span className="font-semibold text-sm text-center">Full File Security</span>
           </div>
         </div>
       </section>
 
-
       {/* SERVICES GRID */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24"
-        >
-          <div>
-            <div className="inline-flex text-xs text-black/60 bg-gray-100 rounded-full px-4 py-2 items-center gap-2 font-medium tracking-widest uppercase mb-6">
-              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]"></span>
-              Our Offerings
-            </div>
-            <h2 className="text-4xl md:text-6xl font-heading max-w-2xl leading-[1.1]">End-to-end jewelry visualization.</h2>
-          </div>
-          <a href="/pricing" className="mt-8 md:mt-0 hidden md:inline-flex items-center gap-2 border-b-2 border-black pb-1 uppercase tracking-widest text-sm font-semibold hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors">
-            View Pricing <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </motion.div>
+        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-serif text-black max-w-2xl leading-snug">
+            Our Detailed Services
+          </h2>
+          <div className="w-16 h-[1px] bg-[var(--color-gold)] mt-6"></div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           {[
-            { id: 1, name: 'Jewelry Retouching', price: '$0.5', img: '/images/services/retouching_thumb.jpg', desc: 'Clipping paths, e-commerce photo editing, diamond masking, metal color correction, and natural shadow generation.' },
-            { id: 2, name: 'CAD Designing & Renders', price: '$20', img: '/images/services/cad_thumb.jpg', desc: 'Transform sketches into precise CAD models (STL) and generate photorealistic 4-angle image renders.' },
-            { id: 3, name: '360° Animation Render', price: '$25', img: '/images/services/360_thumb_alt.jpg', desc: 'Immersive turntable video renders at 700x700 or custom sizes. Perfect for e-commerce and Instagram reels.' },
+            { id: 1, name: 'Retouching Jewelry Photos', img: '/images/services/img1.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
+            { id: 2, name: 'CAD Designing', img: '/images/services/img2.jpg', desc: 'We deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure that every prong, setting, and curve is mathematically perfect. We provide you with precise STL files that are strictly ready for 3D printing and seamless manufacturing, guaranteeing the final piece perfectly matches your original vision.' },
+            { id: 3, name: 'CAD to Render Image', img: '/images/services/img3.jpg', desc: 'Transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity. We meticulously customize the studio lighting, camera angles, metal textures, and appealing backgrounds to showcase your designs beautifully. This completely eliminates the need for expensive physical photography while providing marketing-ready assets for your website and social media.' },
+            { id: 4, name: 'CAD to 360 Degree Animation', img: '/images/services/img4.jpg', desc: 'Bring your static designs to life with our smooth, high-resolution 360-degree turntable animations. Ideal for e-commerce platforms and Instagram reels, these looping videos allow your customers to interactively view every intricate detail of your jewelry from every angle, building immense trust and boosting your online conversion rates significantly.' },
+            { id: 5, name: 'Transforming Jewelry CAD Designs', img: '/images/services/img5.jpg', desc: 'We take complex, unpolished CAD designs and transform them into gorgeous, market-ready visual assets. By applying advanced texturing, hyper-realistic diamond shading, and environment mapping, we ensure that your digital designs look completely indistinguishable from physical, high-end studio photography, elevating your overall brand perception.' },
+            { id: 6, name: 'Photorealistic Model Animations', img: '/images/services/img6.jpg', desc: 'Take your jewelry presentation to the absolute next level. We seamlessly integrate your 3D jewelry renders with realistic human models, showing true-to-life scale, lighting interaction, and wearability. This premium service helps customers visualize exactly how the jewelry will look on themselves, driving higher engagement and sales.' },
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="group cursor-pointer"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: (idx % 3) * 0.1 }}
+              className="group flex flex-col border border-gray-100 bg-[#FAFAFA] p-6 hover:bg-white transition-colors duration-500"
             >
-              <div className="relative overflow-hidden aspect-[4/5] bg-gray-50 mb-6 rounded-sm">
-                <img src={srv.img} alt={srv.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+              <div className="relative overflow-hidden w-full aspect-[4/3] mb-8 bg-gray-200">
+                <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
               </div>
-              <h3 className="text-2xl font-heading mb-3">{srv.id}. {srv.name}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed font-light mb-4">{srv.desc}</p>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-xl md:text-2xl font-serif text-black mb-4 tracking-wide">{srv.name}</h3>
+                <p className="text-[13px] md:text-sm text-gray-500 leading-loose font-light">{srv.desc}</p>
+              </div>
             </motion.div>
           ))}
+        </div>
+      </section>
 
+      {/* STATS COUNTER SECTION - NATURE / DARK LEAVES BACKGROUND */}
+      <section 
+        className="py-20 md:py-32 relative overflow-hidden bg-[#111] shadow-2xl"
+      >
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <AnimatedCounter value={500} text="Projects Delivered" delay={0} />
+            <AnimatedCounter value={1200} text="Images Retouched" delay={0.2} />
+            <AnimatedCounter value={20000} text="Videos Rendered" delay={0.4} />
+            <AnimatedCounter value={2000} text="Happy Clients" delay={0.6} />
+          </div>
+        </div>
+      </section>
+
+      {/* GET A FREE DEMO SECTION */}
+      <section className="flex flex-col md:flex-row bg-[#EAE8E3]">
+        <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
+          <img src="/images/demo/form_side.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-black">
+          <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-black">Get A Free Demo</h2>
+          <p className="text-sm text-gray-600 mb-10 max-w-lg leading-loose font-light">
+            Apply for a free photo retouching trial. Send us your test image or CAD file and discover the world-class quality we provide. Fill the form below with your details and we will reach out to you.
+          </p>
+          
+          <form className="flex flex-col gap-6 max-w-lg">
+            <input type="text" placeholder="Name *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
+            <input type="email" placeholder="Email *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
+            <textarea placeholder="Message *" rows={4} className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none resize-none border border-transparent focus:border-black transition-colors" required></textarea>
+            <button type="submit" className="bg-black text-white uppercase tracking-widest text-xs font-semibold py-5 px-10 mt-4 w-fit hover:bg-gray-800 transition-colors">
+              Submit
+            </button>
+          </form>
         </div>
       </section>
 
