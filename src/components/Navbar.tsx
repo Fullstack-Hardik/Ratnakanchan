@@ -27,14 +27,14 @@ export default function Navbar() {
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'h-12 bg-white/80 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'h-14 bg-white/30 backdrop-blur-md border-b border-transparent'}`}>
       <div className="w-full max-w-7xl mx-auto px-6 h-full flex items-center justify-end lg:justify-between relative">
         
-        {/* LOGO - Centered on Mobile, Left on Desktop */}
-        <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0">
+        {/* LOGO - Centered on Mobile and Desktop */}
+        <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2">
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
           </Link>
         </div>
 
-        {/* DESKTOP LINKS - Middle (Apple-style minimal) */}
+        {/* DESKTOP LINKS - Left */}
         <div className="hidden lg:flex items-center space-x-10 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
           <Link href="/" className="hover:text-black transition-colors">Home</Link>
           
