@@ -69,7 +69,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     scrollerClassName,
     parallaxStyle,
     scrollerStyle
-  }: any) {
+  }: ScrollVelocityProps & { baseVelocity?: number; children?: React.ReactNode }) {
     const baseX = useMotionValue(0);
     const scrollOptions = scrollContainerRef ? { container: scrollContainerRef } : {};
     const { scrollY } = useScroll(scrollOptions);
@@ -103,15 +103,15 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     useAnimationFrame((t, delta) => {
       let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-      // @ts-ignore
+      // @ts-expect-error: type mismatch
       if (velocityFactor.get() < 0) {
         directionFactor.current = -1;
-      // @ts-ignore
+      // @ts-expect-error: type mismatch
       } else if (velocityFactor.get() > 0) {
         directionFactor.current = 1;
       }
 
-      // @ts-ignore
+      // @ts-expect-error: type mismatch
       moveBy += directionFactor.current * moveBy * velocityFactor.get();
       baseX.set(baseX.get() + moveBy);
     });
