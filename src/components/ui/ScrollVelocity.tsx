@@ -63,7 +63,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     className = '',
     damping,
     stiffness,
-    numCopies,
+    numCopies = 6,
     velocityMapping,
     parallaxClassName,
     scrollerClassName,
@@ -103,21 +103,18 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     useAnimationFrame((t, delta) => {
       let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-      // @ts-expect-error: type mismatch
       if (velocityFactor.get() < 0) {
         directionFactor.current = -1;
-      // @ts-expect-error: type mismatch
       } else if (velocityFactor.get() > 0) {
         directionFactor.current = 1;
       }
 
-      // @ts-expect-error: type mismatch
       moveBy += directionFactor.current * moveBy * velocityFactor.get();
       baseX.set(baseX.get() + moveBy);
     });
 
     const spans = [];
-    for (let i = 0; i < numCopies; i++) {
+    for (let i = 0; i < (numCopies || 6); i++) {
       spans.push(
         <span className={className} key={i} ref={i === 0 ? copyRef : null}>
           {children}&nbsp;
