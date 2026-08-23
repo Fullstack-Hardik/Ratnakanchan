@@ -25,24 +25,24 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'h-12 bg-white/80 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'h-14 bg-white/30 backdrop-blur-md border-b border-transparent'}`}>
-      <div className="w-full max-w-7xl mx-auto px-6 h-full flex items-center justify-end lg:justify-between relative">
+      <div className="w-full max-w-7xl mx-auto px-6 h-full grid grid-cols-3 items-center">
         
-        {/* LOGO - Centered on Mobile and Desktop */}
-        <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2">
-          <Link href="/" className="flex items-center">
-            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
-          </Link>
+        {/* MOBILE MENU TOGGLE (Left on Mobile) */}
+        <div className="flex lg:hidden items-center justify-start">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="text-black/80 p-1 -ml-1">
+            <Menu size={24} />
+          </button>
         </div>
 
-        {/* DESKTOP LINKS - Left */}
-        <div className="hidden lg:flex items-center space-x-10 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
-          <Link href="/" className="hover:text-black transition-colors">Home</Link>
+        {/* DESKTOP LINKS - Left Side */}
+        <div className="hidden lg:flex items-center justify-start space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
+          <Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Home</Link>
           
           <div className="relative group h-full flex items-center">
-            <button className="hover:text-black transition-colors uppercase tracking-[0.15em]">
+            <button className="hover:text-[var(--color-gold)] transition-colors uppercase tracking-[0.15em]">
               Services
             </button>
-            <div className="absolute top-[120%] left-1/2 -translate-x-1/2 mt-2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-full transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
+            <div className="absolute top-[100%] left-0 mt-2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-full transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
               <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">1. Jwellery Retouching</Link>
               <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">2. CAD Designing & Rendering</Link>
               <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">3. 360 Animation Rendering</Link>
@@ -51,56 +51,29 @@ export default function Navbar() {
             </div>
           </div>
           
-          <Link href="/gallery" className="hover:text-black transition-colors">Gallery</Link>
-          <Link href="/blog" className="hover:text-black transition-colors">Blog</Link>
-          <Link href="/pricing" className="hover:text-black transition-colors">Pricing</Link>
-          <Link href="/about" className="hover:text-black transition-colors">About</Link>
-          <Link href="/contact" className="hover:text-black transition-colors">Contact</Link>
+          <Link href="/gallery" className="hover:text-[var(--color-gold)] transition-colors">Gallery</Link>
         </div>
 
-        {/* SOCIAL ICONS - Right (Desktop) */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <a
-            href={SOCIAL_LINKS.instagram}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Follow us on Instagram"
-            className="text-black/50 hover:text-[#E1306C] transition-colors duration-300"
-          >
-            <FaInstagram size={17} />
-          </a>
-          <a
-            href={SOCIAL_LINKS.facebook}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Follow us on Facebook"
-            className="text-black/50 hover:text-[#1877F2] transition-colors duration-300"
-          >
-            <FaFacebookF size={15} />
-          </a>
-          <a
-            href={SOCIAL_LINKS.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Chat on WhatsApp"
-            className="text-black/50 hover:text-[#25D366] transition-colors duration-300"
-          >
-            <FaWhatsapp size={17} />
-          </a>
-          <div className="w-px h-4 bg-black/10 mx-1"></div>
-          <a href="tel:+919876543210" aria-label="Call us" className="text-black/50 hover:text-[var(--color-gold)] transition-colors duration-300">
-            <Phone size={15} strokeWidth={2} />
-          </a>
+        {/* LOGO - Center (Always) */}
+        <div className="flex justify-center items-center">
+          <Link href="/" className="flex items-center">
+            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
+          </Link>
         </div>
 
-        {/* MOBILE MENU TOGGLE */}
-        <div className="flex lg:hidden items-center gap-4">
-          <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366]">
-             <FaWhatsapp size={20} />
+        {/* DESKTOP LINKS - Right Side */}
+        <div className="hidden lg:flex items-center justify-end space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
+          <Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link>
+          <Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing</Link>
+          <Link href="/about" className="hover:text-[var(--color-gold)] transition-colors">About</Link>
+          <Link href="/contact" className="hover:text-[var(--color-gold)] transition-colors">Contact</Link>
+        </div>
+
+        {/* MOBILE WHATSAPP (Right on Mobile) */}
+        <div className="flex lg:hidden items-center justify-end">
+          <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366] p-1 -mr-1">
+             <FaWhatsapp size={22} />
           </a>
-          <button onClick={() => setIsMobileMenuOpen(true)} className="text-black/80 p-1">
-            <Menu size={24} />
-          </button>
         </div>
       </div>
 
