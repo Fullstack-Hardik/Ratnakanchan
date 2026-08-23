@@ -116,11 +116,11 @@ export default function JewelryRetouching() {
   ];
 
   return (
-    <main className="min-h-screen bg-stone-50 text-stone-900 pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
+    <main className="min-h-screen bg-stone-50 text-stone-900 pt-14 md:pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
 
       {/* Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 mb-16 mt-8">
-        <div className="relative w-full rounded-[3rem] overflow-hidden shadow-xl bg-stone-100 flex items-center justify-center">
+      <section className="relative w-full max-w-7xl mx-auto px-0 md:px-6 mb-16 mt-0 md:mt-8">
+        <div className="relative w-full rounded-none md:rounded-[3rem] overflow-hidden shadow-xl bg-stone-100 flex items-center justify-center">
           <img
             src="/images/retouching/image.png"
             alt="Jewelry Retouching Hero"
