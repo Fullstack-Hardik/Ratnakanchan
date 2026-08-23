@@ -325,19 +325,16 @@ export default function GalleryPage() {
   }, []);
 
   const galleryImages: CardData[] = [
-    { id: 1, image: "/images/gallery/IMG_0364.jpg", alt: "Luxury Ring Retouching" },
-    { id: 2, image: "/images/gallery/Earring_1.png", alt: "Diamond Stud Earring Render" },
-    { id: 3, image: "/images/gallery/hhpavc12.jpg", alt: "High-end Ring Render" },
-    { id: 4, image: "/images/gallery/Ring_1.png", alt: "Engagement Ring Render" },
-    { id: 5, image: "/images/gallery/light 2 .jpg", alt: "Luxury Lighting Studio" },
-    { id: 6, image: "/images/gallery/Earring_5.png", alt: "Diamond Earring Side Profile" },
-    { id: 7, image: "/images/gallery/n10102a.jpg", alt: "Precision Diamond Setting" },
-    { id: 8, image: "/images/gallery/Ring_4.png", alt: "Ring 360 Spin View" },
-    { id: 9, image: "/images/gallery/11 copy.jpg", alt: "Conceptual Design Rendering" },
-    { id: 10, image: "/images/gallery/Earring_9.png", alt: "Diamond Stud Detail" },
-    { id: 11, image: "/images/gallery/01-01-558_R.jpg", alt: "Retouched Jewelry Final Output" },
-    { id: 12, image: "/images/gallery/Ring_8.png", alt: "Ring Bottom Profile" },
-    { id: 13, image: "/images/gallery/03-01-483_E.jpg", alt: "Earring Post Retouching" },
+    { id: 1, image: "/images/gallery/new_1.jpg", alt: "Diamond Ring in Box" },
+    { id: 2, image: "/images/gallery/new_2.jpg", alt: "Gold Diamond Ring" },
+    { id: 3, image: "/images/gallery/new_3.jpg", alt: "Model wearing Diamond Ring" },
+    { id: 4, image: "/images/gallery/new_4.jpg", alt: "Hand with Diamond Ring" },
+    { id: 5, image: "/images/uploads/upload_1.png", alt: "Diamond Stud Earrings Front" },
+    { id: 6, image: "/images/uploads/upload_2.png", alt: "Diamond Stud Earrings Side" },
+    { id: 7, image: "/images/uploads/upload_3.jpg", alt: "Multiple Ring Views" },
+    { id: 8, image: "/images/uploads/upload_4.png", alt: "CAD Wireframe" },
+    { id: 9, image: "/images/uploads/upload_5.png", alt: "Gold Diamond Rings" },
+    { id: 10, image: "/images/uploads/upload_6.png", alt: "CAD Ring Interface" },
   ];
 
   return (

@@ -7,8 +7,6 @@ import { ArrowRight, Video, RefreshCw, Layers, MonitorPlay } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 export default function Animation360Page() {
-  const [isMounted, setIsMounted] = useState(false);
-  
   // Parallax Scroll Refs
   const heroRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
@@ -28,12 +26,6 @@ export default function Animation360Page() {
   });
   
   const scaleImage = useTransform(showcaseProgress, [0.2, 0.5, 0.8], [0.8, 1, 0.8]);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
 
   return (
     <main className="min-h-screen bg-white text-stone-900 pt-28 pb-20 selection:bg-[var(--color-gold)] selection:text-white overflow-x-hidden">
@@ -158,7 +150,7 @@ export default function Animation360Page() {
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
                   >
-                    <source src="/videos/cad1.mp4" type="video/mp4" />
+                    <source src="/assets/videos/animations/Shot 6.mp4" type="video/mp4" />
                   </video>
                </div>
             </motion.div>
@@ -168,7 +160,7 @@ export default function Animation360Page() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="group relative lg:translate-y-16"
+              className="group relative"
             >
                <div className="absolute inset-0 bg-gradient-to-l from-[var(--color-gold)]/20 to-transparent blur-2xl -z-10 group-hover:blur-3xl transition-all duration-500"></div>
                <div className="rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white border border-stone-200">
@@ -187,12 +179,11 @@ export default function Animation360Page() {
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
                   >
-                    <source src="/videos/cad2.mp4" type="video/mp4" />
+                    <source src="/assets/videos/animations/Shot 7.mp4" type="video/mp4" />
                   </video>
                </div>
             </motion.div>
          </div>
-         <div className="h-32"></div> {/* Spacing for the staggered translate */}
       </section>
 
 

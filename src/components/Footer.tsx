@@ -60,11 +60,11 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <h4 className="text-xs font-bold tracking-[0.2em] uppercase mb-8 text-stone-400">Services</h4>
           <ul className="space-y-4 text-sm text-stone-600 font-light">
-            <li><Link href="/jewelry-retouching" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">Jewelry Retouching</Link></li>
-            <li><Link href="/cad-designing-rendering" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">CAD Designing</Link></li>
-            <li><Link href="/360-animation-rendering" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">360° Animations</Link></li>
-            <li><Link href="/cad-model-animations" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">CAD Model Animations</Link></li>
-            <li><Link href="/cad-model-rendering" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">CAD Model Rendering</Link></li>
+            <li><Link href="/jwellery-retouching" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">1. Jwellery Retouching</Link></li>
+            <li><Link href="/cad-designing-rendering" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">2. CAD Designing & Rendering</Link></li>
+            <li><Link href="/360-animation-rendering" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">3. 360 Animation Rendering</Link></li>
+            <li><Link href="/jwellery-retouching-with-model" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">4. Jwellery Retouching with Model</Link></li>
+            <li><Link href="/ai-jwellery-retouching" className="hover:text-[var(--color-gold)] hover:translate-x-1 inline-block transition-all duration-300">5. AI Jwellery Retouching</Link></li>
           </ul>
         </div>
 

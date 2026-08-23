@@ -6,8 +6,6 @@ import { ArrowRight, Video, Play, Layers, Sparkles } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function CadModelAnimationsPage() {
-  const [isMounted, setIsMounted] = useState(false);
-
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -15,12 +13,6 @@ export default function CadModelAnimationsPage() {
   });
   const heroY = useTransform(heroProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(heroProgress, [0, 1], [1, 0]);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
 
   const features = [
     {

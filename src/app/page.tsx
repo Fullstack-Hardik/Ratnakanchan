@@ -1,25 +1,20 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
-import { Carousel_003 } from '@/components/ui/skiper-carousel';
 import Hero3DBackground from '@/components/Hero3DBackground';
 
 const heroImages = [
+  {
+    src: '/images/hero/hero_bracelet_1787335681322.png',
+    alt: 'Premium Diamond Bracelet',
+  },
   {
     src: '/images/hero/Model Phto Retouching Service.jpeg',
     alt: 'Professional Jewelry Model Retouching',
   },
   {
-    src: '/images/hero/LifeStyleImage.jpg',
-    alt: 'Luxury Jewelry Lifestyle Retouching',
-  },
-  {
-    src: '/images/retouching/Front Banner After.jpg',
-    alt: 'Flawless Diamond Retouching and Shadow Creation',
-  },
-  {
-    src: '/images/hero/Contact pg.jpg',
-    alt: 'Precision Jewelry Visualization',
+    src: '/images/hero/front_banner_after.jpg',
+    alt: 'High-End Jewelry Retouching',
   },
 ];
 
@@ -153,7 +148,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
+            className="w-full md:w-[55%] h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
             {heroImages.map((img, idx) => (
               <motion.img 
@@ -163,7 +158,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
             ))}
 
@@ -237,30 +232,6 @@ export default function Home() {
       </section>
 
 
-      {/* SWIPER CAROUSEL (Skiper 49) */}
-      <section className="py-24 bg-[#FAFAFA] border-y border-gray-200 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-heading mb-4">Our Visual Portfolio</h2>
-          <p className="text-gray-500 font-light text-lg">Swipe to explore our latest high-end jewelry visualizations.</p>
-        </div>
-        <div className="flex h-full w-full items-center justify-center overflow-hidden">
-          <Carousel_003 
-            images={[
-              { src: "/images/gallery/hhpavc12.jpg", alt: "High-end Ring Retouching" },
-              { src: "/images/gallery/IMG_0364.jpg", alt: "Jewelry Retouching" },
-              { src: "/images/gallery/light 2 .jpg", alt: "Luxury Lighting Render" },
-              { src: "/images/gallery/Earring_1.png", alt: "Diamond Stud Earring" },
-              { src: "/images/gallery/Ring_1.png", alt: "Diamond Ring Render" },
-              { src: "/images/gallery/01-01-558_R.jpg", alt: "Ring Before and After" },
-              { src: "/images/gallery/11 copy.jpg", alt: "Conceptual Render" },
-            ]} 
-            showPagination 
-            loop 
-            autoplay
-          />
-        </div>
-      </section>
-
       {/* SERVICES GRID */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
         <motion.div 
@@ -285,9 +256,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           
           {[
-            { id: 1, name: 'Jewelry Retouching', price: '$0.5', img: '/images/hero/Use As Header in Retouching Service.jpg', desc: 'Clipping paths, e-commerce photo editing, diamond masking, metal color correction, and natural shadow generation.' },
-            { id: 2, name: 'CAD Designing & Renders', price: '$20', img: '/images/cad-renders/RING.jpg', desc: 'Transform sketches into precise CAD models (STL) and generate photorealistic 4-angle image renders.' },
-            { id: 3, name: '360° Animation Render', price: '$25', img: '/images/gallery/Ring_4.png', desc: 'Immersive turntable video renders at 700x700 or custom sizes. Perfect for e-commerce and Instagram reels.' },
+            { id: 1, name: 'Jewelry Retouching', price: '$0.5', img: '/images/services/retouching_thumb.jpg', desc: 'Clipping paths, e-commerce photo editing, diamond masking, metal color correction, and natural shadow generation.' },
+            { id: 2, name: 'CAD Designing & Renders', price: '$20', img: '/images/services/cad_thumb.jpg', desc: 'Transform sketches into precise CAD models (STL) and generate photorealistic 4-angle image renders.' },
+            { id: 3, name: '360° Animation Render', price: '$25', img: '/images/services/360_thumb_alt.jpg', desc: 'Immersive turntable video renders at 700x700 or custom sizes. Perfect for e-commerce and Instagram reels.' },
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
@@ -298,7 +269,6 @@ export default function Home() {
               className="group cursor-pointer"
             >
               <div className="relative overflow-hidden aspect-[4/5] bg-gray-50 mb-6 rounded-sm">
-                <span className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-black">Start at {srv.price}</span>
                 <img src={srv.img} alt={srv.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
               </div>

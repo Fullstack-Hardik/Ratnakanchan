@@ -128,6 +128,7 @@ export default function ContactPage() {
 
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-12">
+            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-16 w-auto mx-auto mb-6 object-contain mix-blend-multiply" />
             <h2 className="text-4xl md:text-5xl font-heading mb-4 text-black">Start a Project</h2>
             <p className="text-gray-500 font-light text-lg">Leave your details and our team will get back to you within 24 hours.</p>
           </div>
@@ -165,10 +166,12 @@ export default function ContactPage() {
               <div>
                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">How can we help?</label>
                 <select value={formData.inquiry} onChange={(e) => setFormData({ ...formData, inquiry: e.target.value })} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm appearance-none">
-                  <option>Jewelry Retouching (High Volume)</option>
-                  <option>CAD Modeling & Renders</option>
-                  <option>360° Video Animation</option>
-                  <option>General Inquiry</option>
+                  <option>Jewelry Retouching</option>
+                  <option>CAD Designing & Renders</option>
+                  <option>360° Animation Render</option>
+                  <option>Jewelry Retouching With Model</option>
+                  <option>AI Jewelry Retouching</option>
+                  <option>Others</option>
                 </select>
               </div>
 

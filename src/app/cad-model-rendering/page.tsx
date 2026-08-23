@@ -1,25 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Box, Sparkles, Sun, Camera, Palette } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function CadModelRenderingPage() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [activeMaterial, setActiveMaterial] = useState('yg');
-
-  const materials = [
-    { id: 'yg', name: 'Yellow Gold', color: 'bg-yellow-400', image: '/images/cad-renders/YG.jpg' },
-    { id: 'wg', name: 'White Gold', color: 'bg-stone-200', image: '/images/cad-renders/WG.jpg' },
-    { id: 'rg', name: 'Rose Gold', color: 'bg-rose-300', image: '/images/cad-renders/RG.jpg' }
-  ];
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroOpacity = useTransform(heroProgress, [0, 1], [1, 0]);
 
   const renderTypes = [
     {
@@ -45,14 +34,14 @@ export default function CadModelRenderingPage() {
       {/* Hero Section (Soluna Inspired Layout) */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-32 z-10">
         
-        {/* Massive Circular Background Image */}
-        <div className="absolute -top-[5%] -right-[30%] md:-right-[10%] w-[120vw] md:w-[65vw] aspect-square rounded-full overflow-hidden -z-10 shadow-2xl border-4 border-white/50">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full -z-10 shadow-2xl">
            <img 
-              src={materials.find(m => m.id === activeMaterial)?.image} 
-              alt={`${materials.find(m => m.id === activeMaterial)?.name} Render`}
-              className="w-full h-full object-contain"
+              src="/images/gallery/render_banner.png" 
+              alt="Render Images Banner"
+              className="w-full h-full object-cover"
             />
-           <div className="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+           <div className="absolute inset-0 bg-white/40"></div>
         </div>
 
         {/* Hero Content Column */}

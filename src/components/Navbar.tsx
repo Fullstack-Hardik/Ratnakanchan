@@ -25,10 +25,10 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'h-12 bg-white/80 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'h-14 bg-white/30 backdrop-blur-md border-b border-transparent'}`}>
-      <div className="w-full max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-6 h-full flex items-center justify-end lg:justify-between relative">
         
-        {/* LOGO - Left */}
-        <div className="flex-shrink-0">
+        {/* LOGO - Centered on Mobile, Left on Desktop */}
+        <div className="flex-shrink-0 absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0">
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
           </Link>
@@ -42,12 +42,12 @@ export default function Navbar() {
             <button className="hover:text-black transition-colors uppercase tracking-[0.15em]">
               Services
             </button>
-            <div className="absolute top-[120%] left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-full transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
-              <Link href="/jewelry-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching</Link>
-              <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Designing & Rendering</Link>
-              <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">360° Animation Rendering</Link>
-              <Link href="/cad-model-animations" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Model Animations</Link>
-              <Link href="/cad-model-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Model Rendering</Link>
+            <div className="absolute top-[120%] left-1/2 -translate-x-1/2 mt-2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-full transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
+              <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">1. Jwellery Retouching</Link>
+              <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">2. CAD Designing & Rendering</Link>
+              <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">3. 360 Animation Rendering</Link>
+              <Link href="/jwellery-retouching-with-model" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">4. Jwellery Retouching with Model</Link>
+              <Link href="/ai-jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">5. AI Jwellery Retouching</Link>
             </div>
           </div>
           
@@ -106,8 +106,8 @@ export default function Navbar() {
 
       {/* MOBILE MENU (Side Drawer) */}
       <div 
-        className={`lg:hidden fixed top-0 right-0 w-[80vw] sm:w-[60vw] h-screen bg-white shadow-2xl z-50 transform transition-transform duration-500 ease-in-out flex flex-col border-l border-gray-100 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`lg:hidden fixed top-0 left-0 w-[80vw] sm:w-[60vw] h-screen bg-white shadow-2xl z-50 transform transition-transform duration-500 ease-in-out flex flex-col border-r border-gray-100 ${
+          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex justify-end p-6 border-b border-gray-100">
@@ -121,11 +121,10 @@ export default function Navbar() {
           <div className="flex flex-col space-y-4">
             <div className="text-sm uppercase tracking-widest font-medium text-black/40">Services</div>
             <div className="flex flex-col space-y-4 pl-4 border-l border-gray-100">
-              <Link href="/jewelry-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Jewelry Retouching</Link>
+              <Link href="/retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Retouching</Link>
               <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD & Rendering</Link>
               <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">360° Animation</Link>
               <Link href="/cad-model-animations" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD Model Animations</Link>
-              <Link href="/cad-model-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD Model Rendering</Link>
             </div>
           </div>
           

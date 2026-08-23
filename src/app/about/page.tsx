@@ -82,17 +82,26 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Areas of <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
+            <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Core <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
             <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
               <p>
-                We specialize in the digital correction of diamond jewelry images/photo editing, regardless of their origin: digitally shot (photoshoots), scanned images, CAD-rendered images, or even sketches from a designer’s board.
+                Ratna Kanchan specializes in the <strong>digital correction and enhancement of diamond and fine-jewelry imagery</strong>, regardless of the original source. Our expertise covers digitally photographed images, scanned artwork, CAD-rendered visuals, and even preliminary jewelry sketches supplied by designers.
               </p>
               <p>
-                The digital world, particularly e-commerce platforms, demands exceptional jewelry photo retouching, CAD designing, jewelry rendering images (rings, earrings, pendants, bracelets, necklaces), 360-degree turntable animations, jewelry wear model photo retouching, and e-commerce photo editing.
+                In today's digital-first jewelry market, especially across e-commerce platforms, high-quality visual presentation is essential. Our experienced team of <strong>retouchers and CAD designers</strong> provides specialized services across a wide range of jewelry categories, including Rings, Earrings, Pendants, Bracelets, Necklaces, Diamond jewelry, and Gold jewelry.
               </p>
               <p>
-                Our team of expert retouchers and CAD designers fulfills all your needs. With over 17 years of experience, we possess in-depth knowledge of jewelry gold colors, diamonds, and designs.
+                With <strong>more than 17 years of industry experience</strong>, Ratna Kanchan has developed deep expertise in jewelry-specific color correction, gold tones, diamonds, gemstones, settings, proportions, reflections, highlights, and intricate design details.
               </p>
+              
+              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-black">
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Jewelry photo retouching</div>
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> CAD jewelry designing</div>
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Jewelry rendering</div>
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> E-commerce image editing</div>
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> 360° turntable animations</div>
+                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Wear-model retouching</div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -111,7 +120,7 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             className="text-4xl md:text-5xl font-heading mb-4 text-black"
           >
-            Unmatched Technical Knowledge
+            17+ Years of Jewellery Expertise
           </motion.h2>
           <motion.p 
             initial="hidden"
@@ -120,17 +129,19 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             className="text-gray-500 font-light text-lg"
           >
-            We don't just edit images; we understand jewelry engineering.
+            Accurate representation requires deep industry knowledge.
           </motion.p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
           
           {[
-            { title: "Types of Claw/Prong Settings", desc: "Precise visualization of V-prongs, shared prongs, and bezel settings." },
-            { title: "Types of Earring Posts", desc: "Accurate modeling of push-backs, screw-backs, and omega clips." },
-            { title: "Diamond Types & Settings", desc: "Mastery over pave, channel, flush, and tension diamond settings." },
-            { title: "Gold Color Accuracy", desc: "Perfectly calibrated 10k, 14k, and 18k White, Rose, and Yellow Gold." }
+            { title: "Claw & Prong Settings", desc: "Understanding and accurately reproducing different claw/prong configurations while maintaining realistic proportions, highlights, shadows, and diamond visibility." },
+            { title: "Earring Posts & Components", desc: "Expertise in accurately presenting different earring post styles and jewelry components while maintaining realistic metal appearance and geometry." },
+            { title: "Diamond Types & Settings", desc: "Knowledge of different diamond cuts, shapes, settings, reflections, brilliance, and visual presentation required for professional jewelry imagery." },
+            { title: "Gold Colors & Finishes", desc: "Specialized understanding of 10K, 14K, 18K White, Rose, and Yellow Gold. Accurate metal color representation is critical for e-commerce." },
+            { title: "CAD Visualization", desc: "Transforming preliminary concepts and CAD models into photorealistic representations ready for production and marketing." },
+            { title: "Model Jewelry Retouching", desc: "Seamlessly enhancing jewelry worn by live models, ensuring skin tones remain natural while the jewelry sparkles with brilliance." }
             ].map((item, idx) => (
             <motion.div
               key={idx}
@@ -138,13 +149,15 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={{
-                hidden: { opacity: 0, x: idx % 2 === 0 ? -40 : 40, filter: 'blur(10px)' },
-                visible: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.8, delay: idx * 0.1 } }
+                hidden: { opacity: 0, y: 30, filter: 'blur(5px)' },
+                visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, delay: idx * 0.1 } }
               }}
-              className="bg-[#F8F6F2] border border-gray-100 p-8 rounded-sm shadow-sm hover:shadow-md transition-all"
+              className="bg-white border border-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h3 className="text-2xl font-heading text-[var(--color-gold)] mb-3">{item.title}</h3>
-              <p className="text-gray-600 font-light">{item.desc}</p>
+              <h3 className="text-xl font-heading text-black mb-4 flex items-center gap-3">
+                <span className="text-[var(--color-gold)]">✧</span> {item.title}
+              </h3>
+              <p className="text-gray-500 font-light text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
           
