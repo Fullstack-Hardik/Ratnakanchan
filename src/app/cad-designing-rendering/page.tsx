@@ -20,7 +20,7 @@ export default function CadDesigningPage() {
       
       {/* Hero Section */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-20 z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
           
           {/* Text Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start relative z-20">

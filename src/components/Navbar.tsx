@@ -121,10 +121,11 @@ export default function Navbar() {
           <div className="flex flex-col space-y-4">
             <div className="text-sm uppercase tracking-widest font-medium text-black/40">Services</div>
             <div className="flex flex-col space-y-4 pl-4 border-l border-gray-100">
-              <Link href="/retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">Retouching</Link>
-              <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD & Rendering</Link>
-              <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">360° Animation</Link>
-              <Link href="/cad-model-animations" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">CAD Model Animations</Link>
+              <Link href="/jwellery-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">1. Jwellery Retouching</Link>
+              <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">2. CAD Designing & Rendering</Link>
+              <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">3. 360 Animation Rendering</Link>
+              <Link href="/jwellery-retouching-with-model" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">4. Jwellery Retouching with Model</Link>
+              <Link href="/ai-jwellery-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">5. AI Jwellery Retouching</Link>
             </div>
           </div>
           

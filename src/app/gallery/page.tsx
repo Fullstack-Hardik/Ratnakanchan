@@ -332,9 +332,7 @@ export default function GalleryPage() {
     { id: 5, image: "/images/uploads/upload_1.png", alt: "Diamond Stud Earrings Front" },
     { id: 6, image: "/images/uploads/upload_2.png", alt: "Diamond Stud Earrings Side" },
     { id: 7, image: "/images/uploads/upload_3.jpg", alt: "Multiple Ring Views" },
-    { id: 8, image: "/images/uploads/upload_4.png", alt: "CAD Wireframe" },
     { id: 9, image: "/images/uploads/upload_5.png", alt: "Gold Diamond Rings" },
-    { id: 10, image: "/images/uploads/upload_6.png", alt: "CAD Ring Interface" },
   ];
 
   return (

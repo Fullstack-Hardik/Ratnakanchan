@@ -165,12 +165,12 @@ export default function JewelryRetouching() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: feature.delay }}
-              className="group relative bg-white rounded-[2.5rem] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full"
+              className="group relative bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full"
             >
               {/* Hover Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-              <div className="px-2 pt-2">
+              <div className="px-6 pt-6 pb-4">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-2xl bg-stone-50 border border-stone-200 flex items-center justify-center text-[var(--color-gold)] mb-6 group-hover:scale-110 transition-transform duration-500">
                   {feature.icon}
@@ -178,13 +178,13 @@ export default function JewelryRetouching() {
 
                 {/* Text */}
                 <h3 className="text-2xl font-heading font-bold text-stone-900 mb-4">{feature.title}</h3>
-                <p className="text-stone-500 font-body leading-relaxed mb-8 flex-grow">
+                <p className="text-stone-500 font-body leading-relaxed flex-grow">
                   {feature.desc}
                 </p>
               </div>
 
               {/* Before/After Slider inside Card */}
-              <div className="mt-auto w-full">
+              <div className="mt-auto w-full rounded-b-[2.5rem] overflow-hidden">
                 <BeforeAfterSlider
                   beforeImage={feature.before}
                   afterImage={feature.after}
