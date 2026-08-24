@@ -3,18 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import Hero3DBackground from '@/components/Hero3DBackground';
 
-const heroImages = [
+const heroMedia = [
   {
-    src: '/images/hero/hero_bracelet_1787335681322.png',
-    alt: 'Premium Diamond Bracelet',
+    type: 'image',
+    src: '/images/hero/image.png',
+    alt: 'Premium Yellow Diamond Ring Retouching',
   },
   {
-    src: '/images/hero/Model Phto Retouching Service.jpeg',
-    alt: 'Professional Jewelry Model Retouching',
+    type: 'video',
+    src: '/images/hero/YG.mp4',
+    alt: 'Jewelry Video',
   },
   {
-    src: '/images/hero/front_banner_after.jpg',
-    alt: 'High-End Jewelry Retouching',
+    type: 'image',
+    src: '/images/hero/image_copy.png',
+    alt: 'Diamond Bracelet',
   },
 ];
 
@@ -66,7 +69,7 @@ export default function Home() {
 
   useEffect(() => {
     const heroInterval = setInterval(() => {
-      setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
+      setActiveHeroIndex((prev) => (prev + 1) % heroMedia.length);
     }, 5000);
     return () => clearInterval(heroInterval);
   }, []);
@@ -75,7 +78,7 @@ export default function Home() {
     <div className="bg-white">
       
       {/* HERO SECTION */}
-      <section className="pt-20 min-h-[95vh] flex flex-col relative overflow-hidden bg-[#FAFAFA]">
+      <section className="pt-32 min-h-[95vh] flex flex-col relative overflow-hidden bg-[#FAFAFA]">
         
         <Hero3DBackground />
 
@@ -150,24 +153,42 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full md:w-[55%] h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
-            {heroImages.map((img, idx) => (
-              <motion.img 
-                key={img.src}
-                src={img.src} 
-                alt={img.alt}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-            ))}
+            {heroMedia.map((media, idx) => {
+              if (media.type === 'video') {
+                return (
+                  <motion.video
+                    key={media.src}
+                    src={media.src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                );
+              }
+              return (
+                <motion.img 
+                  key={media.src}
+                  src={media.src} 
+                  alt={media.alt}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+              );
+            })}
 
             {/* Soft gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none"></div>
 
             {/* Carousel Indicators */}
             <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
-              {heroImages.map((_, idx) => (
+              {heroMedia.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveHeroIndex(idx)}
@@ -237,23 +258,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES GRID */}
-      <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
+      {/* NEW OUR SERVICES SECTION */}
+      <section className="py-16 md:py-24 bg-white max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-5xl font-serif text-black max-w-2xl leading-snug">
-            Our Detailed Services
-          </h2>
-          <div className="w-16 h-[1px] bg-[var(--color-gold)] mt-6"></div>
+          <h2 className="text-3xl md:text-4xl font-heading mb-4 uppercase tracking-wider text-black">Our Services</h2>
+          <div className="w-16 h-[1px] bg-[var(--color-gold)] mt-2"></div>
         </div>
 
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+          <div className="w-full md:w-1/2">
+            <img src="/images/services/model_necklace.jpg" alt="Model Photo Retouching" className="w-full h-auto rounded-md shadow-lg" />
+          </div>
+          <div className="w-full md:w-1/2 flex flex-col justify-center">
+            <h3 className="text-2xl md:text-3xl font-serif text-black mb-6">Model Photo Retouching Services</h3>
+            <p className="text-gray-500 font-light leading-relaxed mb-4 text-sm md:text-base">
+              Elevate your jewelry presentation with our premium model photo retouching services. We understand that showcasing jewelry on a live model provides crucial context and scale, but raw photography often lacks the perfect polish required for high-end brands.
+            </p>
+            <p className="text-gray-500 font-light leading-relaxed text-sm md:text-base">
+              Our expert retouching team meticulously enhances skin texture, corrects lighting, and brings out the brilliant sparkle of your jewelry pieces, ensuring they stand out flawlessly while maintaining a natural and authentic look.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES GRID */}
+      <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           {[
-            { id: 1, name: 'Retouching Jewelry Photos', img: '/images/services/img1.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
-            { id: 2, name: 'CAD Designing', img: '/images/services/img2.jpg', desc: 'We deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure that every prong, setting, and curve is mathematically perfect. We provide you with precise STL files that are strictly ready for 3D printing and seamless manufacturing, guaranteeing the final piece perfectly matches your original vision.' },
-            { id: 3, name: 'CAD to Render Image', img: '/images/services/img3.jpg', desc: 'Transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity. We meticulously customize the studio lighting, camera angles, metal textures, and appealing backgrounds to showcase your designs beautifully. This completely eliminates the need for expensive physical photography while providing marketing-ready assets for your website and social media.' },
-            { id: 4, name: 'CAD to 360 Degree Animation', img: '/images/services/img4.jpg', desc: 'Bring your static designs to life with our smooth, high-resolution 360-degree turntable animations. Ideal for e-commerce platforms and Instagram reels, these looping videos allow your customers to interactively view every intricate detail of your jewelry from every angle, building immense trust and boosting your online conversion rates significantly.' },
-            { id: 5, name: 'Transforming Jewelry CAD Designs', img: '/images/services/img5.jpg', desc: 'We take complex, unpolished CAD designs and transform them into gorgeous, market-ready visual assets. By applying advanced texturing, hyper-realistic diamond shading, and environment mapping, we ensure that your digital designs look completely indistinguishable from physical, high-end studio photography, elevating your overall brand perception.' },
-            { id: 6, name: 'Photorealistic Model Animations', img: '/images/services/img6.jpg', desc: 'Take your jewelry presentation to the absolute next level. We seamlessly integrate your 3D jewelry renders with realistic human models, showing true-to-life scale, lighting interaction, and wearability. This premium service helps customers visualize exactly how the jewelry will look on themselves, driving higher engagement and sales.' },
+            { id: 1, name: 'Retouching Jewelry Photos', img: '/images/services/1.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
+            { id: 2, name: 'CAD Designing', img: '/images/services/2.jpg', desc: 'We deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure that every prong, setting, and curve is mathematically perfect. We provide you with precise STL files that are strictly ready for 3D printing and seamless manufacturing, guaranteeing the final piece perfectly matches your original vision.' },
+            { id: 3, name: 'CAD to Render Image', img: '/images/services/3.jpg', desc: 'Transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity. We meticulously customize the studio lighting, camera angles, metal textures, and appealing backgrounds to showcase your designs beautifully. This completely eliminates the need for expensive physical photography while providing marketing-ready assets for your website and social media.' },
+            { id: 4, name: 'CAD to 360 Degree Animation', img: '/images/services/4.mp4', desc: 'Bring your static designs to life with our smooth, high-resolution 360-degree turntable animations. Ideal for e-commerce platforms and Instagram reels, these looping videos allow your customers to interactively view every intricate detail of your jewelry from every angle, building immense trust and boosting your online conversion rates significantly.' },
+            { id: 5, name: 'Transforming Jewelry CAD Designs', img: '/images/services/5.jpg', desc: 'We take complex, unpolished CAD designs and transform them into gorgeous, market-ready visual assets. By applying advanced texturing, hyper-realistic diamond shading, and environment mapping, we ensure that your digital designs look completely indistinguishable from physical, high-end studio photography, elevating your overall brand perception.' },
+            { id: 6, name: 'Photorealistic Model Animations', img: '/images/services/6.mp4', desc: 'Take your jewelry presentation to the absolute next level. We seamlessly integrate your 3D jewelry renders with realistic human models, showing true-to-life scale, lighting interaction, and wearability. This premium service helps customers visualize exactly how the jewelry will look on themselves, driving higher engagement and sales.' },
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
@@ -264,7 +301,11 @@ export default function Home() {
               className="group flex flex-col border border-gray-100 bg-[#FAFAFA] p-6 hover:bg-white transition-colors duration-500"
             >
               <div className="relative overflow-hidden w-full aspect-[4/3] mb-8 bg-gray-200">
-                <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                {srv.img.endsWith('.mp4') ? (
+                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                ) : (
+                  <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                )}
               </div>
               <div className="flex-1 flex flex-col">
                 <h3 className="text-xl md:text-2xl font-serif text-black mb-4 tracking-wide">{srv.name}</h3>
@@ -292,7 +333,7 @@ export default function Home() {
       {/* GET A FREE DEMO SECTION */}
       <section className="flex flex-col md:flex-row bg-[#EAE8E3]">
         <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
-          <img src="/images/demo/form_side.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-cover" />
         </div>
         <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-black">
           <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-black">Get A Free Demo</h2>
@@ -300,12 +341,24 @@ export default function Home() {
             Apply for a free photo retouching trial. Send us your test image or CAD file and discover the world-class quality we provide. Fill the form below with your details and we will reach out to you.
           </p>
           
-          <form className="flex flex-col gap-6 max-w-lg">
-            <input type="text" placeholder="Name *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
-            <input type="email" placeholder="Email *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
-            <textarea placeholder="Message *" rows={4} className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none resize-none border border-transparent focus:border-black transition-colors" required></textarea>
+          <form 
+            className="flex flex-col gap-6 max-w-lg"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const email = formData.get('email');
+              const message = formData.get('message');
+              
+              const waText = `*New Free Demo Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+              window.open(`https://wa.me/919876543210?text=${waText}`, "_blank");
+            }}
+          >
+            <input name="name" type="text" placeholder="Name *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
+            <input name="email" type="email" placeholder="Email *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
+            <textarea name="message" placeholder="Message *" rows={4} className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none resize-none border border-transparent focus:border-black transition-colors" required></textarea>
             <button type="submit" className="bg-black text-white uppercase tracking-widest text-xs font-semibold py-5 px-10 mt-4 w-fit hover:bg-gray-800 transition-colors">
-              Submit
+              Send
             </button>
           </form>
         </div>

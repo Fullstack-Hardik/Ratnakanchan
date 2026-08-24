@@ -24,53 +24,67 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'h-12 bg-white/80 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'h-14 bg-white/30 backdrop-blur-md border-b border-transparent'}`}>
-      <div className="w-full max-w-7xl mx-auto px-6 h-full grid grid-cols-3 items-center">
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-1 bg-white/90 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'py-2 bg-white/60 backdrop-blur-md border-b border-transparent'}`}>
+      <div className="w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center items-center relative">
         
-        {/* MOBILE MENU TOGGLE (Left on Mobile) */}
-        <div className="flex lg:hidden items-center justify-start">
+        {/* LOGO - Top Center */}
+        <div className="flex justify-center items-center lg:mb-2">
+          <Link href="/" className="flex items-center">
+            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-14 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
+          </Link>
+        </div>
+
+        {/* DESKTOP LINKS & SOCIAL - Bottom Center */}
+        <div className="hidden lg:flex items-center justify-center w-full relative">
+          
+          {/* Nav Links */}
+          <div className="flex items-center justify-center space-x-6 lg:space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
+            <Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Home</Link>
+            
+            <div className="relative group flex items-center">
+              <button className="hover:text-[var(--color-gold)] transition-colors uppercase tracking-[0.15em] py-1">
+                Services
+              </button>
+              <div className="absolute top-[100%] left-1/2 -translate-x-1/2 mt-1 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
+              <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">1. Jwellery Retouching</Link>
+              <Link href="/cad-designing" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">2. CAD Designing</Link>
+              <Link href="/cad-to-render-image" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">3. CAD to Render Image</Link>
+              <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">4. 360 Animation Rendering</Link>
+              <Link href="/jwellery-retouching-with-model" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">5. Jwellery Retouching with Model</Link>
+              <Link href="/ai-jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">6. AI Jwellery Retouching</Link>
+            </div>
+          </div>
+          
+            <Link href="/gallery" className="hover:text-[var(--color-gold)] transition-colors">Gallery</Link>
+            <Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link>
+            <Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing</Link>
+            <Link href="/about" className="hover:text-[var(--color-gold)] transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-[var(--color-gold)] transition-colors">Contact</Link>
+          </div>
+
+          {/* Social Links (Absolute right aligned with nav links) */}
+          <div className="absolute right-0 flex items-center gap-4">
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/50 hover:text-[#E1306C] transition-colors duration-300">
+              <FaInstagram size={17} />
+            </a>
+            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/50 hover:text-[#1877F2] transition-colors duration-300">
+              <FaFacebookF size={15} />
+            </a>
+            <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="text-black/50 hover:text-[#25D366] transition-colors duration-300">
+              <FaWhatsapp size={17} />
+            </a>
+          </div>
+        </div>
+
+        {/* MOBILE MENU TOGGLE (Absolute Left on Mobile) */}
+        <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 left-6">
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-black/80 p-1 -ml-1">
             <Menu size={24} />
           </button>
         </div>
 
-        {/* DESKTOP LINKS - Left Side */}
-        <div className="hidden lg:flex items-center justify-start space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
-          <Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Home</Link>
-          
-          <div className="relative group h-full flex items-center">
-            <button className="hover:text-[var(--color-gold)] transition-colors uppercase tracking-[0.15em]">
-              Services
-            </button>
-            <div className="absolute top-[100%] left-0 mt-2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:top-full transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
-              <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">1. Jwellery Retouching</Link>
-              <Link href="/cad-designing-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">2. CAD Designing & Rendering</Link>
-              <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">3. 360 Animation Rendering</Link>
-              <Link href="/jwellery-retouching-with-model" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">4. Jwellery Retouching with Model</Link>
-              <Link href="/ai-jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">5. AI Jwellery Retouching</Link>
-            </div>
-          </div>
-          
-          <Link href="/gallery" className="hover:text-[var(--color-gold)] transition-colors">Gallery</Link>
-        </div>
-
-        {/* LOGO - Center (Always) */}
-        <div className="flex justify-center items-center">
-          <Link href="/" className="flex items-center">
-            <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-12 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
-          </Link>
-        </div>
-
-        {/* DESKTOP LINKS - Right Side */}
-        <div className="hidden lg:flex items-center justify-end space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
-          <Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link>
-          <Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing</Link>
-          <Link href="/about" className="hover:text-[var(--color-gold)] transition-colors">About</Link>
-          <Link href="/contact" className="hover:text-[var(--color-gold)] transition-colors">Contact</Link>
-        </div>
-
-        {/* MOBILE WHATSAPP (Right on Mobile) */}
-        <div className="flex lg:hidden items-center justify-end">
+        {/* MOBILE WHATSAPP (Absolute Right on Mobile) */}
+        <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 right-6">
           <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366] p-1 -mr-1">
              <FaWhatsapp size={22} />
           </a>
@@ -95,10 +109,11 @@ export default function Navbar() {
             <div className="text-sm uppercase tracking-widest font-medium text-black/40">Services</div>
             <div className="flex flex-col space-y-4 pl-4 border-l border-gray-100">
               <Link href="/jwellery-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">1. Jwellery Retouching</Link>
-              <Link href="/cad-designing-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">2. CAD Designing & Rendering</Link>
-              <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">3. 360 Animation Rendering</Link>
-              <Link href="/jwellery-retouching-with-model" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">4. Jwellery Retouching with Model</Link>
-              <Link href="/ai-jwellery-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">5. AI Jwellery Retouching</Link>
+              <Link href="/cad-designing" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">2. CAD Designing</Link>
+              <Link href="/cad-to-render-image" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">3. CAD to Render Image</Link>
+              <Link href="/360-animation-rendering" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">4. 360 Animation Rendering</Link>
+              <Link href="/jwellery-retouching-with-model" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">5. Jwellery Retouching with Model</Link>
+              <Link href="/ai-jwellery-retouching" onClick={() => setIsMobileMenuOpen(false)} className="text-xs tracking-widest uppercase font-medium text-black/60 hover:text-[var(--color-gold)] transition-colors">6. AI Jwellery Retouching</Link>
             </div>
           </div>
           
