@@ -204,28 +204,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* HERO MARQUEE - Animated continuously */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="w-full overflow-hidden border-y-2 border-black/5 py-6 bg-white relative flex z-20 shadow-xl mt-auto transform -rotate-2 scale-[1.03] origin-center translate-y-3"
-        >
-          <div className="flex whitespace-nowrap animate-marquee">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="flex items-center space-x-12 px-6">
-                <span className="text-xl md:text-2xl text-[var(--color-gold)] font-body uppercase tracking-widest font-black">Jewelry Retouching</span>
-                <span className="text-2xl text-black/30">✦</span>
-                <span className="text-2xl md:text-3xl text-black font-serif italic font-bold">CAD Design</span>
-                <span className="text-2xl text-[var(--color-gold)]/50">✦</span>
-                <span className="text-xl md:text-2xl text-[var(--color-gold)] font-body uppercase tracking-widest font-black">360° Animation</span>
-                <span className="text-2xl text-black/30">✦</span>
-                <span className="text-2xl md:text-3xl text-black font-serif italic font-bold">Global Agency</span>
-                <span className="text-2xl text-[var(--color-gold)]/50">✦</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+
 
       </section>
 
