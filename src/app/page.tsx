@@ -209,8 +209,8 @@ export default function Home() {
       </section>
 
       {/* WHAT YOU GET FROM US SECTION */}
-      <section className="py-16 md:py-24 bg-white max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
+      <section className="py-12 md:py-16 bg-white max-w-7xl mx-auto px-6">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-heading mb-4 uppercase tracking-wider">What You Get From Us</h2>
           <p className="text-gray-500 max-w-4xl mx-auto text-sm md:text-base leading-relaxed">
             Experience our unmatched quality standards for your visual assets. Digital presence plays a crucial role in standing out from the competition and capturing the target audience. As the leading jewelry photo retouching and 360° video animation company, we guarantee pristine visuals that elevate your brand value and drive more sales. From simple cleanups to complex CAD designs, we have got you covered.
@@ -238,8 +238,8 @@ export default function Home() {
       </section>
 
       {/* NEW OUR SERVICES SECTION */}
-      <section className="py-16 md:py-24 bg-white max-w-7xl mx-auto px-6">
-        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+      <section className="pt-12 md:pt-16 pb-6 bg-white max-w-7xl mx-auto px-6">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-heading mb-4 uppercase tracking-wider text-black">Our Services</h2>
           <div className="w-16 h-[1px] bg-[var(--color-gold)] mt-2"></div>
         </div>
@@ -261,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* SERVICES GRID */}
-      <section id="services" className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
+      <section id="services" className="py-8 md:py-12 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           {[
             { id: 1, name: 'Retouching Jewelry Photos', img: '/images/services/1.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
@@ -297,7 +297,7 @@ export default function Home() {
 
       {/* STATS COUNTER SECTION - NATURE / DARK LEAVES BACKGROUND */}
       <section 
-        className="py-20 md:py-32 relative overflow-hidden bg-[#111] shadow-2xl"
+        className="py-12 md:py-20 relative overflow-hidden bg-[#111] shadow-2xl"
       >
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
@@ -310,9 +310,9 @@ export default function Home() {
       </section>
 
       {/* GET A FREE DEMO SECTION */}
-      <section className="flex flex-col md:flex-row bg-[#EAE8E3]">
+      <section className="flex flex-col md:flex-row bg-[#F3F4F6]">
         <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
-          <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-contain p-4" />
         </div>
         <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-black">
           <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-black">Get A Free Demo</h2>
