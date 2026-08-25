@@ -82,10 +82,11 @@ export default function Home() {
         
         <Hero3DBackground />
 
-        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 max-w-7xl mx-auto w-full pt-8 md:pt-0">
-          <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 py-10 md:py-0 relative z-20">
+        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 w-full pt-8 md:pt-0">
+          <div className="w-full md:w-1/2 flex flex-col justify-center md:items-end py-10 md:py-0 relative z-20">
             
             <motion.div
+              className="w-full max-w-[640px] px-6 md:px-12"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, staggerChildren: 0.2 }}
@@ -151,7 +152,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-[55%] h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
+            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
             {heroMedia.map((media, idx) => {
               if (media.type === 'video') {
