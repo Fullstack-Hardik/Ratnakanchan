@@ -4,7 +4,7 @@ import { FaCcPaypal, FaCcVisa, FaCcMastercard, FaCcAmex, FaCreditCard } from 're
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F3F4F6] text-stone-800 pt-16 pb-12 px-6 border-t border-stone-200">
+    <footer className="bg-[#ECEDEF] text-stone-800 pt-16 pb-12 px-6 border-t border-stone-200">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pb-10">
         
         {/* Column 1: WHY RATNAKANCHAN.COM */}
