@@ -310,13 +310,13 @@ export default function Home() {
       </section>
 
       {/* GET A FREE DEMO SECTION */}
-      <section className="flex flex-col md:flex-row bg-[#F3F4F6]">
+      <section className="flex flex-col md:flex-row bg-[#727575]">
         <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
           <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-contain p-4" />
         </div>
-        <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-black">
-          <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-black">Get A Free Demo</h2>
-          <p className="text-sm text-gray-600 mb-10 max-w-lg leading-loose font-light">
+        <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-white">
+          <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-white">Get A Free Demo</h2>
+          <p className="text-sm text-gray-200 mb-10 max-w-lg leading-loose font-light">
             Apply for a free photo retouching trial. Send us your test image or CAD file and discover the world-class quality we provide. Fill the form below with your details and we will reach out to you.
           </p>
           
