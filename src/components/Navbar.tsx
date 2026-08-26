@@ -28,7 +28,7 @@ export default function Navbar() {
       <div className="w-full max-w-7xl mx-auto px-6 h-full flex justify-between items-center relative py-2">
         
         {/* LEFT SECTION: LOGO + DESKTOP LINKS */}
-        <div className="flex items-center gap-8 lg:gap-12">
+        <div className="flex items-center justify-center w-full lg:w-auto lg:justify-start gap-8 lg:gap-12">
           {/* LOGO */}
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-14 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />

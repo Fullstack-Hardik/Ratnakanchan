@@ -61,7 +61,7 @@ export default function AboutPage() {
             className="order-2 lg:order-1 relative"
           >
             <div className="aspect-square rounded-full overflow-hidden shadow-2xl relative border-8 border-gray-50">
-               <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1270766f-db0e-4d5b-85db-1cfedef9ac56_1600w.jpg" alt="Expertise" className="w-full h-full object-cover" />
+               <img src="/assets/images/retouching/Lifestyle After.jpg" alt="Expertise" className="w-full h-full object-cover" />
             </div>
             
             {/* Floating 3D Elements (Simulated) */}
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 We then transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity, customizing studio lighting, camera angles, metal textures, and backgrounds to showcase your designs beautifully and eliminate the need for expensive physical photography.
               </p>
               <p>
-                For unpolished CAD designs, we apply advanced texturing, hyper realistic diamond shading, and environment mapping to make them look completely indistinguishable from real photography. We bring designs to life further with smooth, high resolution 360 degree animations.
+                For unpolished CAD designs, we apply advanced texturing, hyper realistic diamond shading, and environment mapping to make them look completely indistinguishable from real photography. We bring designs to life further with smooth, high resolution 360 degree turntable animations, ideal for e-commerce platforms and Instagram reels, letting customers interactively view every intricate detail from every angle and building trust that boosts conversion rates. Finally, we seamlessly integrate your 3D jewelry renders with realistic human models, showing true to life scale, lighting interaction, and wearability, helping customers visualize exactly how a piece will look and feel when worn before they ever buy.
               </p>
             </div>
           </motion.div>
