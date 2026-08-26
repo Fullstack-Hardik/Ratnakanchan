@@ -60,8 +60,8 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             className="order-2 lg:order-1 relative"
           >
-            <div className="aspect-square rounded-full overflow-hidden shadow-2xl relative border-8 border-gray-50">
-               <img src="/assets/images/retouching/Lifestyle After.jpg" alt="Expertise" className="w-full h-full object-cover" />
+            <div className="w-full rounded-2xl overflow-hidden shadow-2xl relative border-8 border-gray-50 bg-white flex items-center justify-center">
+               <img src="/assets/images/retouching/Lifestyle After.jpg" alt="Expertise" className="w-full h-auto object-contain" />
             </div>
             
             {/* Floating 3D Elements (Simulated) */}
