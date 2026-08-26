@@ -83,7 +83,7 @@ export default function Home() {
         
         <Hero3DBackground />
 
-        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 w-full pt-8 md:pt-0">
+        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 w-full pt-2 md:pt-0">
           <div className="w-full md:w-1/2 flex flex-col justify-center md:items-end py-10 md:py-0 relative z-20">
             
             <motion.div
@@ -153,7 +153,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0 animated-border-wrapper"
+            className="w-[96%] mx-auto md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0 animated-border-wrapper"
           >
             <div className="animated-border-content">
               {heroMedia.map((media, idx) => {
@@ -287,9 +287,9 @@ export default function Home() {
                 {srv.isSlider ? (
                   <BeforeAfterSlider beforeImage={srv.before!} afterImage={srv.after!} alt={srv.name} />
                 ) : srv.img?.endsWith('.mp4') ? (
-                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
-                  <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                  <img src={srv.img} alt={srv.name} className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 )}
               </div>
               <div className="flex-1 flex flex-col">
