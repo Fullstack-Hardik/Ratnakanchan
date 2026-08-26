@@ -85,20 +85,23 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Areas of <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
             <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
               <p>
-                At Ratnakanchan Creations, we specialize in high-end jewelry photo retouching and 3D CAD modeling. With years of experience working closely with jewelry brands, we understand the precise details that make a piece truly shine—from color correcting rose gold and enhancing diamond brilliance to cleaning up minor imperfections in metal.
+                At Ratnakanchan Creations, we specialize in professional jewelry photo editing and CAD design services for jewelry brands, retailers, and e-commerce sellers across the United States. With over 17 years of hands on experience, our team understands exactly how to represent gold tones, diamond clarity, and gemstone color with precision, so your products look as stunning online as they do in person.
               </p>
               <p>
-                Our digital artists are masters at balancing realism with perfection. Whether it’s raw product photography that needs pristine reflections or creating photorealistic 3D renders from scratch, we deliver marketing-ready visuals that elevate your brand and drive sales.
+                Our expert photo retouching services are tailored specifically for jewelry businesses. We handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation, ensuring every piece sparkles perfectly and increasing your chances of turning online visitors into loyal buyers.
               </p>
               <p>
-                We also offer specialized 360-degree turntable animations and on-model retouching, helping customers visualize your jewelry from every angle and giving them the confidence they need before they ever buy.
+                To speed up delivery without compromising quality, we also use AI powered retouching for background cleanup, color consistency, and repetitive corrections at scale, while our expert retouchers refine every image by hand for accuracy, giving you faster turnaround on large batches without losing that human crafted finish.
               </p>
-              
-              <div className="pt-4 space-y-2 text-sm text-black italic font-medium">
-                {/* [USER WILL PROVIDE THE FINAL TWO EXPERTISE POINTS] */}
-                <p>1. [Final Expertise Point Placeholder 1]</p>
-                <p>2. [Final Expertise Point Placeholder 2]</p>
-              </div>
+              <p>
+                On the design side, we deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure every prong, setting, and curve is mathematically perfect, providing you with precise STL files that are ready for 3D printing and seamless manufacturing.
+              </p>
+              <p>
+                We then transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity, customizing studio lighting, camera angles, metal textures, and backgrounds to showcase your designs beautifully and eliminate the need for expensive physical photography.
+              </p>
+              <p>
+                For unpolished CAD designs, we apply advanced texturing, hyper realistic diamond shading, and environment mapping to make them look completely indistinguishable from real photography. We bring designs to life further with smooth, high resolution 360 degree animations.
+              </p>
             </div>
           </motion.div>
         </div>
