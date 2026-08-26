@@ -82,25 +82,22 @@ export default function AboutPage() {
             variants={fadeUpBlur}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Core <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
+            <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Areas of <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
             <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
               <p>
-                Ratna Kanchan specializes in the <strong>digital correction and enhancement of diamond and fine-jewelry imagery</strong>, regardless of the original source. Our expertise covers digitally photographed images, scanned artwork, CAD-rendered visuals, and even preliminary jewelry sketches supplied by designers.
+                At Ratnakanchan Creations, we specialize in high-end jewelry photo retouching and 3D CAD modeling. With years of experience working closely with jewelry brands, we understand the precise details that make a piece truly shine—from color correcting rose gold and enhancing diamond brilliance to cleaning up minor imperfections in metal.
               </p>
               <p>
-                In today's digital-first jewelry market, especially across e-commerce platforms, high-quality visual presentation is essential. Our experienced team of <strong>retouchers and CAD designers</strong> provides specialized services across a wide range of jewelry categories, including Rings, Earrings, Pendants, Bracelets, Necklaces, Diamond jewelry, and Gold jewelry.
+                Our digital artists are masters at balancing realism with perfection. Whether it’s raw product photography that needs pristine reflections or creating photorealistic 3D renders from scratch, we deliver marketing-ready visuals that elevate your brand and drive sales.
               </p>
               <p>
-                With <strong>more than 17 years of industry experience</strong>, Ratna Kanchan has developed deep expertise in jewelry-specific color correction, gold tones, diamonds, gemstones, settings, proportions, reflections, highlights, and intricate design details.
+                We also offer specialized 360-degree turntable animations and on-model retouching, helping customers visualize your jewelry from every angle and giving them the confidence they need before they ever buy.
               </p>
               
-              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-black">
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Jewelry photo retouching</div>
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> CAD jewelry designing</div>
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Jewelry rendering</div>
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> E-commerce image editing</div>
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> 360° turntable animations</div>
-                <div className="flex items-center gap-2"><span className="text-[var(--color-gold)]">✦</span> Wear-model retouching</div>
+              <div className="pt-4 space-y-2 text-sm text-black italic font-medium">
+                {/* [USER WILL PROVIDE THE FINAL TWO EXPERTISE POINTS] */}
+                <p>1. [Final Expertise Point Placeholder 1]</p>
+                <p>2. [Final Expertise Point Placeholder 2]</p>
               </div>
             </div>
           </motion.div>

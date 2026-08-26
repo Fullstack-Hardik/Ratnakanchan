@@ -24,6 +24,9 @@ export default function CadDesigningPage() {
             <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
               The most powerful software for 3D modeling are Rhino and Matrix. They are enabling jewelry CAD designers to create different types of 3D jewelry models according to initial jewelry drawing. The mentioned software are giving possibility to show jewelry models in different surfaces and in detail. Our jewelry CAD designers will complete the jewelry modeling process in reduced time keeping the quality of jewelry models. The concept of the model can be produced as a result of discussions between CAD designers and clients.
             </p>
+            <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
+              Our jewelry CAD designing service helps transform sketches, reference images, physical jewelry and creative concepts into accurate three dimensional models. Every design is developed with careful attention to proportions, stone placement, settings, prongs, curves and fine details so that the digital model closely represents the intended jewelry piece.
+            </p>
             <Link href="/contact" className="inline-flex items-center gap-3 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-colors px-8 py-4 rounded-full font-body font-semibold tracking-wide shadow-xl">
               Start Your 3D Project <ArrowRight size={18} />
             </Link>
@@ -72,6 +75,7 @@ export default function CadDesigningPage() {
          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-tight mb-4">Our Latest Work</h2>
             <p className="text-lg font-body text-stone-600">A glimpse into our high-quality CAD designs.</p>
+            <p className="text-lg font-body text-stone-600 mt-4 text-left">A professionally prepared jewelry CAD model provides a strong foundation for manufacturing, rendering and product presentation. Our designers can refine design details based on client feedback and prepare models that support the next stage of the jewelry production workflow. This approach helps reduce design uncertainty and allows the final concept to be reviewed before manufacturing begins.</p>
          </div>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-100 bg-white p-4">
@@ -80,6 +84,16 @@ export default function CadDesigningPage() {
             <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-100 bg-white p-4">
                <Image src="/images/cad/snapshot2.png" width={800} height={800} alt="CAD Render Showcase 2" className="w-full h-auto object-cover rounded-2xl" />
             </div>
+         </div>
+      </section>
+
+      {/* Why Ratnakanchan.com Section */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-20 relative z-10">
+         <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-tight mb-6 text-[var(--color-gold)]">Why Ratnakanchan.com</h2>
+            <p className="text-lg font-body text-stone-600 leading-relaxed">
+              Our CAD workflow combines design understanding with attention to manufacturing requirements. We work with jewelry businesses that need reliable digital models for custom pieces, new collections, production development and visualization. Each project is handled according to the design specifications and the intended final use.
+            </p>
          </div>
       </section>
 

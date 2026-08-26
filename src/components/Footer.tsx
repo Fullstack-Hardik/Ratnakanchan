@@ -50,7 +50,7 @@ export default function Footer() {
             <li>
               <span className="underline decoration-1 underline-offset-4">E-mail :</span>{' '}
               <a href="mailto:info@ratnakanchan.com" className="text-[#2F80ED] hover:text-[#1A202C]">info@ratnakanchan.com</a>,{' '}
-              <a href="mailto:ratnakanchan@hotmail.com" className="text-[#2F80ED] hover:text-[#1A202C]">ratnakanchan@hotmail.com</a>
+              <a href="mailto:MKT@ratnakanchan.com" className="text-[#2F80ED] hover:text-[#1A202C]">MKT@ratnakanchan.com</a>
             </li>
           </ul>
         </div>
@@ -60,7 +60,7 @@ export default function Footer() {
           <h4 className="text-[18px] font-semibold mb-6 text-[#1A202C] tracking-wide">Payment Options</h4>
           
           {/* Payment Options Icons */}
-          <div className="mb-14 border border-gray-200 rounded-lg p-3 bg-white shadow-sm inline-flex items-center gap-3 w-fit max-w-full flex-wrap">
+          <div className="border border-gray-200 rounded-lg p-3 bg-white shadow-sm inline-flex items-center gap-3 w-fit max-w-full flex-wrap">
             <div className="text-[#003087]">
               <FaCcPaypal size={40} />
             </div>
@@ -77,19 +77,6 @@ export default function Footer() {
               <FaCcAmex size={40} />
             </div>
           </div>
-
-          {/* Pure CSS Get Quote Button */}
-          <button 
-            onClick={() => window.open('https://wa.me/919820892246?text=I%20would%20like%20to%20get%20a%20quote', '_blank')}
-            className="group relative flex items-center h-[70px] bg-gradient-to-b from-[#444] to-[#111] hover:from-[#222] hover:to-[#000] text-white rounded-l-full rounded-r-full pl-10 pr-20 transition-all shadow-xl w-fit cursor-pointer border border-[#333]"
-          >
-            <span className="text-[28px] font-bold tracking-wide z-10 mr-4 font-sans">Get quote</span>
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[95px] w-[95px] bg-gradient-to-br from-[#FF2020] to-[#C80000] rounded-full flex items-center justify-center shadow-lg transform translate-x-5 group-hover:scale-105 transition-transform border-[3px] border-[#F3F4F6]">
-              <svg className="w-10 h-10 text-white ml-2 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-              </svg>
-            </div>
-          </button>
         </div>
       </div>
     </footer>

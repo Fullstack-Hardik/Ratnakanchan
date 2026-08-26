@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import Hero3DBackground from '@/components/Hero3DBackground';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 const heroMedia = [
   {
@@ -15,9 +16,9 @@ const heroMedia = [
     alt: 'Jewelry Video',
   },
   {
-    type: 'image',
-    src: '/images/hero/image_copy.png',
-    alt: 'Diamond Bracelet',
+    type: 'video',
+    src: '/assets/videos/Model.mp4',
+    alt: 'Model Video',
   },
 ];
 
@@ -152,40 +153,42 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
+            className="w-full md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0 animated-border-wrapper"
           >
-            {heroMedia.map((media, idx) => {
-              if (media.type === 'video') {
+            <div className="animated-border-content">
+              {heroMedia.map((media, idx) => {
+                if (media.type === 'video') {
+                  return (
+                    <motion.video
+                      key={media.src}
+                      src={media.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
+                      transition={{ duration: 1.2, ease: "easeInOut" }}
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                  );
+                }
                 return (
-                  <motion.video
+                  <motion.img 
                     key={media.src}
-                    src={media.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                    src={media.src} 
+                    alt={media.alt}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full object-cover object-center"
                   />
                 );
-              }
-              return (
-                <motion.img 
-                  key={media.src}
-                  src={media.src} 
-                  alt={media.alt}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                />
-              );
-            })}
+              })}
 
-            {/* Soft gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none"></div>
+              {/* Soft gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-10"></div>
+            </div>
 
             {/* Carousel Indicators */}
             <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
@@ -241,7 +244,7 @@ export default function Home() {
       {/* NEW OUR SERVICES SECTION */}
       <section className="pt-12 md:pt-16 pb-6 bg-white max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading mb-4 uppercase tracking-wider text-black">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-heading mb-4 uppercase tracking-wider text-black">Our Services</h2>
           <div className="w-16 h-[1px] bg-[var(--color-gold)] mt-2"></div>
         </div>
 
@@ -265,12 +268,12 @@ export default function Home() {
       <section id="services" className="py-8 md:py-12 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           {[
-            { id: 1, name: 'Retouching Jewelry Photos', img: '/images/services/1.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
+            { id: 1, name: 'Retouching Jewelry Photos', isSlider: true, before: '/images/retouching/4 Before.jpg', after: '/images/retouching/4 After.jpg', desc: 'Our expert photo retouching services are tailored specifically for jewelry businesses. We meticulously handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation. We ensure every facet of your jewelry sparkles perfectly, significantly increasing your chances of turning online visitors into loyal buyers.' },
             { id: 2, name: 'CAD Designing', img: '/images/services/2.jpg', desc: 'We deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure that every prong, setting, and curve is mathematically perfect. We provide you with precise STL files that are strictly ready for 3D printing and seamless manufacturing, guaranteeing the final piece perfectly matches your original vision.' },
             { id: 3, name: 'CAD to Render Image', img: '/images/services/3.jpg', desc: 'Transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity. We meticulously customize the studio lighting, camera angles, metal textures, and appealing backgrounds to showcase your designs beautifully. This completely eliminates the need for expensive physical photography while providing marketing-ready assets for your website and social media.' },
             { id: 4, name: 'CAD to 360 Degree Animation', img: '/images/services/4.mp4', desc: 'Bring your static designs to life with our smooth, high-resolution 360-degree turntable animations. Ideal for e-commerce platforms and Instagram reels, these looping videos allow your customers to interactively view every intricate detail of your jewelry from every angle, building immense trust and boosting your online conversion rates significantly.' },
             { id: 5, name: 'Transforming Jewelry CAD Designs', img: '/images/services/5.jpg', desc: 'We take complex, unpolished CAD designs and transform them into gorgeous, market-ready visual assets. By applying advanced texturing, hyper-realistic diamond shading, and environment mapping, we ensure that your digital designs look completely indistinguishable from physical, high-end studio photography, elevating your overall brand perception.' },
-            { id: 6, name: 'Photorealistic Model Animations', img: '/images/services/6.mp4', desc: 'Take your jewelry presentation to the absolute next level. We seamlessly integrate your 3D jewelry renders with realistic human models, showing true-to-life scale, lighting interaction, and wearability. This premium service helps customers visualize exactly how the jewelry will look on themselves, driving higher engagement and sales.' },
+            { id: 6, name: 'AI Jewellery Retouching', img: '/images/services/6.mp4', desc: 'Take your jewelry presentation to the absolute next level. We seamlessly integrate your 3D jewelry renders with realistic human models, showing true-to-life scale, lighting interaction, and wearability. This premium service helps customers visualize exactly how the jewelry will look on themselves, driving higher engagement and sales.' },
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
@@ -281,7 +284,9 @@ export default function Home() {
               className="group flex flex-col border border-gray-100 bg-[#FAFAFA] p-6 hover:bg-white transition-colors duration-500"
             >
               <div className="relative overflow-hidden w-full aspect-[4/3] mb-8 bg-gray-200">
-                {srv.img.endsWith('.mp4') ? (
+                {srv.isSlider ? (
+                  <BeforeAfterSlider beforeImage={srv.before!} afterImage={srv.after!} alt={srv.name} />
+                ) : srv.img?.endsWith('.mp4') ? (
                   <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
                   <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />

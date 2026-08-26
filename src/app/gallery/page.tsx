@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import ReactLenis from "lenis/react";
 import { X } from "lucide-react";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 interface CardData {
   id: number | string;
@@ -100,211 +101,37 @@ const Lightbox = ({
 };
 
 /* ─────────────────────────────────────────────────────
-   Desktop: Skiper30 Parallax Gallery (4‑column)
+   Clean Static Image Grid Gallery
    ───────────────────────────────────────────────────── */
-const Skiper30 = ({
-  images,
-  onImageClick,
-}: {
-  images: string[];
-  onImageClick: (src: string, alt: string) => void;
-}) => {
-  const gallery = useRef<HTMLDivElement>(null);
-  const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
-  const { scrollYProgress } = useScroll({
-    target: gallery,
-    offset: ["start end", "end start"],
-  });
-
-  const { height } = dimension;
-  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
-
-  useEffect(() => {
-    const resize = () => {
-      setDimension({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", resize);
-    resize();
-
-    return () => {
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <div className="w-full bg-[#111] text-white">
-      <div
-        ref={gallery}
-        className="relative box-border flex h-[150vh] gap-[2vw] overflow-hidden bg-[#0A0A0A] p-[2vw]"
-      >
-        <Column
-          images={[images[0], images[1], images[2]]}
-          y={y}
-          onImageClick={onImageClick}
-        />
-        <Column
-          images={[images[3], images[4], images[0]]}
-          y={y2}
-          onImageClick={onImageClick}
-        />
-        <Column
-          images={[images[1], images[2], images[3]]}
-          y={y3}
-          onImageClick={onImageClick}
-        />
-        <Column
-          images={[images[4], images[0], images[1]]}
-          y={y4}
-          onImageClick={onImageClick}
-        />
-      </div>
-    </div>
-  );
-};
-
-type ColumnProps = {
-  images: string[];
-  y: MotionValue<number>;
-  onImageClick: (src: string, alt: string) => void;
-};
-
-const Column = ({ images, y, onImageClick }: ColumnProps) => {
-  return (
-    <motion.div
-      className="relative -top-[45%] flex h-full w-1/4 min-w-[250px] flex-col gap-[2vw] first:top-[-45%] [&:nth-child(2)]:top-[-95%] [&:nth-child(3)]:top-[-45%] [&:nth-child(4)]:top-[-75%]"
-      style={{ y }}
-    >
-      {images.map((src, i) => (
-        <div
-          key={i}
-          className="relative h-full w-full overflow-hidden rounded-sm cursor-pointer group"
-          onClick={() => onImageClick(src, "Gallery image")}
-        >
-          <Image
-            src={src}
-            alt="Gallery image"
-            fill
-            sizes="(max-width: 768px) 50vw, 25vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
-        </div>
-      ))}
-    </motion.div>
-  );
-};
-
-/* ─────────────────────────────────────────────────────
-   Mobile: 2‑Column Grid with Scroll Animations
-   ───────────────────────────────────────────────────── */
-const MobileGalleryItem = ({
-  src,
-  alt,
-  index,
-  onImageClick,
-}: {
-  src: string;
-  alt: string;
-  index: number;
-  onImageClick: (src: string, alt: string) => void;
-}) => {
-  const shouldReduceMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={
-        shouldReduceMotion
-          ? { opacity: 1 }
-          : { opacity: 0, y: 30, scale: 0.96 }
-      }
-      whileInView={
-        shouldReduceMotion
-          ? { opacity: 1 }
-          : { opacity: 1, y: 0, scale: 1 }
-      }
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.5,
-        delay: (index % 2) * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
-      className="relative w-full aspect-[3/4] overflow-hidden rounded-lg bg-stone-100 cursor-pointer group"
-      onClick={() => onImageClick(src, alt)}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 768px) 50vw, 100vw"
-        className="object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
-    </motion.div>
-  );
-};
-
-const MobileGallery = ({
+const SimpleGallery = ({
   cards,
   onImageClick,
 }: {
   cards: CardData[];
   onImageClick: (src: string, alt: string) => void;
 }) => {
-  /* Double up the images to fill the grid nicely */
-  const allImages = [...cards, ...cards];
-
   return (
-    <div className="w-full bg-[#111] px-3 py-8">
-      <div className="grid grid-cols-2 gap-3">
-        {allImages.map((card, i) => (
-          <MobileGalleryItem
+    <div className="w-full max-w-7xl mx-auto px-6 py-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {cards.map((card, i) => (
+          <div
             key={`${card.id}-${i}`}
-            src={card.image}
-            alt={card.alt || "Gallery image"}
-            index={i}
-            onImageClick={onImageClick}
-          />
+            className="relative w-full aspect-[4/5] overflow-hidden rounded-xl bg-gray-900 cursor-pointer group shadow-md hover:shadow-xl transition-all duration-300"
+            onClick={() => onImageClick(card.image, card.alt || "Gallery image")}
+          >
+            <Image
+              src={card.image}
+              alt={card.alt || "Gallery image"}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 pointer-events-none" />
+          </div>
         ))}
       </div>
     </div>
   );
-};
-
-/* ─────────────────────────────────────────────────────
-   Responsive Wrapper — picks desktop vs. mobile
-   ───────────────────────────────────────────────────── */
-const ResponsiveGallery = ({
-  cards,
-  onImageClick,
-}: {
-  cards: CardData[];
-  onImageClick: (src: string, alt: string) => void;
-}) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    setMounted(true);
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  if (!mounted) return null;
-
-  const rawImages = cards.map((c) => c.image);
-
-  if (isMobile) {
-    return <MobileGallery cards={cards} onImageClick={onImageClick} />;
-  }
-
-  return <Skiper30 images={rawImages} onImageClick={onImageClick} />;
 };
 
 /* ─────────────────────────────────────────────────────
@@ -325,14 +152,19 @@ export default function GalleryPage() {
   }, []);
 
   const galleryImages: CardData[] = [
-    { id: 1, image: "/images/gallery/new_1.jpg", alt: "Diamond Ring in Box" },
-    { id: 2, image: "/images/gallery/new_2.jpg", alt: "Gold Diamond Ring" },
-    { id: 3, image: "/images/gallery/new_3.jpg", alt: "Model wearing Diamond Ring" },
-    { id: 4, image: "/images/gallery/new_4.jpg", alt: "Hand with Diamond Ring" },
-    { id: 5, image: "/images/uploads/upload_1.png", alt: "Diamond Stud Earrings Front" },
-    { id: 6, image: "/images/uploads/upload_2.png", alt: "Diamond Stud Earrings Side" },
-    { id: 7, image: "/images/uploads/upload_3.jpg", alt: "Multiple Ring Views" },
-    { id: 9, image: "/images/uploads/upload_5.png", alt: "Gold Diamond Rings" },
+    { id: 1, image: "/images/gallery_new/24-2-scaled-1024x1024.webp", alt: "Diamond Ring Works" },
+    { id: 2, image: "/images/gallery_new/25-1024x1024.webp", alt: "Gold Diamond Ring" },
+    { id: 3, image: "/images/gallery_new/01-1024x576.jpg", alt: "Jewelry Render" },
+    { id: 4, image: "/images/gallery_new/DSC_9239-R-1024x1024.jpg", alt: "Necklace Piece" },
+    { id: 5, image: "/images/gallery_new/Retouch.jpg", alt: "Retouch Example" },
+    { id: 6, image: "/images/gallery_new/360_F_84374602_OeD22cEqPE8CQo9ZznwO7DIQhUxjR3Tg-removebg-preview.png", alt: "Diamond Work" },
+  ];
+
+  const beforeAfterPairs = [
+    { before: "/images/retouching/4 Before.jpg", after: "/images/retouching/4 After.jpg", alt: "High-End Retouching" },
+    { before: "/images/retouching/Lifestyle Before.jpg", after: "/images/retouching/Lifestyle After.jpg", alt: "Lifestyle Retouching" },
+    { before: "/images/retouching/Ring 1 Before.jpg", after: "/images/retouching/Ring 1 After.jpg", alt: "Ring Retouching" },
+    { before: "/images/retouching/Front Banner Before.jpg", after: "/images/retouching/Front Banner After.jpg", alt: "Banner Retouching" }
   ];
 
   return (
@@ -349,11 +181,37 @@ export default function GalleryPage() {
           </p>
         </section>
 
-        {/* Responsive Gallery — Desktop: Skiper30 parallax, Mobile: 2‑col grid */}
-        <ResponsiveGallery
-          cards={galleryImages}
-          onImageClick={handleImageClick}
-        />
+        {/* Before / After Section */}
+        <section className="py-16 bg-white px-6">
+          <div className="max-w-7xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-heading text-black mb-4 uppercase tracking-wider">Before & After</h2>
+            <div className="w-16 h-[1px] bg-[var(--color-gold)] mx-auto"></div>
+            <p className="mt-6 text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+              Experience the remarkable difference our professional retouching brings to raw jewelry photography.
+              Drag the slider to see the transformation.
+            </p>
+          </div>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {beforeAfterPairs.map((pair, idx) => (
+              <div key={idx} className="w-full aspect-[4/3] relative rounded-xl overflow-hidden shadow-lg border border-gray-100 bg-gray-50">
+                <BeforeAfterSlider beforeImage={pair.before} afterImage={pair.after} alt={pair.alt} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Our Works Section */}
+        <section className="py-16 bg-[#111]">
+          <div className="max-w-7xl mx-auto text-center px-6">
+            <h2 className="text-3xl md:text-5xl font-heading text-white mb-4 uppercase tracking-wider">Our Works</h2>
+            <div className="w-16 h-[1px] bg-[var(--color-gold)] mx-auto mb-10"></div>
+          </div>
+          {/* Simple Clean Static Grid */}
+          <SimpleGallery
+            cards={galleryImages}
+            onImageClick={handleImageClick}
+          />
+        </section>
 
         <section className="py-24 text-center bg-[#111]">
           <h2 className="text-3xl font-heading text-white mb-6">

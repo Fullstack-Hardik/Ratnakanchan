@@ -108,6 +108,26 @@ export default function AIJewelryRetouching() {
             >
                Jewelry Retouchers delivers some of the best high-end jewelry photo retouching work in the industry. We&apos;re confident in our skills yet recognize the importance of technology. So, apart from investing in ourselves, we also invest in powerful computers and photo editing tools and software. Your photos will get the high-end treatment they deserve.
             </motion.p>
+            
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-stone-900 mt-8 mb-4">AI Jewelry Retouching</h3>
+            <p className="text-lg md:text-xl text-stone-600 font-body leading-relaxed">
+               Our AI assisted jewelry retouching workflow helps improve efficiency when processing large volumes of jewelry photographs. AI based tools can assist with repetitive image editing tasks, while professional review helps preserve important details such as gemstone edges, diamond facets, metal reflections and product shape.
+            </p>
+            
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-stone-900 mt-8 mb-4">AI Assisted Image Enhancement</h3>
+            <p className="text-lg md:text-xl text-stone-600 font-body leading-relaxed">
+               AI assisted processing can support background cleanup, image enhancement, imperfection detection and color adjustments. These techniques can reduce repetitive editing time while allowing the final image to be refined according to the specific requirements of the jewelry brand.
+            </p>
+            
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-stone-900 mt-8 mb-4">Professional Quality Control</h3>
+            <p className="text-lg md:text-xl text-stone-600 font-body leading-relaxed">
+               Jewelry requires careful handling because excessive enhancement can change the appearance of the actual product. Our approach combines technology with professional retouching so that metals, diamonds, gemstones and fine details remain realistic and suitable for commercial use.
+            </p>
+            
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-stone-900 mt-8 mb-4">For Large Jewelry Catalogs</h3>
+            <p className="text-lg md:text-xl text-stone-600 font-body leading-relaxed">
+               AI assisted workflows are particularly useful for jewelry manufacturers, retailers, wholesalers and e-commerce businesses managing large product collections. Consistent processing can help maintain a uniform appearance across hundreds or thousands of images.
+            </p>
          </div>
       </section>
 

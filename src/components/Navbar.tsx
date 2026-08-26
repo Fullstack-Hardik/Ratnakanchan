@@ -25,45 +25,53 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-1 bg-white/90 shadow-sm backdrop-blur-xl border-b border-gray-200' : 'py-2 bg-white/60 backdrop-blur-md border-b border-transparent'}`}>
-      <div className="w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center items-center relative">
+      <div className="w-full max-w-7xl mx-auto px-6 h-full flex justify-between items-center relative py-2">
         
-        {/* LOGO - Top Center */}
-        <div className="flex justify-center items-center lg:mb-2">
+        {/* LEFT SECTION: LOGO + DESKTOP LINKS */}
+        <div className="flex items-center gap-8 lg:gap-12">
+          {/* LOGO */}
           <Link href="/" className="flex items-center">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-10 sm:h-14 w-auto object-contain transition-opacity hover:opacity-90 mix-blend-multiply" />
           </Link>
-        </div>
 
-        {/* DESKTOP LINKS & SOCIAL - Bottom Center */}
-        <div className="hidden lg:flex items-center justify-center w-full relative">
-          
-          {/* Nav Links */}
-          <div className="flex items-center justify-center space-x-6 lg:space-x-8 text-[11px] font-medium tracking-[0.15em] uppercase text-black/60">
+          {/* DESKTOP LINKS */}
+          <div className="hidden lg:flex items-center space-x-6 lg:space-x-8 text-[13px] font-medium tracking-[0.15em] uppercase text-black/70">
             <Link href="/" className="hover:text-[var(--color-gold)] transition-colors">Home</Link>
             
-            <div className="relative group flex items-center">
+            <div className="relative group flex items-center h-full">
               <button className="hover:text-[var(--color-gold)] transition-colors uppercase tracking-[0.15em] py-1">
                 Services
               </button>
-              <div className="absolute top-[100%] left-1/2 -translate-x-1/2 mt-1 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
-              <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching</Link>
-              <Link href="/cad-designing" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Designing</Link>
-              <Link href="/cad-to-render-image" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD to Render Image</Link>
-              <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">360 Animation Rendering</Link>
-              <Link href="/jwellery-retouching-with-model" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching with Model</Link>
-              <Link href="/ai-jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">AI Jewelry Retouching</Link>
+              <div className="absolute top-full left-0 mt-2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-4 px-3 border border-gray-100 shadow-2xl">
+                <Link href="/jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching</Link>
+                <Link href="/cad-designing" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD Designing</Link>
+                <Link href="/cad-to-render-image" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">CAD to Render Image</Link>
+                <Link href="/360-animation-rendering" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">360 Animation Rendering</Link>
+                <Link href="/jwellery-retouching-with-model" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">Jewelry Retouching with Model</Link>
+                <Link href="/ai-jwellery-retouching" className="px-4 py-2.5 hover:bg-gray-50 rounded-md hover:text-[var(--color-gold)] transition-colors text-xs tracking-wide text-black/80">AI Jewelry Retouching</Link>
+              </div>
             </div>
-          </div>
-          
+            
             <Link href="/gallery" className="hover:text-[var(--color-gold)] transition-colors">Gallery</Link>
             <Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link>
             <Link href="/pricing" className="hover:text-[var(--color-gold)] transition-colors">Pricing</Link>
             <Link href="/about" className="hover:text-[var(--color-gold)] transition-colors">About</Link>
             <Link href="/contact" className="hover:text-[var(--color-gold)] transition-colors">Contact</Link>
+            <Link 
+              href="/contact#contact-form" 
+              className="bg-[var(--color-gold)] text-white px-5 py-2 rounded-sm font-medium text-[13px] tracking-widest uppercase hover:bg-yellow-700 hover:shadow-lg transition-all duration-300 ml-4"
+            >
+              Free Sample
+            </Link>
           </div>
+        </div>
 
-          {/* Social Links (Absolute right aligned with nav links) */}
-          <div className="absolute right-0 flex items-center gap-4">
+        {/* RIGHT SECTION: SOCIAL & CALL (Desktop) */}
+        <div className="hidden lg:flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            <a href="tel:+919876543210" aria-label="Call Us" className="text-black/50 hover:text-[var(--color-gold)] transition-colors duration-300">
+              <Phone size={17} />
+            </a>
             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/50 hover:text-[#E1306C] transition-colors duration-300">
               <FaInstagram size={17} />
             </a>
@@ -83,9 +91,15 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* MOBILE WHATSAPP (Absolute Right on Mobile) */}
-        <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 right-6">
-          <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366] p-1 -mr-1">
+        {/* MOBILE WHATSAPP & FREE SAMPLE (Absolute Right on Mobile) */}
+        <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 right-6 items-center gap-4">
+          <Link 
+            href="/contact#contact-form" 
+            className="bg-[var(--color-gold)] text-white px-3 py-1.5 rounded-sm font-medium text-[10px] tracking-wider uppercase hover:bg-yellow-700 transition-colors"
+          >
+            Free Sample
+          </Link>
+          <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="text-[#25D366] p-1 -mr-1 hidden sm:block">
              <FaWhatsapp size={22} />
           </a>
         </div>

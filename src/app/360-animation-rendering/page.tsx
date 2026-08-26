@@ -94,6 +94,9 @@ export default function Animation360Page() {
               <p className="text-lg font-body text-stone-600 leading-relaxed">
                 High Quality Photo Rendering is very important, as they can be used to enhance proposals, presentations and website sales. The customer wants to see 3D models as they would appear in real life, using specific gemstones and material colors, in a specific environment or angle.
               </p>
+              <p className="text-lg font-body text-stone-600 leading-relaxed mt-4">
+                High quality rendering helps customers understand jewelry designs more clearly by presenting realistic materials, gemstones, lighting and proportions. When combined with an interactive 360 degree view, the product can be explored from multiple angles, creating a more informative and engaging online shopping experience.
+              </p>
               <div className="flex gap-4 items-center">
                  <div className="w-12 h-12 rounded-full bg-[var(--color-gold)]/10 flex items-center justify-center">
                    <MonitorPlay className="w-5 h-5 text-[var(--color-gold)]" />
@@ -120,6 +123,9 @@ export default function Animation360Page() {
            <h2 className="text-5xl md:text-7xl font-heading font-medium tracking-tight mb-8">Professional Realism</h2>
            <p className="text-xl font-body text-stone-600 max-w-3xl mx-auto leading-relaxed">
              We offer professional jewelry rendering for any type of project. Our talented jewelry CAD designers are able to create realistic 3D photo renderings using powerful software where every single detail is visually represented. 
+           </p>
+           <p className="text-xl font-body text-stone-600 max-w-3xl mx-auto leading-relaxed mt-6">
+             Our 360 degree product animation focuses on realistic metal surfaces, gemstone appearance, reflections and lighting. The animation is designed to keep the jewelry consistent throughout the rotation so that customers can clearly understand the design from every angle.
            </p>
          </div>
 
@@ -204,6 +210,9 @@ export default function Animation360Page() {
               </h2>
               <p className="text-xl text-stone-600 font-body max-w-lg leading-relaxed">
                 Contact us to discuss your 360° animation requirements and bring your designs to life.
+              </p>
+              <p className="text-lg text-stone-500 font-body max-w-lg leading-relaxed mt-4">
+                Interactive jewelry animation can be used for e-commerce product pages, online catalogs, presentations, social media and digital campaigns. It provides a modern way to showcase jewelry and helps customers evaluate the complete design before making a purchase.
               </p>
             </div>
             <Link href="/contact" className="inline-flex items-center gap-4 bg-[var(--color-gold)] text-white hover:bg-stone-900 transition-all duration-300 font-body font-bold uppercase tracking-widest px-10 py-6 rounded-2xl shadow-xl hover:-translate-y-1 flex-shrink-0">

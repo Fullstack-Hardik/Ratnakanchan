@@ -42,18 +42,31 @@ export default function ContactPage() {
         </motion.p>
       </section>
 
+      {/* Featured Image Section */}
+      <section className="px-6 py-10 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full aspect-[21/9] bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100 relative"
+          >
+            <img 
+              src="/images/contactpg.jpg" 
+              alt="Ratnakanchan Creations Workspace" 
+              className="w-full h-full object-cover"
+            />
+            {/* Fallback overlay in case image doesn't exist yet */}
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-200/50 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity">
+               <span className="text-gray-500 font-medium tracking-widest uppercase text-sm">[USER WILL PROVIDE CONTACT PAGE IMAGE]</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Content & Map Section */}
       <section className="py-20 px-6 bg-white relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <img 
-            src="/images/hero/Contact pg.jpg" 
-            alt="Jewelry Background" 
-            className="w-full h-full object-cover opacity-10 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-        </div>
-        
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -105,23 +118,23 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full h-full min-h-[400px] bg-gray-100 rounded-sm overflow-hidden shadow-xl border border-gray-200 relative group"
           >
-            {/* Minimal stylized iframe for Google Maps */}
+            {/* Native Satellite Google Maps Iframe */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.835150937175!2d72.880467!3d19.070966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c897f262bba3%3A0x6b19dc18c1569429!2sKurla%20West%2C%20Kurla%2C%20Mumbai%2C%20Maharashtra%20400070!5e0!3m2!1sen!2sin!4v1717240000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=19.070966,72.880467&t=k&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'grayscale(1) contrast(1.2)' }}
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 group-hover:filter-none transition-all duration-700"
+              className="absolute inset-0 transition-all duration-700"
             ></iframe>
           </motion.div>
         </div>
       </section>
 
       {/* Form Section */}
-      <section className="py-24 px-6 bg-[#F8F6F2] border-t border-gray-200 relative overflow-hidden">
+      <section id="contact-form" className="py-24 px-6 bg-[#F8F6F2] border-t border-gray-200 relative overflow-hidden">
         {/* Subtle decorative background blur */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[var(--color-gold)] opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[var(--color-gold)] opacity-10 blur-[100px] rounded-full pointer-events-none"></div>

@@ -8,77 +8,13 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Scissors, Wand2, Sparkles, Diamond, Sun, Droplets, PlayCircle, MoveHorizontal } from 'lucide-react';
 import ScrollVelocity from '@/components/ui/ScrollVelocity';
 
-const BeforeAfterSlider = ({ beforeImage, afterImage, alt }: { beforeImage: string, afterImage: string, alt: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const beforeContainerRef = useRef<HTMLDivElement>(null);
-  const handleRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-
-  const handleMove = (clientX: number) => {
-    if (!containerRef.current || !beforeContainerRef.current || !handleRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
-
-    beforeContainerRef.current.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-    handleRef.current.style.left = `${percent}%`;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging.current) handleMove(e.clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (isDragging.current) handleMove(e.touches[0].clientX);
-  };
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-ew-resize select-none group"
-      onMouseMove={handleMouseMove}
-      onMouseUp={() => isDragging.current = false}
-      onMouseLeave={() => isDragging.current = false}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={() => isDragging.current = false}
-      onMouseDown={() => isDragging.current = true}
-      onTouchStart={() => isDragging.current = true}
-    >
-      {/* After Image (Background, Right Side) */}
-      <Image src={afterImage} alt={alt + " After"} fill className="object-cover pointer-events-none" draggable={false} sizes="(max-width: 768px) 100vw, 50vw" />
-
-      {/* Before Image (Foreground, Left Side, Clipped) */}
-      <div
-        ref={beforeContainerRef}
-        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
-        style={{ clipPath: `inset(0 50% 0 0)` }}
-      >
-        <Image src={beforeImage} alt={alt + " Before"} fill className="object-cover" draggable={false} sizes="(max-width: 768px) 100vw, 50vw" />
-      </div>
-
-      {/* Slider Line & Handle */}
-      <div
-        ref={handleRef}
-        className="absolute top-0 bottom-0 w-1 bg-white/80 cursor-ew-resize flex items-center justify-center transition-none"
-        style={{ left: `50%`, transform: 'translateX(-50%)' }}
-      >
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-2xl border border-stone-200 text-stone-600 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
-          <MoveHorizontal size={18} />
-        </div>
-      </div>
-
-      {/* Labels */}
-      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">Before</div>
-      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">After</div>
-    </div>
-  );
-};
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 export default function JewelryRetouching() {
   const features = [
     {
       title: "Clipping Path & Masking",
-      desc: "Perfect selections for multi-paths, complex maskings, and precision isolation. Every detail is retained.",
+      desc: "Perfect selections for multi-paths, complex maskings, and precision isolation. Every detail is retained. Our precision clipping path and masking service is designed for jewelry images with intricate shapes, delicate chains, multiple gemstones, prongs and fine edges. Each product is carefully isolated while preserving the original structure and important details. Accurate masking also makes it easier to prepare jewelry images for background replacement, e-commerce presentation and further retouching.",
       icon: <Scissors className="w-6 h-6" />,
       before: "/images/retouching/Ring 1 Before.jpg",
       after: "/images/retouching/Ring 1 After.jpg",
@@ -86,7 +22,7 @@ export default function JewelryRetouching() {
     },
     {
       title: "Color & Contrast Editing",
-      desc: "Restore dull metals to brilliant gold and silver. Improve gemstone vibrancy, color correct, and master brightness.",
+      desc: "Restore dull metals to brilliant gold and silver. Improve gemstone vibrancy, color correct, and master brightness. We carefully balance color, brightness and contrast to present gold, silver, platinum, diamonds and gemstones with a natural and premium appearance. Highlights and shadows are refined to reveal the fine details of the jewelry while maintaining accurate product colors. Consistent color correction can also be applied across a complete jewelry collection.",
       icon: <Wand2 className="w-6 h-6" />,
       before: "/images/retouching/4 Before.jpg",
       after: "/images/retouching/4 After.jpg",
@@ -94,7 +30,7 @@ export default function JewelryRetouching() {
     },
     {
       title: "Flawless Enhancements",
-      desc: "Remove poor reflections, dust, and imperfections to create a completely flawless, highly reflective, pristine surface.",
+      desc: "Remove poor reflections, dust, and imperfections to create a completely flawless, highly reflective, pristine surface. Our enhancement process removes distracting dust, scratches, unwanted reflections and minor imperfections while preserving realistic textures and highlights. Diamonds and gemstones can be refined to improve their brilliance, while precious metal surfaces are polished digitally for a clean commercial appearance.",
       icon: <Sparkles className="w-6 h-6" />,
       before: "/images/retouching/Front Banner Before.jpg",
       after: "/images/retouching/Front Banner After.jpg",
@@ -260,12 +196,18 @@ export default function JewelryRetouching() {
               <p className="text-stone-500 font-body leading-relaxed">
                 Clipping path Service covers Multi path, clipping mask, basic, compound, complex or super complex clipping path services. We use manual Photoshop clipping path tools for clippings. Basically Clipping path is the selection of a certain area in an image. Clipping Path Service is the basic requirement of all Photoshop Image editing services. For example, If you need to remove background from an Image or if you need Image masking, ghost mannequin removal or Photo retouching services, first of all You have to do clipping path around the Image. we use Adobe Photoshop pen tool to get the best and accurate clipping path work. It is used to do any Photoshop Image editing work like remove background, photo retouching, color correction, Image Masking, Shadow making, Ghost Mannequin or neck join services etc.
               </p>
+              <p className="text-stone-500 font-body leading-relaxed mt-4">
+                Accurate clipping is especially important for jewelry because even small errors around stones, prongs, chains and delicate edges can affect the final product image. Our detailed selections provide clean outlines and support background removal, color correction, shadow creation and other image editing requirements.
+              </p>
             </div>
 
             <div>
               <h3 className="text-3xl font-heading font-bold text-stone-900 mb-4 tracking-tight uppercase">E-Commerce Product Editing</h3>
               <p className="text-stone-500 font-body leading-relaxed">
                 If you are looking for a company who provide Product Image Editing Services with Cropping, Resizing, Straightening and formatting for publishing in website or any advertising purpose at affordable cost with top quality then Ratnakanchan Associate is the best solution for you. We have lots of expertise who deal with your jobs most confidently and deliver to you the best expected quality for your images. Our expertise professional has ability to handle any job, at any time, in any quantity.
+              </p>
+              <p className="text-stone-500 font-body leading-relaxed mt-4">
+                We prepare jewelry product images for online stores, marketplaces, websites and digital catalogs by maintaining consistent cropping, sizing, backgrounds and overall image quality. A uniform presentation across a product collection helps customers compare designs easily and creates a more professional online shopping experience.
               </p>
             </div>
           </motion.div>
@@ -305,12 +247,18 @@ export default function JewelryRetouching() {
               <p className="text-stone-300 font-body leading-relaxed">
                 Jewelry retouching is a sophisticated modification of the photographs with the help of an image editing software such as Photoshop. Its aim is to raise the image quality, i.e. to make the photographed item more alluring by using the light and color correction, making stones brighter, removing spots or scratches. All these jewelry retouching services are widely asked for mainly commercial purposes. Our jewelry editing guarantees really eye-catching outcomes that allure people due to the brightness, deep colors and absence of photo drawbacks.
               </p>
+              <p className="text-stone-300 font-body leading-relaxed mt-4">
+                Our professional jewelry retouching process is focused on improving image quality while keeping the actual product realistic and accurate. We carefully work on diamonds, gemstones, precious metals, reflections, highlights and small imperfections to create polished images suitable for websites, catalogs, advertising and social media.
+              </p>
             </div>
 
             <div>
               <h3 className="text-3xl font-heading font-bold text-[var(--color-gold)] mb-4 tracking-tight uppercase">Why Ratnakanchan.com</h3>
               <p className="text-stone-300 font-body leading-relaxed">
                 Through innovative thinking which adheres to high standards of quality and excellence we make sure that you enhance your growth potential in the industry. We specialize in digital correction of images. Be it in any form, digitally shot, scanned, or a sketch (pencil design) from the designer’s board. Through requisite touch up we help you visualize your wax model in its final form, complete with gold and diamonds set in.
+              </p>
+              <p className="text-stone-300 font-body leading-relaxed mt-4">
+                With experience in jewelry image editing and digital visualization, we understand the importance of both visual appeal and product accuracy. Our workflow is suitable for jewelry manufacturers, designers, retailers, wholesalers and e-commerce businesses that require consistent, high quality images for their marketing and sales channels.
               </p>
             </div>
           </motion.div>

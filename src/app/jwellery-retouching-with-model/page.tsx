@@ -131,6 +131,18 @@ export default function JewelryRetouchingWithModel() {
                <p className="text-lg text-stone-600 font-body leading-relaxed">
                  Jewelry Retouchers delivers some of the best high-end jewelry photo retouching work in the industry. We&apos;re confident in our skills yet recognize the importance of technology. So, apart from investing in ourselves, we also invest in powerful computers and photo editing tools and software. Your photos will get the high-end treatment they deserve.
                </p>
+               <h3 className="text-2xl font-heading font-bold text-stone-900 mt-8 mb-4">Model Photo Retouching Services</h3>
+               <p className="text-lg text-stone-600 font-body leading-relaxed">
+                 Our jewelry model photo retouching service enhances both the product and the overall photograph while keeping the model appearance natural. We refine lighting, skin texture, jewelry brilliance, color and small imperfections so the jewelry remains the main visual focus.
+               </p>
+               <h3 className="text-2xl font-heading font-bold text-stone-900 mt-8 mb-4">Professional Jewelry Presentation</h3>
+               <p className="text-lg text-stone-600 font-body leading-relaxed">
+                 Model photography helps customers understand how a ring, necklace, earring, bracelet or other jewelry piece looks when worn. Professional retouching improves the overall presentation while preserving realistic proportions, natural skin texture and accurate jewelry colors.
+               </p>
+               <h3 className="text-2xl font-heading font-bold text-stone-900 mt-8 mb-4">Marketing and E Commerce Images</h3>
+               <p className="text-lg text-stone-600 font-body leading-relaxed">
+                 Retouched model jewelry images are suitable for websites, social media, catalogs, advertising campaigns and online stores. Consistent editing across multiple photographs can also help maintain a professional visual identity for a complete jewelry collection.
+               </p>
             </motion.div>
 
             <motion.div
