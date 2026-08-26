@@ -274,6 +274,7 @@ export default function Home() {
             { id: 4, name: 'CAD to 360 Degree Animation', img: '/images/services/4.mp4', desc: "Interactive 360° jewelry animations that let customers explore every detail from any angle. Our smooth, high-resolution turntable videos are built for e-commerce product pages and social platforms like Instagram, boosting engagement and conversion rates." },
             { id: 5, name: 'Transforming Jewelry CAD Designs', img: '/images/services/5.jpg', desc: "We turn raw, unpolished CAD files into market-ready visual assets. Using advanced texturing, realistic diamond shading, and environment mapping, we make your digital jewelry designs look indistinguishable from real photography." },
             { id: 6, name: 'AI Jewellery Retouching', img: '/images/services/6.mp4', desc: "Show your jewelry the way customers want to see it, worn. We combine 3D renders with lifelike human models to demonstrate true scale, fit, and sparkle, giving online shoppers the confidence to buy without ever seeing the piece in person." },
+            { id: 7, name: 'Bring Your 3D CAD Models to Life for Instagram', img: '/images/services/3.jpg', desc: "Turn your jewelry CAD models into attractive and professional content for Instagram. Our 3D rendering and animation services help transform your digital jewelry designs into realistic visuals that catch attention.", link: "/cad-to-instagram" }
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}

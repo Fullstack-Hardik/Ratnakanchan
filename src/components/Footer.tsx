@@ -34,6 +34,8 @@ export default function Footer() {
             <span className="text-[#A0AEC0]">|</span>
             <Link href="/gallery" className="hover:text-[#1A202C]">GALLERY</Link>
             <span className="text-[#A0AEC0]">|</span>
+            <Link href="/cad-to-instagram" className="hover:text-[#1A202C]">CAD TO INSTAGRAM</Link>
+            <span className="text-[#A0AEC0]">|</span>
             <Link href="/contact" className="hover:text-[#1A202C]">CONTACT</Link>
           </div>
 
@@ -50,7 +52,7 @@ export default function Footer() {
             <li>
               <span className="underline decoration-1 underline-offset-4">E-mail :</span>{' '}
               <a href="mailto:info@ratnakanchan.com" className="text-[#2F80ED] hover:text-[#1A202C]">info@ratnakanchan.com</a>,{' '}
-              <a href="mailto:MKT@ratnakanchan.com" className="text-[#2F80ED] hover:text-[#1A202C]">MKT@ratnakanchan.com</a>
+              <a href="mailto:mkt@ratnakanchan.com" className="text-[#2F80ED] hover:text-[#1A202C]">mkt@ratnakanchan.com</a>
             </li>
           </ul>
         </div>

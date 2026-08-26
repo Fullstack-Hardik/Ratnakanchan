@@ -4,35 +4,66 @@ import { motion } from 'framer-motion';
 const blogPosts = [
   {
     id: 1,
-    title: "The Impact of 360° Renders on E-Commerce Conversions",
-    excerpt: "Discover how implementing interactive 360-degree turntable animations can increase high-ticket jewelry sales by up to 40%.",
-    date: "July 12, 2026",
-    category: "360° Animation",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7998a59f-416e-4cb4-8999-bdf11936bc71_1600w.jpg"
+    title: "Balancing Shadows and Highlights in Diamond Jewelry Photos",
+    excerpt: "Capturing the brilliance of diamond jewelry in photography is an art that requires careful control of lighting, shadows, and highlights.",
+    date: "March 29, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/01/before_after.jpg",
+    link: "https://ratnakanchan.com/balancing-shadows-and-highlights-in-diamond-jewelry-photos/"
   },
   {
     id: 2,
-    title: "CAD Designing: From Rough Sketch to Flawless Wax Model",
-    excerpt: "A deep dive into our engineering process for ensuring exact prong measurements and seamless stone settings before manufacturing.",
-    date: "June 28, 2026",
-    category: "CAD Design",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop"
+    title: "Achieving Color Accuracy in Diamond Jewelry Photography",
+    excerpt: "Achieving accurate color representation in diamond jewelry photography is essential for showcasing the true beauty and quality of each piece.",
+    date: "March 28, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/03/Steven-Stone-Alex-05-Ring-5-568.jpg",
+    link: "https://ratnakanchan.com/achieving-color-accuracy-in-diamond-jewelry-photography/"
   },
   {
     id: 3,
-    title: "High-Volume Retouching Secrets for Luxury Brands",
-    excerpt: "How our Mumbai studio maintains pixel-perfect consistency across thousands of SKUs overnight using advanced masking techniques.",
-    date: "June 05, 2026",
-    category: "Retouching",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1270766f-db0e-4d5b-85db-1cfedef9ac56_1600w.jpg"
+    title: "How High-Quality Jewelry Images Can Boost Your Online Sales",
+    excerpt: "In the competitive world of e-commerce, visuals play a crucial role in attracting and converting customers.",
+    date: "March 22, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/02/PBDW-NI0001__001-012-00035__NI89__Cam__profile.jpg",
+    link: "https://ratnakanchan.com/how-high-quality-jewelry-images-can-boost-your-online-sales/"
   },
   {
     id: 4,
-    title: "Why Lighting is Everything in Jewelry Photography",
-    excerpt: "Understanding the crucial role of digital lighting and shadow generation when converting raw photos into stunning catalog assets.",
-    date: "May 19, 2026",
-    category: "Photography",
-    image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/97b13484-9088-41a1-be0e-aac832f13705_1600w.jpg"
+    title: "The benefits of using jewelry rendering services",
+    excerpt: "In today's competitive jewelry market, captivating visuals are paramount. A stunning photograph can draw a customer in, but a high-quality",
+    date: "February 1, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/02/IMG_1761.jpg",
+    link: "https://ratnakanchan.com/the-benefits-of-using-jewelry-rendering-services/"
+  },
+  {
+    id: 5,
+    title: "Different types of jewelry rendering services",
+    excerpt: "Jewelry rendering is a game-changer for the jewelry industry, allowing designers and businesses to showcase their creations in stunning, lifelike",
+    date: "January 31, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/01/Banner01.jpg",
+    link: "https://ratnakanchan.com/different-types-of-jewelry-rendering-services/"
+  },
+  {
+    id: 6,
+    title: "Why Invest in Professional Jewelry Retouching?",
+    excerpt: "In the world of jewelry, presentation is paramount. A single, captivating image can be the difference between a sale and",
+    date: "January 30, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/01/01.jpg",
+    link: "https://ratnakanchan.com/why-invest-in-professional-jewelry-retouching/"
+  },
+  {
+    id: 7,
+    title: "What Is Jewelry Retouching : A Deep Dive into Jewelry Retouching",
+    excerpt: "In the sparkling world of jewelry, appearances are everything. From the mesmerizing glint of a diamond to the flawless curves of a golden ring",
+    date: "January 3, 2025",
+    category: "BLOG",
+    image: "https://ratnakanchan.com/wp-content/uploads/2025/01/1-1.jpg",
+    link: "https://ratnakanchan.com/what-is-jewelry-retouching-a-deep-dive-into-jewelry-retouching/"
   }
 ];
 
@@ -72,6 +103,7 @@ export default function BlogPage() {
 
       {/* Featured Post (Latest) */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
+        <a href={blogPosts[0].link} target="_blank" rel="noopener noreferrer" className="block">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,19 +133,20 @@ export default function BlogPage() {
             </span>
           </div>
         </motion.div>
+        </a>
       </section>
 
       {/* Grid of older posts */}
       <section className="pb-32 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {blogPosts.slice(1).map((post, i) => (
+            <a href={post.link} target="_blank" rel="noopener noreferrer" key={post.id} className="block group cursor-pointer flex flex-col h-full">
             <motion.article 
-              key={post.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group cursor-pointer flex flex-col h-full"
+              className="flex flex-col h-full"
             >
               <div className="relative overflow-hidden aspect-[4/3] bg-gray-50 mb-6 rounded-sm shadow-md">
                 <span className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black shadow-sm">
@@ -134,6 +167,7 @@ export default function BlogPage() {
                 Read Article
               </span>
             </motion.article>
+            </a>
           ))}
         </div>
       </section>
