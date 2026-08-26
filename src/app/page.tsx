@@ -283,13 +283,13 @@ export default function Home() {
               transition={{ duration: 0.8, delay: (idx % 3) * 0.1 }}
               className="group flex flex-col border border-gray-100 bg-[#FAFAFA] p-6 hover:bg-white transition-colors duration-500"
             >
-              <div className="relative overflow-hidden w-full aspect-[4/3] mb-8 bg-gray-200">
+              <div className="relative overflow-hidden w-full aspect-[4/3] mb-8 bg-white">
                 {srv.isSlider ? (
                   <BeforeAfterSlider beforeImage={srv.before!} afterImage={srv.after!} alt={srv.name} />
                 ) : srv.img?.endsWith('.mp4') ? (
-                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
-                  <img src={srv.img} alt={srv.name} className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                  <img src={srv.img} alt={srv.name} className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 )}
               </div>
               <div className="flex-1 flex flex-col">
