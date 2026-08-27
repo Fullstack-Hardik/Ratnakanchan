@@ -3,12 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
-import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 
 const SOCIAL_LINKS = {
-  instagram: 'https://www.instagram.com/ratnakanchan',
-  facebook: 'https://www.facebook.com/ratnakanchan',
+  instagram: 'https://www.instagram.com/ratnakanchan.creations/',
+  facebook: 'https://www.facebook.com/people/Ratnakanchan-Creations/61571611845871/',
   whatsapp: 'https://wa.me/919876543210',
+  youtube: 'https://www.youtube.com/@ratnakanchancreations2946/shorts',
 };
 
 export default function Navbar() {
@@ -78,6 +79,9 @@ export default function Navbar() {
             </a>
             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/50 hover:text-[#1877F2] transition-colors duration-300">
               <FaFacebookF size={15} />
+            </a>
+            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube" className="text-black/50 hover:text-[#FF0000] transition-colors duration-300">
+              <FaYoutube size={17} />
             </a>
             <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="text-black/50 hover:text-[#25D366] transition-colors duration-300">
               <FaWhatsapp size={17} />
@@ -149,6 +153,9 @@ export default function Navbar() {
               </a>
               <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/40 hover:text-[#1877F2] transition-colors duration-300">
                 <FaFacebookF size={18} />
+              </a>
+              <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube" className="text-black/40 hover:text-[#FF0000] transition-colors duration-300">
+                <FaYoutube size={20} />
               </a>
               <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="text-black/40 hover:text-[#25D366] transition-colors duration-300">
                 <FaWhatsapp size={20} />

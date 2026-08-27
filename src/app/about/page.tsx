@@ -40,10 +40,12 @@ export default function AboutPage() {
             className="space-y-8 text-lg md:text-xl text-gray-700 font-light leading-relaxed"
           >
             <p>
-              <strong className="font-semibold text-black">Ratnakanchan Creations</strong> is one of the most professional and trustworthy jewelry photo editing service providers in Mumbai, India. Established in 2007, we have built a strong customer base across the globe, including the USA, Australia, UK, Dubai, and other parts of the world, with thousands of satisfied clients.
+              <strong className="font-semibold text-black">Our Mission:</strong><br/>
+              To establish a global reputation for exceptional creativity and unwavering commitment to excellence in graphic design. We strive to build strong trust within the world’s graphic design community by consistently delivering outstanding results.
             </p>
             <p>
-              In today’s rapidly evolving industry, with shrinking verticals, new standards, and constantly shifting parameters, information is a critical asset. At Ratnakanchan Creations, we blend style and substance to help you thrive. Through innovative thinking and a steadfast commitment to quality and excellence, we empower you to enhance your growth potential.
+              <strong className="font-semibold text-black">Our Focus:</strong><br/>
+              We dedicate ourselves to addressing the most challenging graphic design service requirements. Driven by a vision of an artistic world, we aim to redefine the boundaries of contemporary graphic design. This ambitious vision fuels our mission to consistently exceed expectations.
             </p>
           </motion.div>
         </div>

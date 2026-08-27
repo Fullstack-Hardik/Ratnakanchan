@@ -42,25 +42,6 @@ export default function ContactPage() {
         </motion.p>
       </section>
 
-      {/* Featured Image Section */}
-      <section className="px-6 py-10 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100 relative"
-          >
-            <img 
-              src="/images/contactpg.jpg" 
-              alt="Ratnakanchan Creations Workspace" 
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
-        </div>
-      </section>
-
       {/* Content & Map Section */}
       <section className="py-20 px-6 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
@@ -135,67 +116,85 @@ export default function ContactPage() {
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[var(--color-gold)] opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[var(--color-gold)] opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <img src="/images/logo.png" alt="Ratnakanchan Creations Logo" className="h-16 w-auto mx-auto mb-6 object-contain mix-blend-multiply" />
             <h2 className="text-4xl md:text-5xl font-heading mb-4 text-black">Start a Project</h2>
             <p className="text-gray-500 font-light text-lg">Leave your details and our team will get back to you within 24 hours.</p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 md:p-12 shadow-2xl rounded-sm border border-gray-100"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">First Name</label>
-                  <input required value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Jane" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Form Side */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 md:p-12 shadow-2xl rounded-sm border border-gray-100 w-full"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">First Name</label>
+                    <input required value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Jane" />
+                  </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Last Name</label>
+                    <input required value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Doe" />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Last Name</label>
-                  <input required value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} type="text" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="Doe" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Email Address</label>
+                    <input required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} type="email" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="jane@brand.com" />
+                  </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Phone Number</label>
+                    <input required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="+1 (555) 000-0000" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Email Address</label>
-                  <input required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} type="email" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="jane@brand.com" />
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">How can we help?</label>
+                  <select value={formData.inquiry} onChange={(e) => setFormData({ ...formData, inquiry: e.target.value })} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm appearance-none">
+                    <option>Jewelry Retouching</option>
+                    <option>CAD Designing & Renders</option>
+                    <option>360° Animation Render</option>
+                    <option>Jewelry Retouching With Model</option>
+                    <option>AI Jewelry Retouching</option>
+                    <option>Others</option>
+                  </select>
                 </div>
+
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Phone Number</label>
-                  <input required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm" placeholder="+1 (555) 000-0000" />
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Project Details</label>
+                  <textarea required value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm resize-none" placeholder="Tell us about your volume, timelines, or specific design requirements..."></textarea>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">How can we help?</label>
-                <select value={formData.inquiry} onChange={(e) => setFormData({ ...formData, inquiry: e.target.value })} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm appearance-none">
-                  <option>Jewelry Retouching</option>
-                  <option>CAD Designing & Renders</option>
-                  <option>360° Animation Render</option>
-                  <option>Jewelry Retouching With Model</option>
-                  <option>AI Jewelry Retouching</option>
-                  <option>Others</option>
-                </select>
-              </div>
+                <div className="pt-4">
+                  <button type="submit" className="w-full bg-black text-white font-semibold uppercase tracking-widest text-sm py-4 rounded-sm hover:bg-[var(--color-gold)] transition-colors shadow-md">
+                    Send Message via WhatsApp
+                  </button>
+                </div>
+              </form>
+            </motion.div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-semibold">Project Details</label>
-                <textarea required value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-sm px-4 py-3 text-black focus:outline-none focus:border-[var(--color-gold)] focus:bg-white transition-all shadow-sm resize-none" placeholder="Tell us about your volume, timelines, or specific design requirements..."></textarea>
-              </div>
-
-              <div className="pt-4">
-                <button type="submit" className="w-full bg-black text-white font-semibold uppercase tracking-widest text-sm py-4 rounded-sm hover:bg-[var(--color-gold)] transition-colors shadow-md">
-                  Send Message via WhatsApp
-                </button>
-              </div>
-            </form>
-          </motion.div>
+            {/* Image Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100 relative"
+            >
+              <img 
+                src="/images/contactpg.jpg" 
+                alt="Ratnakanchan Creations Workspace" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
     </main>
