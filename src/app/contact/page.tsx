@@ -42,74 +42,6 @@ export default function ContactPage() {
         </motion.p>
       </section>
 
-      {/* Content & Map Section */}
-      <section className="py-20 px-6 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-heading mb-6 text-black text-center">Contact Information</h2>
-            <p className="text-gray-600 leading-relaxed font-light mb-8 text-lg">
-              Reach out to us for project inquiries, pricing quotes, or sample requests. We aim to respond within 24 hours.
-            </p>
-
-            <div className="space-y-8">
-              <div className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Headquarters</h4>
-                  <p className="text-gray-500 font-light text-sm">Rameshwar Gruh Nirman Society, Sandesh Nagar,<br />Kurla (W), Mumbai – 400072, India</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Phone</h4>
-                  <p className="text-gray-500 font-light text-sm">+91 98765 43210</p>
-                </div>
-              </div>
-              <div className="flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Working Hours</h4>
-                  <p className="text-gray-500 font-light text-sm">Mon - Sat: 9:00 AM - 7:00 PM (IST)</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Map iframe */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full h-full min-h-[400px] bg-gray-100 rounded-sm overflow-hidden shadow-xl border border-gray-200 relative group"
-          >
-            {/* Native Satellite Google Maps Iframe */}
-            <iframe
-              src="https://maps.google.com/maps?q=19.070966,72.880467&t=k&z=17&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 transition-all duration-700"
-            ></iframe>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Form Section */}
       <section id="contact-form" className="py-24 px-6 bg-[#F8F6F2] border-t border-gray-200 relative overflow-hidden">
         {/* Subtle decorative background blur */}
@@ -197,6 +129,75 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Content & Map Section */}
+      <section className="py-20 px-6 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-heading mb-6 text-black text-center">Contact Information</h2>
+            <p className="text-gray-600 leading-relaxed font-light mb-8 text-lg">
+              Reach out to us for project inquiries, pricing quotes, or sample requests. We aim to respond within 24 hours.
+            </p>
+
+            <div className="space-y-8">
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Headquarters</h4>
+                  <p className="text-gray-500 font-light text-sm">Rameshwar Gruh Nirman Society, Sandesh Nagar,<br />Kurla (W), Mumbai – 400072, India</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Phone</h4>
+                  <p className="text-gray-500 font-light text-sm">+91 98765 43210</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-1">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Working Hours</h4>
+                  <p className="text-gray-500 font-light text-sm">Mon - Sat: 9:00 AM - 7:00 PM (IST)</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Map iframe */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full h-full min-h-[400px] bg-gray-100 rounded-sm overflow-hidden shadow-xl border border-gray-200 relative group"
+          >
+            {/* Native Satellite Google Maps Iframe */}
+            <iframe
+              src="https://maps.google.com/maps?q=19.070966,72.880467&t=k&z=17&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 transition-all duration-700"
+            ></iframe>
+          </motion.div>
+        </div>
+      </section>
+
     </main>
   );
 }
