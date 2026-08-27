@@ -23,8 +23,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   
   const articleDir = path.join(process.cwd(), 'src', 'data', 'blog', 'articles', slug);
-  let metadata;
-  let htmlContent;
+  let metadata: any;
+  let htmlContent: string = '';
 
   try {
     const metaDataStr = await fs.readFile(path.join(articleDir, 'metadata.json'), 'utf-8');
