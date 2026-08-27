@@ -242,9 +242,8 @@ export default function JewelryRetouching() {
                 <source src="/assets/videos/rendering/Comp 1_3_1.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <img src="/images/retouching/01-01-558_R.jpg" alt="Jewelry Item 1" className="rounded-2xl shadow-md object-cover aspect-square w-full" />
-              <img src="/images/retouching/03-01-483_E.jpg" alt="Jewelry Item 2" className="rounded-2xl shadow-md object-cover aspect-square w-full" />
+            <div className="w-full">
+              <img src="/images/retouching/earrings-before-after.png" alt="Before After Retouching Example" className="rounded-2xl shadow-md object-contain w-full h-auto" />
             </div>
           </motion.div>
 
