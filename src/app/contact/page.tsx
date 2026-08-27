@@ -28,9 +28,9 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-heading mb-4"
+          className="text-5xl md:text-7xl font-heading mb-4 text-[var(--color-gold)]"
         >
-          Let's <span className="text-[var(--color-gold)] italic">Connect</span>
+          Let's <span className="italic">Connect</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -50,17 +50,13 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full aspect-[21/9] bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100 relative"
+            className="w-full aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100 relative"
           >
             <img 
               src="/images/contactpg.jpg" 
               alt="Ratnakanchan Creations Workspace" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
-            {/* Fallback overlay in case image doesn't exist yet */}
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200/50 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity">
-               <span className="text-gray-500 font-medium tracking-widest uppercase text-sm">[USER WILL PROVIDE CONTACT PAGE IMAGE]</span>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -74,7 +70,7 @@ export default function ContactPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-heading mb-6 text-black">Contact Information</h2>
+            <h2 className="text-4xl font-heading mb-6 text-black text-center">Contact Information</h2>
             <p className="text-gray-600 leading-relaxed font-light mb-8 text-lg">
               Reach out to us for project inquiries, pricing quotes, or sample requests. We aim to respond within 24 hours.
             </p>

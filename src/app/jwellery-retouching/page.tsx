@@ -54,35 +54,54 @@ export default function JewelryRetouching() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900 pt-14 md:pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
 
-      {/* Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-20 z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
-          {/* Text Content */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start relative z-20">
-            <span className="text-sm font-bold text-[var(--color-gold)] mb-6 block font-body tracking-widest uppercase">
-              Professional Jewelry Retouching
-            </span>
-            <h1 className="text-5xl md:text-7xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8">
-              Flawless <br /> <span className="italic">Perfection</span>
-            </h1>
-            <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
-              Transform your raw jewelry photos into breathtaking, high-end visuals. Our expert retouching services cover clipping, color correction, scratch removal, and flawless metallic enhancement to make every piece shine.
-            </p>
-            <Link href="/contact" className="inline-flex items-center gap-3 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-colors px-8 py-4 rounded-full font-body font-semibold tracking-wide shadow-xl">
-              Start Your Project <ArrowRight size={18} />
-            </Link>
-          </div>
+      {/* Full-width Hero Banner */}
+      <section className="w-full relative z-10 pt-4 md:pt-8 px-4 sm:px-6 lg:px-8 max-w-[1920px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white bg-stone-200"
+        >
+          <img src="/images/retouching-banner-02.jpg" alt="Jewelry Retouching Banner" className="w-full h-auto max-h-[50vh] md:max-h-[65vh] object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+        </motion.div>
+      </section>
 
-          {/* Image Container */}
-          <div className="w-full lg:w-1/2 relative z-10 flex items-center justify-center">
-            <div className="rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white w-full aspect-square bg-stone-200 flex items-center justify-center text-stone-400 text-sm tracking-widest uppercase">
-              {/* Placeholder for the user's uploaded image */}
-               [ Image Placeholder ]
-            </div>
-            {/* Decorative Background Element */}
-            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-[var(--color-gold)]/20 rounded-full blur-3xl -z-10"></div>
-          </div>
-        </div>
+      {/* Hero Text Content */}
+      <section className="relative w-full max-w-4xl mx-auto px-6 pt-16 md:pt-20 pb-20 z-20 flex flex-col items-center text-center">
+        <motion.span 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-sm font-bold text-[var(--color-gold)] mb-6 block font-body tracking-widest uppercase"
+        >
+          Professional Jewelry Retouching
+        </motion.span>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8"
+        >
+          Flawless <br className="md:hidden" /> <span className="italic text-[var(--color-gold)]">Perfection</span>
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10 max-w-2xl"
+        >
+          Transform your raw jewelry photos into breathtaking, high-end visuals. Our expert retouching services cover clipping, color correction, scratch removal, and flawless metallic enhancement to make every piece shine.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <Link href="/contact" className="inline-flex items-center gap-4 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-xl hover:-translate-y-1">
+            Start Your Project <ArrowRight size={18} />
+          </Link>
+        </motion.div>
       </section>
 
       {/* Scroll Velocity Animation */}
