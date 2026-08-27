@@ -89,4 +89,22 @@
     overflow: hidden;
     z-index: 1;
   }
+
+  /* Blog Content Scroll Animations */
+  .blog-article-content .blur-reveal {
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: filter 1s cubic-bezier(0.22, 1, 0.36, 1), 
+                opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: filter, opacity, transform;
+  }
+  
+  .blog-article-content .blur-reveal.in-view {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+

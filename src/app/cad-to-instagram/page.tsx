@@ -176,6 +176,49 @@ export default function CadToInstagramPage() {
          </div>
       </section>
 
+      {/* Insta Ads Showcase Section */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-24 bg-white relative z-20">
+        <div className="text-center mb-16">
+          <span className="text-sm font-bold text-[var(--color-gold)] font-body tracking-widest uppercase mb-4 block">Our Work</span>
+          <h2 className="text-5xl md:text-6xl font-heading font-medium tracking-tight text-stone-900">Instagram Ads Portfolio</h2>
+          <p className="text-lg font-body text-stone-600 max-w-2xl mx-auto mt-6">
+            Watch how our 3D animations and precise camera movements bring jewelry to life, creating perfect looping content for social media ads and posts.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            { src: "/assets/videos/insta-ads/2_camera.mp4", title: "Dynamic Camera Angles" },
+            { src: "/assets/videos/insta-ads/box_2_animation_video2.mp4", title: "Creative Box Animation" },
+            { src: "/assets/videos/insta-ads/camera_1.mp4", title: "Elegant Presentation" },
+            { src: "/assets/videos/insta-ads/camera_4.mp4", title: "360° Detailed View" }
+          ].map((video, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="group rounded-3xl overflow-hidden bg-stone-50 border border-stone-200 shadow-lg relative"
+            >
+              <div className="px-6 py-4 border-b border-stone-100 flex items-center justify-between bg-white">
+                <span className="text-sm font-bold text-stone-800 font-heading">{video.title}</span>
+                <MonitorPlay className="w-4 h-4 text-stone-400" />
+              </div>
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full aspect-[4/5] object-cover bg-stone-100"
+              >
+                <source src={video.src} type="video/mp4" />
+              </video>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Pricing / CTA Section */}
       <section className="w-full max-w-7xl mx-auto px-6 py-32">
         <div className="grid grid-cols-12 gap-8 relative">

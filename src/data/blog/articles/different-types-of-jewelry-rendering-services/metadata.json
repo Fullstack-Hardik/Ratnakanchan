@@ -1,0 +1,40 @@
+{
+  "title": "Different types of jewelry rendering services",
+  "slug": "different-types-of-jewelry-rendering-services",
+  "source_url": "https://ratnakanchan.com/different-types-of-jewelry-rendering-services/",
+  "author": "admin",
+  "published_at": "August 21, 2026",
+  "featured_image": "https://ratnakanchan.com/wp-content/uploads/2025/01/Banner01.jpg",
+  "images": [
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/Banner01.jpg",
+      "local_filename": "featured.jpg",
+      "type": "featured",
+      "position": 0
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2018/01/Ring05.jpg",
+      "local_filename": "image-01.jpg",
+      "type": "content",
+      "position": 1
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/IMG_0725-1024x683.jpg",
+      "local_filename": "image-02.jpg",
+      "type": "content",
+      "position": 2
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/PENYG.gif",
+      "local_filename": "image-03.gif",
+      "type": "content",
+      "position": 3
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/CAD-e1737174484805.jpg",
+      "local_filename": "image-04.jpg",
+      "type": "content",
+      "position": 4
+    }
+  ]
+}

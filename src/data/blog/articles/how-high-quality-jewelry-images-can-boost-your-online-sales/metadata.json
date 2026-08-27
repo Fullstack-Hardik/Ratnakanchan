@@ -1,0 +1,40 @@
+{
+  "title": "How High-Quality Jewelry Images Can Boost Your Online Sales",
+  "slug": "how-high-quality-jewelry-images-can-boost-your-online-sales",
+  "source_url": "https://ratnakanchan.com/how-high-quality-jewelry-images-can-boost-your-online-sales/",
+  "author": "admin",
+  "published_at": "August 30, 2026",
+  "featured_image": "https://ratnakanchan.com/wp-content/uploads/2025/02/PBDW-NI0001__001-012-00035__NI89__Cam__profile-1024x683.jpg",
+  "images": [
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/02/PBDW-NI0001__001-012-00035__NI89__Cam__profile-1024x683.jpg",
+      "local_filename": "featured.jpg",
+      "type": "featured",
+      "position": 0
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/02/PBDW-NI0001__001-012-00035__NI89__Cam__profile-1024x683.jpg",
+      "local_filename": "image-01.jpg",
+      "type": "content",
+      "position": 1
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/Retouch.jpg",
+      "local_filename": "image-02.jpg",
+      "type": "content",
+      "position": 2
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/01-1024x576.jpg",
+      "local_filename": "image-03.jpg",
+      "type": "content",
+      "position": 3
+    },
+    {
+      "original_url": "https://ratnakanchan.com/wp-content/uploads/2025/01/Render-Image.jpg",
+      "local_filename": "image-04.jpg",
+      "type": "content",
+      "position": 4
+    }
+  ]
+}

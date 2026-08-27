@@ -157,7 +157,8 @@ export default function GalleryPage() {
     { id: 3, image: "/images/gallery_new/01-1024x576.jpg", alt: "Jewelry Render" },
     { id: 4, image: "/images/gallery_new/DSC_9239-R-1024x1024.jpg", alt: "Necklace Piece" },
     { id: 5, image: "/images/gallery_new/Retouch.jpg", alt: "Retouch Example" },
-    { id: 6, image: "/images/gallery_new/360_F_84374602_OeD22cEqPE8CQo9ZznwO7DIQhUxjR3Tg-removebg-preview.png", alt: "Diamond Work" },
+    { id: 6, image: "/images/gallery/lotus_halo_ov_02.jpg", alt: "Lotus Halo OV" },
+    { id: 9, image: "/images/gallery/lotus_halo_ov_02yg.jpg", alt: "Lotus Halo OV Yellow Gold" },
   ];
 
   const beforeAfterPairs = [
@@ -200,17 +201,47 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* Our Works Section */}
+        {/* Our Works Section (Images) */}
         <section className="py-16 bg-[#111]">
           <div className="max-w-7xl mx-auto text-center px-6">
-            <h2 className="text-3xl md:text-5xl font-heading text-white mb-4 uppercase tracking-wider">Our Works</h2>
+            <h2 className="text-3xl md:text-5xl font-heading text-white mb-4 uppercase tracking-wider">Image Gallery</h2>
             <div className="w-16 h-[1px] bg-[var(--color-gold)] mx-auto mb-10"></div>
           </div>
           {/* Simple Clean Static Grid */}
           <SimpleGallery
-            cards={galleryImages}
+            cards={[...galleryImages, { id: 7, image: "/images/gallery/lifestyle_image.jpg", alt: "Lifestyle Jewelry" }]}
             onImageClick={handleImageClick}
           />
+        </section>
+
+        {/* Video Gallery Section */}
+        <section className="py-16 bg-white px-6">
+          <div className="max-w-7xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-heading text-black mb-4 uppercase tracking-wider">Video Portfolio</h2>
+            <div className="w-16 h-[1px] bg-[var(--color-gold)] mx-auto"></div>
+          </div>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "/assets/videos/gallery/01sample.mp4",
+              "/assets/videos/gallery/1.mp4",
+              "/assets/videos/gallery/oval_center_ring.mp4",
+              "/assets/videos/gallery/pear_yg.mp4",
+              "/assets/videos/gallery/penyg.mp4",
+              "/assets/videos/gallery/vid_20190204.mp4"
+            ].map((videoSrc, idx) => (
+              <div key={idx} className="relative w-full aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                >
+                  <source src={videoSrc} type="video/mp4" />
+                </video>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="py-24 text-center bg-[#111]">
