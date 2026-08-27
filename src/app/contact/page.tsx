@@ -30,15 +30,15 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl font-heading mb-4 text-[var(--color-gold)]"
         >
-          Let's <span className="italic">Connect</span>
+          Contact <span className="italic">Us</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-lg text-gray-400 font-light max-w-xl mx-auto"
+          className="text-lg text-gray-400 font-light max-w-3xl mx-auto leading-relaxed"
         >
-          Whether you need high-volume retouching or bespoke 360° renders, our team in Mumbai is ready to assist.
+          Whether you’re a designer, manufacturer, or retailer, we offer high-quality jewelry rendering services to meet your specific needs. From photorealistic images for marketing materials to detailed technical visualizations for production, we can help. Contact us using the form below, or reach out directly via email or phone. We’re here to answer your questions and provide expert guidance.
         </motion.p>
       </section>
 
