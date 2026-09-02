@@ -289,7 +289,7 @@ export default function Home() {
                 ) : srv.img?.endsWith('.mp4') ? (
                   <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
-                  <img src={srv.img} alt={srv.name} className={`w-full h-full ${srv.id === 2 ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
+                  <img src={srv.img} alt={srv.name} className={`w-full h-full ${srv.id === 2 || srv.id === 4 ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
                 )}
               </div>
               <div className="flex-1 flex flex-col">
