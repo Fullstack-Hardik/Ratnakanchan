@@ -188,9 +188,7 @@ export default function CadToInstagramPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { src: "/assets/videos/insta-ads/box_2_animation_video2.mp4", title: "Creative Box Animation" },
-            { src: "/assets/videos/insta-ads/camera_1.mp4", title: "Elegant Presentation" },
-            { src: "/assets/videos/insta-ads/camera_4.mp4", title: "360° Detailed View" }
+            { src: "/assets/videos/insta-ads/box_2_animation_video2.mp4", title: "Creative Box Animation" }
           ].map((video, idx) => (
             <motion.div
               key={idx}
