@@ -101,6 +101,12 @@ export default function JewelryRetouching() {
       beforeImg: "/images/retouching/services/model-photo-retouch.jpg"
     },
     {
+      title: "Lifestyle Image Retouching",
+      items: [],
+      beforeImg: "/images/retouching/services/lifestyle-retouch-before.jpg",
+      afterImg: "/images/retouching/services/lifestyle-retouch-after.jpg"
+    },
+    {
       title: "E commerce Product Image Retouch",
       items: [],
       beforeImg: "/images/retouching/services/ecommerce-retouch.jpg",
