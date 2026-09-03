@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface AutoFadeSliderProps {
   images: string[];
   interval?: number;
+  className?: string;
 }
 
-export default function AutoFadeSlider({ images, interval = 1000 }: AutoFadeSliderProps) {
+export default function AutoFadeSlider({ images, interval = 1000, className = "relative w-full h-full overflow-hidden rounded-3xl shadow-2xl border border-stone-100 bg-stone-100 aspect-video" }: AutoFadeSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function AutoFadeSlider({ images, interval = 1000 }: AutoFadeSlid
   }, [images.length, interval]);
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl border border-stone-100 bg-stone-100 aspect-video">
+    <div className={className}>
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}

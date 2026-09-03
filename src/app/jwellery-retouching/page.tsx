@@ -7,7 +7,7 @@ import AutoFadeSlider from '@/components/AutoFadeSlider';
 import FreeDemoSection from '@/components/FreeDemoSection';
 
 // Custom component for the hover-fade effect
-function HoverFadeCard({ title, items, content, beforeImg, afterImg }: { title: string, items?: string[], content?: string, beforeImg: string, afterImg?: string }) {
+function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages }: { title: string, items?: string[], content?: string, beforeImg: string, afterImg?: string, hoverFadeImages?: string[] }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -21,9 +21,14 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg }: { title: 
       </div>
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
-        <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+        <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
         {afterImg && (
           <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
+        )}
+        {hoverFadeImages && (
+          <div className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 overflow-hidden bg-stone-50">
+            <AutoFadeSlider images={hoverFadeImages} interval={2000} className="relative w-full h-full" />
+          </div>
         )}
       </div>
 
@@ -108,7 +113,7 @@ export default function JewelryRetouching() {
       title: "E commerce Product Image Retouch",
       content: "Marketplace ready images with consistent backgrounds, accurate color, and crisp detail, optimized for Amazon, Shopify, and other platforms where clarity drives conversions.",
       beforeImg: "/images/retouching/new/Product Image retiuching.jpg",
-      afterImg: "/images/retouching/new/Product Image retiuching 2.jpg"
+      hoverFadeImages: ecommerceSliderImages
     }
   ];
 
@@ -215,13 +220,14 @@ export default function JewelryRetouching() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
             {newServicesCards.map((card, idx) => (
-              <div key={idx} className={idx === 6 ? "lg:col-start-2" : ""}>
+              <div key={idx} className={idx === 6 ? "lg:col-span-3 max-w-4xl mx-auto w-full" : ""}>
                 <HoverFadeCard 
                   title={card.title}
                   items={card.items}
                   content={card.content}
                   beforeImg={card.beforeImg}
                   afterImg={card.afterImg}
+                  hoverFadeImages={card.hoverFadeImages}
                 />
               </div>
             ))}
@@ -240,10 +246,7 @@ export default function JewelryRetouching() {
           </p>
         </div>
 
-        {/* E-Commerce Product Editing (With AutoFadeSlider) */}
-        <div className="max-w-4xl mx-auto">
-          <AutoFadeSlider images={ecommerceSliderImages} interval={3000} />
-        </div>
+        {/* E-Commerce Product Editing (With AutoFadeSlider) Removed */}
       </section>
 
       {/* Media and Content Section 2: Why Us */}
