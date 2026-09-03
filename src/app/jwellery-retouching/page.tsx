@@ -150,7 +150,7 @@ export default function JewelryRetouching() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full block md:hidden mb-10 rounded-3xl overflow-hidden shadow-2xl relative border border-stone-100"
           >
-             <img src="/images/retouching/retouchinghero.jpg" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
           </motion.div>
 
           <motion.div
@@ -171,7 +171,7 @@ export default function JewelryRetouching() {
           className="w-full md:w-1/2 hidden md:block"
         >
           <div className="w-full rounded-3xl overflow-hidden shadow-2xl relative border border-stone-100">
-             <img src="/images/retouching/retouchinghero.jpg" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
           </div>
         </motion.div>
       </section>
