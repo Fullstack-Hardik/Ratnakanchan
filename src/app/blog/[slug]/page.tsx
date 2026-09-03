@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const featuredImageUrl = featuredImage ? `/images/blog/${slug}/${featuredImage}` : '';
 
   return (
-    <main className="pt-24 min-h-screen bg-white text-black font-body selection:bg-[var(--color-gold)] selection:text-white pb-32">
+    <main className="pt-24 min-h-screen bg-white text-black font-body selection:bg-[var(--color-gold)] selection:text-white ">
       {/* Article Header */}
       <section className="max-w-4xl mx-auto px-6 pt-12 pb-8 text-center">
         <Link 

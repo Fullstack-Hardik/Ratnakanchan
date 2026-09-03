@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import Hero3DBackground from '@/components/Hero3DBackground';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import FreeDemoSection from '@/components/FreeDemoSection';
 const heroMedia = [
   {
     type: 'image',
@@ -314,6 +315,7 @@ export default function Home() {
       </section>
 
       {/* GET A FREE DEMO SECTION */}
+      <FreeDemoSection />
 </div>
   );
 }

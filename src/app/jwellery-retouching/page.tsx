@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Scissors, Wand2, Sparkles, Diamond, Sun, Droplets } from 'lucide-react';
 import AutoFadeSlider from '@/components/AutoFadeSlider';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 // Custom component for the hover-fade effect
 function HoverFadeCard({ title, items, beforeImg, afterImg }: { title: string, items?: string[], beforeImg: string, afterImg?: string }) {
@@ -107,7 +108,7 @@ export default function JewelryRetouching() {
   ];
 
   return (
-    <main className="min-h-screen bg-stone-50 text-stone-900 pt-14 md:pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
+    <main className="min-h-screen bg-stone-50 text-stone-900 pt-14 md:pt-28  overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
 
       {/* Hero Text Content with Split Layout */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-16 md:pt-20 pb-20 z-20 flex flex-col md:flex-row items-center gap-12">
@@ -266,9 +267,9 @@ export default function JewelryRetouching() {
       </section>
 
       {/* Media and Content Section 2: Why Us */}
-      <section className="w-full bg-stone-900 text-white py-24 my-10">
+      <section className="w-full bg-stone-900 text-white py-24 pt-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-          <motion.div
+          <h3.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -281,6 +282,8 @@ export default function JewelryRetouching() {
           </motion.div>
         </div>
       </section>
+
+      <FreeDemoSection />
 </main>
   );
 }

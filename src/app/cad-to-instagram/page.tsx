@@ -1,4 +1,6 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
+
 import React, { useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -19,7 +21,7 @@ export default function CadToInstagramPage() {
   const heroOpacity = useTransform(heroProgress, [0, 1], [1, 0]);
 
   return (
-    <main className="min-h-screen bg-white text-stone-900 pt-28 pb-20 selection:bg-[var(--color-gold)] selection:text-white overflow-x-hidden">
+    <main className="min-h-screen bg-white text-stone-900 pt-28  selection:bg-[var(--color-gold)] selection:text-white overflow-x-hidden">
       
       {/* Hero Section */}
       <section ref={heroRef} className="relative w-full max-w-7xl mx-auto px-6 pt-20 pb-40 z-10 min-h-[80vh] flex items-center justify-center overflow-hidden">
@@ -245,6 +247,10 @@ export default function CadToInstagramPage() {
           </div>
         </div>
       </section>
-</main>
+
+      <FreeDemoSection />
+
+
+    </main>
   );
 }

@@ -1,4 +1,6 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -67,7 +69,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, alt }: { beforeImage: stri
 
 export default function JewelryRetouchingWithModel() {
   return (
-    <main className="min-h-screen bg-stone-50 text-stone-900 pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
+    <main className="min-h-screen bg-stone-50 text-stone-900 pt-28  overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
       
       {/* Hero Section */}
       <section className="relative w-full max-w-7xl mx-auto px-6 mb-20">
@@ -220,6 +222,10 @@ export default function JewelryRetouchingWithModel() {
           </Link>
         </motion.div>
       </section>
-</main>
+
+      <FreeDemoSection />
+
+
+    </main>
   );
 }

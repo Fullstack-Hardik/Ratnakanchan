@@ -1,4 +1,6 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
+
 import React, { useState } from 'react';
 import { Box, Video } from 'lucide-react';
 
@@ -12,7 +14,7 @@ export default function CadToRenderImagePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--color-neutral-light)] text-stone-900 pt-28 pb-20 selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
+    <main className="min-h-screen bg-[var(--color-neutral-light)] text-stone-900 pt-28  selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
       
       {/* Philosophy / Features (Soluna Inspired 2-Column Grid) */}
       <section className="w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-32 relative z-10">
@@ -127,6 +129,10 @@ export default function CadToRenderImagePage() {
             </p>
          </div>
       </section>
-</main>
+
+      <FreeDemoSection />
+
+
+    </main>
   );
 }

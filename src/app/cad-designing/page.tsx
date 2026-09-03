@@ -1,4 +1,6 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CadDesigningPage() {
   return (
-    <main className="min-h-screen bg-[var(--color-neutral-light)] text-stone-900 pt-28 pb-20 selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
+    <main className="min-h-screen bg-[var(--color-neutral-light)] text-stone-900 pt-28  selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
       
       {/* Hero Section */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-20 z-10">
@@ -95,6 +97,10 @@ export default function CadDesigningPage() {
             </p>
          </div>
       </section>
-</main>
+
+      <FreeDemoSection />
+
+
+    </main>
   );
 }

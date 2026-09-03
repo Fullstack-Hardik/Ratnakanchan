@@ -1,4 +1,6 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
+
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -7,7 +9,7 @@ import ScrollVelocity from '@/components/ui/ScrollVelocity';
 
 export default function AIJewelryRetouching() {
   return (
-    <main className="min-h-screen bg-stone-50 text-stone-900 pt-28 pb-20 overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
+    <main className="min-h-screen bg-stone-50 text-stone-900 pt-28  overflow-x-hidden selection:bg-[var(--color-gold)] selection:text-white">
       
       {/* Hero Section */}
       {/* Hero Section */}
@@ -190,6 +192,10 @@ export default function AIJewelryRetouching() {
           </Link>
         </motion.div>
       </section>
-</main>
+
+      <FreeDemoSection />
+
+
+    </main>
   );
 }
