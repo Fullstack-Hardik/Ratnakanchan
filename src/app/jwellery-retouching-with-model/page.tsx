@@ -81,7 +81,7 @@ export default function JewelryRetouchingWithModel() {
             playsInline 
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none scale-105"
           >
-            <source src="/assets/videos/Model.mp4" type="video/mp4" />
+            <source src="/assets/videos/model.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-stone-900/40 pointer-events-none"></div>
           
@@ -193,8 +193,8 @@ export default function JewelryRetouchingWithModel() {
           </div>
           <div className="max-w-4xl mx-auto">
             <BeforeAfterSlider 
-              beforeImage="/images/retouching/Lifestyle Before.jpg"
-              afterImage="/images/retouching/Lifestyle After.jpg"
+              beforeImage="/images/retouching/lifestyle-before.jpg"
+              afterImage="/images/retouching/lifestyle-after.jpg"
               alt="Lifestyle Model Retouching"
             />
           </div>

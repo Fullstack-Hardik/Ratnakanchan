@@ -73,7 +73,7 @@ export default function AboutPage() {
             className="relative mb-12 w-full max-w-3xl"
           >
             <div className="w-full rounded-2xl overflow-hidden shadow-2xl relative border-8 border-gray-50 bg-white flex items-center justify-center">
-               <img src="/assets/images/retouching/Lifestyle After.jpg" alt="Expertise" className="w-full h-auto object-contain" />
+               <img src="/assets/images/retouching/lifestyle-after.jpg" alt="Expertise" className="w-full h-auto object-contain" />
             </div>
             
             {/* Floating 3D Elements (Simulated) */}

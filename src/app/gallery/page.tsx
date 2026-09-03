@@ -152,20 +152,20 @@ export default function GalleryPage() {
   }, []);
 
   const galleryImages: CardData[] = [
-    { id: 1, image: "/images/gallery_new/24-2-scaled-1024x1024.webp", alt: "Diamond Ring Works" },
-    { id: 2, image: "/images/gallery_new/25-1024x1024.webp", alt: "Gold Diamond Ring" },
-    { id: 3, image: "/images/gallery_new/01-1024x576.jpg", alt: "Jewelry Render" },
-    { id: 4, image: "/images/gallery_new/DSC_9239-R-1024x1024.jpg", alt: "Necklace Piece" },
-    { id: 5, image: "/images/gallery_new/Retouch.jpg", alt: "Retouch Example" },
-    { id: 6, image: "/images/gallery/lotus_halo_ov_02.jpg", alt: "Lotus Halo OV" },
-    { id: 9, image: "/images/gallery/lotus_halo_ov_02yg.jpg", alt: "Lotus Halo OV Yellow Gold" },
+    { id: 1, image: "/images/gallery_new/24-2.webp", alt: "Diamond Ring Works" },
+    { id: 2, image: "/images/gallery_new/25.webp", alt: "Gold Diamond Ring" },
+    { id: 3, image: "/images/gallery_new/01.jpg", alt: "Jewelry Render" },
+    { id: 4, image: "/images/gallery_new/dsc-9239-r.jpg", alt: "Necklace Piece" },
+    { id: 5, image: "/images/gallery_new/retouch.jpg", alt: "Retouch Example" },
+    { id: 6, image: "/images/gallery/lotus-halo-ov-02.jpg", alt: "Lotus Halo OV" },
+    { id: 9, image: "/images/gallery/lotus-halo-ov-02yg.jpg", alt: "Lotus Halo OV Yellow Gold" },
   ];
 
   const beforeAfterPairs = [
-    { before: "/images/retouching/4 Before.jpg", after: "/images/retouching/4 After.jpg", alt: "High-End Retouching" },
-    { before: "/images/retouching/Lifestyle Before.jpg", after: "/images/retouching/Lifestyle After.jpg", alt: "Lifestyle Retouching" },
-    { before: "/images/retouching/Ring 1 Before.jpg", after: "/images/retouching/Ring 1 After.jpg", alt: "Ring Retouching" },
-    { before: "/images/retouching/Front Banner Before.jpg", after: "/images/retouching/Front Banner After.jpg", alt: "Banner Retouching" }
+    { before: "/images/retouching/ring-4-before.jpg", after: "/images/retouching/ring-4-after.jpg", alt: "High-End Retouching" },
+    { before: "/images/retouching/lifestyle-before.jpg", after: "/images/retouching/lifestyle-after.jpg", alt: "Lifestyle Retouching" },
+    { before: "/images/retouching/ring-1-before.jpg", after: "/images/retouching/ring-1-after.jpg", alt: "Ring Retouching" },
+    { before: "/images/retouching/front-banner-before.jpg", after: "/images/retouching/front-banner-after.jpg", alt: "Banner Retouching" }
   ];
 
   return (
@@ -209,7 +209,7 @@ export default function GalleryPage() {
           </div>
           {/* Simple Clean Static Grid */}
           <SimpleGallery
-            cards={[...galleryImages, { id: 7, image: "/images/gallery/lifestyle_image.jpg", alt: "Lifestyle Jewelry" }]}
+            cards={[...galleryImages, { id: 7, image: "/images/gallery/lifestyle-image.jpg", alt: "Lifestyle Jewelry" }]}
             onImageClick={handleImageClick}
           />
         </section>
@@ -224,10 +224,10 @@ export default function GalleryPage() {
             {[
               "/assets/videos/gallery/01sample.mp4",
               "/assets/videos/gallery/1.mp4",
-              "/assets/videos/gallery/oval_center_ring.mp4",
-              "/assets/videos/gallery/pear_yg.mp4",
+              "/assets/videos/gallery/oval-center-ring.mp4",
+              "/assets/videos/gallery/pear-yg.mp4",
               "/assets/videos/gallery/penyg.mp4",
-              "/assets/videos/gallery/vid_20190204.mp4"
+              "/assets/videos/gallery/vid-20190204.mp4"
             ].map((videoSrc, idx) => (
               <div key={idx} className="relative w-full aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-200">
                 <video 

@@ -157,7 +157,7 @@ export default function Animation360Page() {
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
                   >
-                    <source src="/assets/videos/animations/Shot 6.mp4" type="video/mp4" />
+                    <source src="/assets/videos/animations/shot-6.mp4" type="video/mp4" />
                   </video>
                </div>
             </motion.div>
@@ -186,7 +186,7 @@ export default function Animation360Page() {
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
                   >
-                    <source src="/assets/videos/animations/Shot 7.mp4" type="video/mp4" />
+                    <source src="/assets/videos/animations/shot-7.mp4" type="video/mp4" />
                   </video>
                </div>
             </motion.div>

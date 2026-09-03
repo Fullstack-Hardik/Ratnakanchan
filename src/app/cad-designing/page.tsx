@@ -37,7 +37,7 @@ export default function CadDesigningPage() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white">
                <img 
-                  src="/images/uploads/upload_4.png" 
+                  src="/images/uploads/upload-4.png" 
                   alt="CAD Designing Hero"
                   className="w-full h-full object-cover"
                 />

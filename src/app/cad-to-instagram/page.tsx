@@ -38,7 +38,7 @@ export default function CadToInstagramPage() {
               playsInline={true}
               className="w-full h-full object-cover"
             >
-              <source src="/assets/videos/animations/Shot 6.mp4" type="video/mp4" />
+              <source src="/assets/videos/animations/shot-6.mp4" type="video/mp4" />
            </video>
            <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white pointer-events-none"></div>
         </motion.div>
@@ -102,7 +102,7 @@ export default function CadToInstagramPage() {
                {/* Premium Big Image */}
                <div className="w-full aspect-[4/3] bg-stone-50 rounded-[3rem] p-0 shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-stone-200 flex items-center justify-center relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-[var(--color-gold)]/5 to-transparent z-10"></div>
-                  <img src="/images/services/5.jpg" alt="Premium Instagram Render" className="w-full h-full object-cover" />
+                  <img src="/images/services/premium-cad-render.jpg" alt="Premium Instagram Render" className="w-full h-full object-cover" />
                </div>
             </div>
          </div>
@@ -149,7 +149,7 @@ export default function CadToInstagramPage() {
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
                   >
-                    <source src="/assets/videos/animations/Shot 7.mp4" type="video/mp4" />
+                    <source src="/assets/videos/animations/shot-7.mp4" type="video/mp4" />
                   </video>
                </div>
             </motion.div>
@@ -171,7 +171,7 @@ export default function CadToInstagramPage() {
                       <div className="w-2 h-2 rounded-full bg-stone-300"></div>
                     </div>
                   </div>
-                  <img src="/images/services/3.jpg" alt="Social Media Render" className="w-full aspect-[4/3] object-cover" />
+                  <img src="/images/services/instagram-render.jpg" alt="Social Media Render" className="w-full aspect-[4/3] object-cover" />
                </div>
             </motion.div>
          </div>
@@ -189,7 +189,7 @@ export default function CadToInstagramPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { src: "/assets/videos/insta-ads/box_2_animation_video2.mp4", title: "Creative Box Animation" }
+            { src: "/assets/videos/insta-ads/box-2-animation-video2.mp4", title: "Creative Box Animation" }
           ].map((video, idx) => (
             <motion.div
               key={idx}

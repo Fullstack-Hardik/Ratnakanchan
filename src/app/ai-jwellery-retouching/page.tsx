@@ -22,7 +22,7 @@ export default function AIJewelryRetouching() {
           playsInline 
           className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none"
         >
-          <source src="/assets/videos/animations/Shot 1.mp4" type="video/mp4" />
+          <source src="/assets/videos/animations/shot-1.mp4" type="video/mp4" />
         </video>
         
         {/* Dark Overlay */}
@@ -165,7 +165,7 @@ export default function AIJewelryRetouching() {
 
           <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-2xl border border-stone-200 aspect-[4/3] relative group-hover:border-[var(--color-gold)]/40 transition-colors duration-500 bg-stone-100">
             <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src="/assets/videos/rendering/Comp 1_3_1.mp4" type="video/mp4" />
+              <source src="/assets/videos/rendering/comp-1-3-1.mp4" type="video/mp4" />
             </video>
           </div>
         </motion.div>

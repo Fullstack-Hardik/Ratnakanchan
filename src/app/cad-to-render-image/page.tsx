@@ -8,9 +8,9 @@ export default function CadToRenderImagePage() {
   const [activeMaterial, setActiveMaterial] = useState('yg');
 
   const materials = [
-    { id: 'yg', name: 'Yellow Gold', color: 'bg-yellow-400', image: '/images/cad-renders/YG.jpg' },
-    { id: 'wg', name: 'White Gold', color: 'bg-stone-200', image: '/images/cad-renders/WG.jpg' },
-    { id: 'rg', name: 'Rose Gold', color: 'bg-rose-300', image: '/images/cad-renders/RG.jpg' }
+    { id: 'yg', name: 'Yellow Gold', color: 'bg-yellow-400', image: '/images/cad-renders/yellow-gold-ring.jpg' },
+    { id: 'wg', name: 'White Gold', color: 'bg-stone-200', image: '/images/cad-renders/white-gold-ring.jpg' },
+    { id: 'rg', name: 'Rose Gold', color: 'bg-rose-300', image: '/images/cad-renders/rose-gold-ring.jpg' }
   ];
 
   return (
@@ -25,7 +25,7 @@ export default function CadToRenderImagePage() {
               <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-[var(--color-gold)]/10 rounded-full -z-10"></div>
               
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-                <img src="/images/cad-renders/RING.jpg" alt="CAD Design Background" className="w-full h-full object-cover opacity-[0.85]" />
+                <img src="/images/cad-renders/diamond-ring.jpg" alt="CAD Design Background" className="w-full h-full object-cover opacity-[0.85]" />
               </div>
               
               <div className="absolute -top-8 -left-8 bg-white p-6 rounded-3xl shadow-xl hidden md:block">
@@ -84,7 +84,7 @@ export default function CadToRenderImagePage() {
               <div className="absolute -top-12 -left-12 w-48 h-48 bg-[var(--color-gold)]/10 rounded-full -z-10"></div>
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-stone-100 bg-stone-900 aspect-square relative">
                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                   <source src="/assets/videos/rendering/Comp 1_3_1.mp4" type="video/mp4" />
+                   <source src="/assets/videos/rendering/comp-1-3-1.mp4" type="video/mp4" />
                  </video>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function CadToRenderImagePage() {
         <div className="max-w-5xl mx-auto px-6 relative z-10">
            <div className="rounded-[3rem] overflow-hidden shadow-2xl border border-stone-800 bg-black aspect-video relative">
                <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-                 <source src="/assets/videos/rendering/Comp 3_1.mp4" type="video/mp4" />
+                 <source src="/assets/videos/rendering/comp-3-1.mp4" type="video/mp4" />
                </video>
            </div>
         </div>

@@ -10,6 +10,8 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-headin
 const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ratnakanchan.com'),
+  manifest: "/manifest.json",
   title: "Ratnakanchan Creations | Luxury Jewelry Photo Retouching & CAD Design",
   description: "Global B2B High-end Jewelry Photo Retouching, CAD Designing, and 360° Animation Services based in Mumbai, India. Established in 2007.",
   keywords: "Jewelry Retouching, CAD Designing, 360 Animation, E-commerce Jewelry, High-end Retouching, Ratnakanchan Creations",

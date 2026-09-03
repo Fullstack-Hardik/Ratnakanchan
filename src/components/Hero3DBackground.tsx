@@ -59,8 +59,6 @@ export default function Hero3DBackground() {
     // Mouse interaction
     let mouseX = 0;
     let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
 
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;
@@ -78,9 +76,6 @@ export default function Hero3DBackground() {
     const animate = () => {
         requestAnimationFrame(animate);
         const elapsedTime = clock.getElapsedTime();
-
-        targetX = mouseX * 0.001;
-        targetY = mouseY * 0.001;
 
         particlesMesh.rotation.y += 0.001;
         particlesMesh.rotation.x += 0.0005;
@@ -110,12 +105,14 @@ export default function Hero3DBackground() {
 
     window.addEventListener('resize', handleResize);
 
+    const currentMount = mountRef.current;
+
     // Cleanup
     return () => {
         window.removeEventListener('resize', handleResize);
         document.removeEventListener('mousemove', onDocumentMouseMove);
-        if (mountRef.current) {
-            mountRef.current.removeChild(renderer.domElement);
+        if (currentMount) {
+            currentMount.removeChild(renderer.domElement);
         }
         geometry.dispose();
         material.dispose();

@@ -4,7 +4,7 @@ export default function FreeDemoSection() {
   return (
     <section className="flex flex-col md:flex-row bg-[#727575]">
       <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
-        <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-contain p-4" />
+        <img src="/images/demo/free-demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-contain p-4" />
       </div>
       <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-white">
         <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-white">Get A Free Demo</h2>

@@ -13,12 +13,12 @@ const heroMedia = [
   },
   {
     type: 'video',
-    src: '/images/hero/YG.mp4',
+    src: '/images/hero/yg.mp4',
     alt: 'Jewelry Video',
   },
   {
     type: 'video',
-    src: '/assets/videos/Model.mp4',
+    src: '/assets/videos/model.mp4',
     alt: 'Model Video',
   },
 ];
@@ -222,7 +222,7 @@ export default function Home() {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-12 md:gap-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 lg:gap-24 place-items-center max-w-5xl mx-auto">
           <div className="flex flex-col items-center">
             <svg className="w-12 h-12 mb-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             <span className="font-semibold text-sm text-center">24/7 Service</span>
@@ -251,7 +251,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           <div className="w-full md:w-1/2">
-            <img src="/images/services/model_necklace.jpg" alt="Model Photo Retouching" className="w-full h-auto rounded-md shadow-lg" />
+            <img src="/images/services/model-necklace-service.jpg" alt="Model Photo Retouching" loading="lazy" className="w-full h-auto rounded-md shadow-lg" />
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center">
             <h3 className="text-2xl md:text-3xl font-serif text-black mb-6">Model Photo Retouching Services</h3>
@@ -269,12 +269,12 @@ export default function Home() {
       <section id="services" className="py-8 md:py-12 px-6 md:px-12 max-w-[1400px] mx-auto bg-white overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
           {[
-            { id: 1, name: 'Retouching Jewelry Photos', isSlider: true, before: '/images/retouching/retouch_before.jpg', after: '/images/retouching/retouch_after.jpg', desc: "Professional jewelry photo retouching built for online jewelry sales. We remove dust, scratches, and imperfections while enhancing diamond clarity, metal color accuracy, and natural shadow depth. Every image is polished to the standard today's online shoppers expect, helping you turn browsers into buyers." },
-            { id: 2, name: 'CAD Designing', img: '/images/services/CAD_Desgining.jpg', desc: "Precision 3D CAD design services for jewelry manufacturers and designers. From a rough sketch or reference photo, our team builds mathematically accurate CAD models with clean prongs, settings, and curves, delivered as print-ready STL files for smooth, error-free manufacturing." },
-            { id: 3, name: 'CAD to render images and animations', img: '/images/services/3.jpg', desc: "High-resolution, photorealistic jewelry renders from your CAD files. We customize lighting, camera angle, metal texture, and background to create stunning marketing-ready images, no physical photoshoot required. Perfect for catalogs, websites, and social media." },
-            { id: 4, name: 'AI Jewelry Photo Retouching and Video', img: '/images/services/11_copy.jpg', desc: "We turn raw, unpolished CAD files into market-ready visual assets. Using advanced texturing, realistic diamond shading, and environment mapping, we make your digital jewelry designs look indistinguishable from real photography." },
-            { id: 5, name: '3D hand and ring animation', img: '/images/services/Hand_Animation.jpg.jpeg', desc: "Show your jewelry the way customers want to see it, worn. We combine 3D renders with lifelike human models to demonstrate true scale, fit, and sparkle, giving online shoppers the confidence to buy without ever seeing the piece in person." },
-            { id: 6, name: 'Get Social - ready renders', img: '/images/services/getsocialrender.jpeg', desc: "Turn your jewelry CAD models into attractive and professional content for Instagram. Our 3D rendering and animation services help transform your digital jewelry designs into realistic visuals that catch attention.", link: "/cad-to-instagram" }
+            { id: 1, name: 'Retouching Jewelry Photos', isSlider: true, before: '/images/retouching/retouch-before.jpg', after: '/images/retouching/retouch-after.jpg', desc: "Professional jewelry photo retouching built for online jewelry sales. We remove dust, scratches, and imperfections while enhancing diamond clarity, metal color accuracy, and natural shadow depth. Every image is polished to the standard today's online shoppers expect, helping you turn browsers into buyers." },
+            { id: 2, name: 'CAD Designing', img: '/images/services/cad-designing-service.jpg', desc: "Precision 3D CAD design services for jewelry manufacturers and designers. From a rough sketch or reference photo, our team builds mathematically accurate CAD models with clean prongs, settings, and curves, delivered as print-ready STL files for smooth, error-free manufacturing." },
+            { id: 3, name: 'CAD to render images and animations', img: '/images/services/instagram-render.jpg', desc: "High-resolution, photorealistic jewelry renders from your CAD files. We customize lighting, camera angle, metal texture, and background to create stunning marketing-ready images, no physical photoshoot required. Perfect for catalogs, websites, and social media." },
+            { id: 4, name: 'AI Jewelry Photo Retouching and Video', img: '/images/services/ai-retouching-service.jpg', desc: "We turn raw, unpolished CAD files into market-ready visual assets. Using advanced texturing, realistic diamond shading, and environment mapping, we make your digital jewelry designs look indistinguishable from real photography." },
+            { id: 5, name: '3D hand and ring animation', img: '/images/services/hand-animation-service.jpeg', desc: "Show your jewelry the way customers want to see it, worn. We combine 3D renders with lifelike human models to demonstrate true scale, fit, and sparkle, giving online shoppers the confidence to buy without ever seeing the piece in person." },
+            { id: 6, name: 'Get Social - ready renders', img: '/images/services/social-render-service.jpeg', desc: "Turn your jewelry CAD models into attractive and professional content for Instagram. Our 3D rendering and animation services help transform your digital jewelry designs into realistic visuals that catch attention.", link: "/cad-to-instagram" }
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
@@ -290,7 +290,7 @@ export default function Home() {
                 ) : srv.img?.endsWith('.mp4') ? (
                   <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
-                  <img src={srv.img} alt={srv.name} className={`w-full h-full ${[2, 4, 5, 6].includes(srv.id) ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
+                  <img src={srv.img} alt={srv.name} loading="lazy" className={`w-full h-full ${[2, 4, 5, 6].includes(srv.id) ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
                 )}
               </div>
               <div className="flex-1 flex flex-col">

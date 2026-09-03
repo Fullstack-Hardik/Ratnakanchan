@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef } from 'react';
-import Image from 'next/image';
 import { MoveHorizontal } from 'lucide-react';
 
 export default function BeforeAfterSlider({ beforeImage, afterImage, alt }: { beforeImage: string, afterImage: string, alt: string }) {
