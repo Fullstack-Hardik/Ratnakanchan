@@ -269,7 +269,7 @@ export default function JewelryRetouching() {
       {/* Media and Content Section 2: Why Us */}
       <section className="w-full bg-stone-900 text-white py-24 pt-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-          <h3.div
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
