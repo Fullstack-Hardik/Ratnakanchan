@@ -1,6 +1,4 @@
 'use client';
-import FreeDemoSection from '@/components/FreeDemoSection';
-
 import React, { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -222,11 +220,7 @@ export default function Animation360Page() {
           </div>
         </div>
       </section>
-
-      <FreeDemoSection />
-
-
-    </main>
+</main>
   );
 }
 

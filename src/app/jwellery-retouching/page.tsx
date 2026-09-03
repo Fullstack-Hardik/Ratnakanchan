@@ -1,6 +1,4 @@
 'use client';
-import FreeDemoSection from '@/components/FreeDemoSection';
-
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -99,14 +97,7 @@ export default function JewelryRetouching() {
     {
       title: "Model Photo and Image Retouching",
       items: [],
-      beforeImg: "/images/retouching/services/retouch-before.jpg",
-      afterImg: "/images/retouching/services/retouch-after.jpg"
-    },
-    {
-      title: "Lifestyle Image Retouching",
-      items: [],
-      beforeImg: "/images/retouching/services/lifestyle-retouch-before.jpg",
-      afterImg: "/images/retouching/services/lifestyle-retouch-after.jpg"
+      beforeImg: "/images/retouching/services/model-photo-retouch.jpg"
     },
     {
       title: "E commerce Product Image Retouch",
@@ -145,6 +136,17 @@ export default function JewelryRetouching() {
           >
             Transform your raw jewelry photos into breathtaking, high-end visuals. Our expert retouching services cover clipping, color correction, scratch removal, and flawless metallic enhancement to make every piece shine.
           </motion.p>
+          
+          {/* Mobile Only Hero Image */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-full block md:hidden mb-10 rounded-3xl overflow-hidden shadow-2xl relative border border-stone-100"
+          >
+             <img src="/assets/images/retouching/retouchinghero.jpg" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +162,7 @@ export default function JewelryRetouching() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full md:w-1/2"
+          className="w-full md:w-1/2 hidden md:block"
         >
           <div className="w-full rounded-3xl overflow-hidden shadow-2xl relative border border-stone-100">
              <img src="/assets/images/retouching/retouchinghero.jpg" alt="High End Retouching Hero" className="w-full h-auto object-cover" />
@@ -279,9 +281,6 @@ export default function JewelryRetouching() {
           </motion.div>
         </div>
       </section>
-
-      <FreeDemoSection />
-
-    </main>
+</main>
   );
 }

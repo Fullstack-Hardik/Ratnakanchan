@@ -1,6 +1,4 @@
 'use client';
-import FreeDemoSection from '@/components/FreeDemoSection';
-
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -192,10 +190,6 @@ export default function AIJewelryRetouching() {
           </Link>
         </motion.div>
       </section>
-
-      <FreeDemoSection />
-
-
-    </main>
+</main>
   );
 }

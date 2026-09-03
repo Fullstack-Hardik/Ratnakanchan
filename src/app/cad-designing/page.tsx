@@ -1,6 +1,4 @@
 'use client';
-import FreeDemoSection from '@/components/FreeDemoSection';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -97,10 +95,6 @@ export default function CadDesigningPage() {
             </p>
          </div>
       </section>
-
-      <FreeDemoSection />
-
-
-    </main>
+</main>
   );
 }
