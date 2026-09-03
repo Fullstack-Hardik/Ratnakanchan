@@ -7,7 +7,7 @@ import AutoFadeSlider from '@/components/AutoFadeSlider';
 import FreeDemoSection from '@/components/FreeDemoSection';
 
 // Custom component for the hover-fade effect
-function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages }: { title: string, items?: string[], content?: string, beforeImg: string, afterImg?: string, hoverFadeImages?: string[] }) {
+function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages }: { title: string, items?: string[], content?: string, beforeImg?: string, afterImg?: string, hoverFadeImages?: string[] }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -21,12 +21,14 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
       </div>
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
-        <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+        {beforeImg && (
+          <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+        )}
         {afterImg && (
           <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
         )}
         {hoverFadeImages && (
-          <div className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 overflow-hidden bg-stone-50">
+          <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out overflow-hidden bg-stone-50 ${beforeImg ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
             <AutoFadeSlider images={hoverFadeImages} interval={2000} className="relative w-full h-full" />
           </div>
         )}
@@ -112,7 +114,6 @@ export default function JewelryRetouching() {
     {
       title: "E commerce Product Image Retouch",
       content: "Marketplace ready images with consistent backgrounds, accurate color, and crisp detail, optimized for Amazon, Shopify, and other platforms where clarity drives conversions.",
-      beforeImg: "/images/retouching/new/Product Image retiuching.jpg",
       hoverFadeImages: ecommerceSliderImages
     }
   ];
@@ -220,7 +221,7 @@ export default function JewelryRetouching() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
             {newServicesCards.map((card, idx) => (
-              <div key={idx} className={idx === 6 ? "lg:col-span-3 max-w-4xl mx-auto w-full" : ""}>
+              <div key={idx} className={idx === 6 ? "lg:col-span-3 max-w-2xl mx-auto w-full" : ""}>
                 <HoverFadeCard 
                   title={card.title}
                   items={card.items}
