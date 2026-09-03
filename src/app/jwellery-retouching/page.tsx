@@ -7,7 +7,7 @@ import AutoFadeSlider from '@/components/AutoFadeSlider';
 import FreeDemoSection from '@/components/FreeDemoSection';
 
 // Custom component for the hover-fade effect
-function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages }: { title: string, items?: string[], content?: string, beforeImg?: string, afterImg?: string, hoverFadeImages?: string[] }) {
+function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages, centerHeading }: { title: string, items?: string[], content?: string, beforeImg?: string, afterImg?: string, hoverFadeImages?: string[], centerHeading?: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -17,7 +17,7 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
       className="group relative bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col h-full overflow-hidden"
     >
       <div className="px-8 pt-8 pb-4">
-        <h3 className="text-2xl font-heading font-bold text-stone-900">{title}</h3>
+        <h3 className={`text-2xl font-heading font-bold text-stone-900 ${centerHeading ? 'text-center' : ''}`}>{title}</h3>
       </div>
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
@@ -114,7 +114,8 @@ export default function JewelryRetouching() {
     {
       title: "E commerce Product Image Retouch",
       content: "Marketplace ready images with consistent backgrounds, accurate color, and crisp detail, optimized for Amazon, Shopify, and other platforms where clarity drives conversions.",
-      hoverFadeImages: ecommerceSliderImages
+      hoverFadeImages: ecommerceSliderImages,
+      centerHeading: true
     }
   ];
 
@@ -229,6 +230,7 @@ export default function JewelryRetouching() {
                   beforeImg={card.beforeImg}
                   afterImg={card.afterImg}
                   hoverFadeImages={card.hoverFadeImages}
+                  centerHeading={card.centerHeading}
                 />
               </div>
             ))}
