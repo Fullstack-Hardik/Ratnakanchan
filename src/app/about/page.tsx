@@ -53,14 +53,24 @@ export default function AboutPage() {
 
       {/* Expertise Section */}
       <section className="py-24 px-6 bg-white text-black relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
           
+          <motion.h2 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpBlur}
+            className="text-4xl md:text-6xl font-heading mb-12 text-center"
+          >
+            Our Areas of <span className="text-[var(--color-gold)] italic">Expertise</span>
+          </motion.h2>
+
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUpBlur}
-            className="order-2 lg:order-1 relative"
+            className="relative mb-12 w-full max-w-3xl"
           >
             <div className="w-full rounded-2xl overflow-hidden shadow-2xl relative border-8 border-gray-50 bg-white flex items-center justify-center">
                <img src="/assets/images/retouching/Lifestyle After.jpg" alt="Expertise" className="w-full h-auto object-contain" />
@@ -70,11 +80,10 @@ export default function AboutPage() {
             <motion.div 
               animate={{ y: [0, -20, 0] }} 
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 w-32 h-32 bg-[var(--color-gold)]/20 backdrop-blur-xl rounded-full border border-white/40 shadow-xl flex items-center justify-center"
+              className="absolute -top-10 -right-10 w-24 h-24 md:w-32 md:h-32 bg-[var(--color-gold)]/20 backdrop-blur-xl rounded-full border border-white/40 shadow-xl flex items-center justify-center z-10"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[var(--color-gold)] to-white/50 shadow-inner"></div>
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-[var(--color-gold)] to-white/50 shadow-inner"></div>
             </motion.div>
-            
           </motion.div>
 
           <motion.div 
@@ -82,29 +91,26 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUpBlur}
-            className="order-1 lg:order-2"
+            className="text-lg text-gray-600 font-light leading-relaxed space-y-6 text-center"
           >
-            <h2 className="text-4xl md:text-6xl font-heading mb-8">Our Areas of <span className="text-[var(--color-gold)] italic">Expertise</span></h2>
-            <div className="text-lg text-gray-600 font-light leading-relaxed space-y-6">
-              <p>
-                At Ratnakanchan Creations, we specialize in professional jewelry photo editing and CAD design services for jewelry brands, retailers, and e-commerce sellers across the United States. With over 17 years of hands on experience, our team understands exactly how to represent gold tones, diamond clarity, and gemstone color with precision, so your products look as stunning online as they do in person.
-              </p>
-              <p>
-                Our expert photo retouching services are tailored specifically for jewelry businesses. We handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation, ensuring every piece sparkles perfectly and increasing your chances of turning online visitors into loyal buyers.
-              </p>
-              <p>
-                To speed up delivery without compromising quality, we also use AI powered retouching for background cleanup, color consistency, and repetitive corrections at scale, while our expert retouchers refine every image by hand for accuracy, giving you faster turnaround on large batches without losing that human crafted finish.
-              </p>
-              <p>
-                On the design side, we deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure every prong, setting, and curve is mathematically perfect, providing you with precise STL files that are ready for 3D printing and seamless manufacturing.
-              </p>
-              <p>
-                We then transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity, customizing studio lighting, camera angles, metal textures, and backgrounds to showcase your designs beautifully and eliminate the need for expensive physical photography.
-              </p>
-              <p>
-                For unpolished CAD designs, we apply advanced texturing, hyper realistic diamond shading, and environment mapping to make them look completely indistinguishable from real photography. We bring designs to life further with smooth, high resolution 360 degree turntable animations, ideal for e-commerce platforms and Instagram reels, letting customers interactively view every intricate detail from every angle and building trust that boosts conversion rates. Finally, we seamlessly integrate your 3D jewelry renders with realistic human models, showing true to life scale, lighting interaction, and wearability, helping customers visualize exactly how a piece will look and feel when worn before they ever buy.
-              </p>
-            </div>
+            <p>
+              At Ratnakanchan Creations, we specialize in professional jewelry photo editing and CAD design services for jewelry brands, retailers, and e-commerce sellers across the United States. With over 17 years of hands on experience, our team understands exactly how to represent gold tones, diamond clarity, and gemstone color with precision, so your products look as stunning online as they do in person.
+            </p>
+            <p>
+              Our expert photo retouching services are tailored specifically for jewelry businesses. We handle standard cleanups, dust removal, and scratch elimination, alongside advanced enhancements like diamond masking, metal color correction, and natural shadow generation, ensuring every piece sparkles perfectly and increasing your chances of turning online visitors into loyal buyers.
+            </p>
+            <p>
+              To speed up delivery without compromising quality, we also use AI powered retouching for background cleanup, color consistency, and repetitive corrections at scale, while our expert retouchers refine every image by hand for accuracy, giving you faster turnaround on large batches without losing that human crafted finish.
+            </p>
+            <p>
+              On the design side, we deliver highly accurate 3D CAD models crafted from your rough sketches, physical pieces, or reference images. Our experienced designers ensure every prong, setting, and curve is mathematically perfect, providing you with precise STL files that are ready for 3D printing and seamless manufacturing.
+            </p>
+            <p>
+              We then transform your raw CAD files into breathtaking, photorealistic render images with stunning clarity, customizing studio lighting, camera angles, metal textures, and backgrounds to showcase your designs beautifully and eliminate the need for expensive physical photography.
+            </p>
+            <p>
+              For unpolished CAD designs, we apply advanced texturing, hyper realistic diamond shading, and environment mapping to make them look completely indistinguishable from real photography. We bring designs to life further with smooth, high resolution 360 degree turntable animations, ideal for e-commerce platforms and Instagram reels, letting customers interactively view every intricate detail from every angle and building trust that boosts conversion rates. Finally, we seamlessly integrate your 3D jewelry renders with realistic human models, showing true to life scale, lighting interaction, and wearability, helping customers visualize exactly how a piece will look and feel when worn before they ever buy.
+            </p>
           </motion.div>
         </div>
       </section>
