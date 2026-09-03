@@ -1,4 +1,5 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 import React, { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
@@ -318,6 +319,9 @@ export default function JewelryRetouching() {
           </Link>
         </motion.div>
       </section>
+
+      <FreeDemoSection />
+
 
     </main>
   );

@@ -1,4 +1,5 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 import React, { useRef } from 'react';
 import Head from 'next/head';
@@ -246,6 +247,9 @@ export default function CadToInstagramPage() {
           </div>
         </div>
       </section>
+
+      <FreeDemoSection />
+
 
     </main>
   );

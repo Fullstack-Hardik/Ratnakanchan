@@ -1,4 +1,5 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 import React, { useState } from 'react';
 import { Box, Video } from 'lucide-react';
@@ -128,6 +129,9 @@ export default function CadToRenderImagePage() {
             </p>
          </div>
       </section>
+
+      <FreeDemoSection />
+
 
     </main>
   );

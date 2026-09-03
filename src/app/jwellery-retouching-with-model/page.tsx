@@ -1,4 +1,5 @@
 'use client';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 import React from 'react';
 import Image from 'next/image';
@@ -221,6 +222,9 @@ export default function JewelryRetouchingWithModel() {
           </Link>
         </motion.div>
       </section>
+
+      <FreeDemoSection />
+
 
     </main>
   );

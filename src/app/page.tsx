@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import Hero3DBackground from '@/components/Hero3DBackground';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import FreeDemoSection from '@/components/FreeDemoSection';
 
 const heroMedia = [
   {
@@ -272,8 +273,8 @@ export default function Home() {
             { id: 2, name: 'CAD Designing', img: '/images/services/CAD_Desgining.jpg', desc: "Precision 3D CAD design services for jewelry manufacturers and designers. From a rough sketch or reference photo, our team builds mathematically accurate CAD models with clean prongs, settings, and curves, delivered as print-ready STL files for smooth, error-free manufacturing." },
             { id: 3, name: 'CAD to render images and animations', img: '/images/services/3.jpg', desc: "High-resolution, photorealistic jewelry renders from your CAD files. We customize lighting, camera angle, metal texture, and background to create stunning marketing-ready images, no physical photoshoot required. Perfect for catalogs, websites, and social media." },
             { id: 4, name: 'AI Jewelry Photo Retouching and Video', img: '/images/services/11_copy.jpg', desc: "We turn raw, unpolished CAD files into market-ready visual assets. Using advanced texturing, realistic diamond shading, and environment mapping, we make your digital jewelry designs look indistinguishable from real photography." },
-            { id: 5, name: '3D hand and ring animation', img: '/images/services/06_Photorealistic_Model_Animations.mp4', desc: "Show your jewelry the way customers want to see it, worn. We combine 3D renders with lifelike human models to demonstrate true scale, fit, and sparkle, giving online shoppers the confidence to buy without ever seeing the piece in person." },
-            { id: 6, name: 'Get Social - ready renders', img: '/images/services/6.mp4', desc: "Turn your jewelry CAD models into attractive and professional content for Instagram. Our 3D rendering and animation services help transform your digital jewelry designs into realistic visuals that catch attention.", link: "/cad-to-instagram" }
+            { id: 5, name: '3D hand and ring animation', img: '/images/services/Hand_Animation.jpg.jpeg', desc: "Show your jewelry the way customers want to see it, worn. We combine 3D renders with lifelike human models to demonstrate true scale, fit, and sparkle, giving online shoppers the confidence to buy without ever seeing the piece in person." },
+            { id: 6, name: 'Get Social - ready renders', img: '/images/services/getsocialrender.jpeg', desc: "Turn your jewelry CAD models into attractive and professional content for Instagram. Our 3D rendering and animation services help transform your digital jewelry designs into realistic visuals that catch attention.", link: "/cad-to-instagram" }
           ].map((srv, idx) => (
             <motion.div 
               key={srv.id}
@@ -289,7 +290,7 @@ export default function Home() {
                 ) : srv.img?.endsWith('.mp4') ? (
                   <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
                 ) : (
-                  <img src={srv.img} alt={srv.name} className={`w-full h-full ${srv.id === 2 || srv.id === 4 ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
+                  <img src={srv.img} alt={srv.name} className={`w-full h-full ${[2, 4, 5, 6].includes(srv.id) ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
                 )}
               </div>
               <div className="flex-1 flex flex-col">
@@ -316,38 +317,7 @@ export default function Home() {
       </section>
 
       {/* GET A FREE DEMO SECTION */}
-      <section className="flex flex-col md:flex-row bg-[#727575]">
-        <div className="w-full md:w-[45%] min-h-[400px] md:min-h-[500px] relative">
-          <img src="/images/demo/free_demo.jpg" alt="Demo Model" className="absolute inset-0 w-full h-full object-contain p-4" />
-        </div>
-        <div className="w-full md:w-[55%] p-10 md:p-24 flex flex-col justify-center text-white">
-          <h2 className="text-3xl md:text-5xl font-serif mb-6 tracking-wide text-white">Get A Free Demo</h2>
-          <p className="text-sm text-gray-200 mb-10 max-w-lg leading-loose font-light">
-            Apply for a free photo retouching trial. Send us your test image or CAD file and discover the world-class quality we provide. Fill the form below with your details and we will reach out to you.
-          </p>
-          
-          <form 
-            className="flex flex-col gap-6 max-w-lg"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              const name = formData.get('name');
-              const email = formData.get('email');
-              const message = formData.get('message');
-              
-              const waText = `*New Free Demo Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-              window.open(`https://wa.me/919876543210?text=${waText}`, "_blank");
-            }}
-          >
-            <input name="name" type="text" placeholder="Name *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
-            <input name="email" type="email" placeholder="Email *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />
-            <textarea name="message" placeholder="Message *" rows={4} className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none resize-none border border-transparent focus:border-black transition-colors" required></textarea>
-            <button type="submit" className="bg-black text-white uppercase tracking-widest text-xs font-semibold py-5 px-10 mt-4 w-fit hover:bg-gray-800 transition-colors">
-              Send
-            </button>
-          </form>
-        </div>
-      </section>
+      <FreeDemoSection />
 
     </div>
   );
