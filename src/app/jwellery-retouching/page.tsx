@@ -7,7 +7,46 @@ import AutoFadeSlider from '@/components/AutoFadeSlider';
 import FreeDemoSection from '@/components/FreeDemoSection';
 
 // Custom component for the hover-fade effect
-function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages, centerHeading }: { title: string, items?: string[], content?: string, beforeImg?: string, afterImg?: string, hoverFadeImages?: string[], centerHeading?: boolean }) {
+function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeImages, centerHeading, isHorizontal }: { title: string, items?: string[], content?: string, beforeImg?: string, afterImg?: string, hoverFadeImages?: string[], centerHeading?: boolean, isHorizontal?: boolean }) {
+  if (isHorizontal) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7 }}
+        className="group relative bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col md:flex-row overflow-hidden w-full items-stretch"
+      >
+        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+          <h3 className={`text-3xl md:text-4xl font-heading font-bold text-stone-900 mb-6 ${centerHeading ? 'text-center md:text-left' : ''}`}>{title}</h3>
+          {items && items.length > 0 ? (
+            <ul className="text-stone-500 font-body leading-relaxed text-lg space-y-2 list-disc pl-5">
+              {items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          ) : content ? (
+            <p className="text-stone-500 font-body leading-relaxed text-lg">{content}</p>
+          ) : null}
+        </div>
+
+        <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto relative border-t md:border-t-0 md:border-l border-stone-100 bg-stone-50 overflow-hidden min-h-[300px]">
+          {beforeImg && (
+            <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+          )}
+          {afterImg && (
+            <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
+          )}
+          {hoverFadeImages && (
+            <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out overflow-hidden bg-stone-50 ${beforeImg ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
+              <AutoFadeSlider images={hoverFadeImages} interval={2000} className="relative w-full h-full" />
+            </div>
+          )}
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -115,7 +154,8 @@ export default function JewelryRetouching() {
       title: "E commerce Product Image Retouch",
       content: "Marketplace ready images with consistent backgrounds, accurate color, and crisp detail, optimized for Amazon, Shopify, and other platforms where clarity drives conversions.",
       hoverFadeImages: ecommerceSliderImages,
-      centerHeading: true
+      centerHeading: true,
+      isHorizontal: true
     }
   ];
 
@@ -222,7 +262,7 @@ export default function JewelryRetouching() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
             {newServicesCards.map((card, idx) => (
-              <div key={idx} className={idx === 6 ? "lg:col-span-3 max-w-2xl mx-auto w-full" : ""}>
+              <div key={idx} className={idx === 6 ? "lg:col-span-3 w-full" : ""}>
                 <HoverFadeCard 
                   title={card.title}
                   items={card.items}
@@ -231,25 +271,12 @@ export default function JewelryRetouching() {
                   afterImg={card.afterImg}
                   hoverFadeImages={card.hoverFadeImages}
                   centerHeading={card.centerHeading}
+                  isHorizontal={card.isHorizontal}
                 />
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Media and Content Section 1: Clipping & Editing */}
-      <section className="w-full max-w-7xl mx-auto py-24 px-6 relative z-10">
-        
-        {/* Clipping Path (No Media) */}
-        <div className="mb-24 text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-heading font-bold text-stone-900 mb-6 tracking-tight uppercase">Clipping Path</h3>
-          <p className="text-stone-500 font-body leading-relaxed text-lg">
-            Clipping path Service covers Multi path, clipping mask, basic, compound, complex or super complex clipping path services. We use manual Photoshop clipping path tools for clippings. Accurate clipping is especially important for jewelry because even small errors around stones, prongs, chains and delicate edges can affect the final product image. Our detailed selections provide clean outlines and support background removal, color correction, shadow creation and other image editing requirements.
-          </p>
-        </div>
-
-        {/* E-Commerce Product Editing (With AutoFadeSlider) Removed */}
       </section>
 
       {/* Media and Content Section 2: Why Us */}
