@@ -55,8 +55,8 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
       transition={{ duration: 0.7 }}
       className="group relative bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col h-full overflow-hidden"
     >
-      <div className="px-8 pt-8 pb-4 h-[90px] flex items-center">
-        <h3 className={`text-xl md:text-2xl font-heading font-bold text-stone-900 truncate ${centerHeading ? 'text-center' : 'w-full'}`}>{title}</h3>
+      <div className="px-6 md:px-8 pt-8 pb-4 h-[90px] flex items-center">
+        <h3 className={`text-[15px] md:text-base lg:text-[17px] xl:text-[19px] font-heading font-bold text-stone-900 whitespace-nowrap tracking-tight ${centerHeading ? 'text-center' : 'w-full'}`}>{title}</h3>
       </div>
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
@@ -217,7 +217,7 @@ export default function JewelryRetouching() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-full md:w-[45%] hidden md:block relative z-10"
         >
-          <div className="w-full relative flex justify-center items-center pointer-events-none transform scale-[1.35] translate-x-6">
+          <div className="w-full relative flex justify-center items-center pointer-events-none transform scale-[1.2] translate-x-6">
              <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-contain hover:scale-110 transition-transform duration-700" />
           </div>
         </motion.div>
