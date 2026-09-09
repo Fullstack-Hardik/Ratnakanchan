@@ -55,8 +55,8 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
       transition={{ duration: 0.7 }}
       className="group relative bg-white rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-stone-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col h-full overflow-hidden"
     >
-      <div className="px-8 pt-8 pb-4">
-        <h3 className={`text-2xl font-heading font-bold text-stone-900 ${centerHeading ? 'text-center' : ''}`}>{title}</h3>
+      <div className="px-8 pt-8 pb-4 h-[90px] flex items-center">
+        <h3 className={`text-2xl font-heading font-bold text-stone-900 line-clamp-2 ${centerHeading ? 'text-center' : 'w-full'}`}>{title}</h3>
       </div>
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
@@ -177,7 +177,7 @@ export default function JewelryRetouching() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-heading leading-[1.1] text-stone-900 mb-8"
           >
             Flawless <br className="md:hidden" /> <span className="italic text-[var(--color-gold)]">Perfection</span>
           </motion.h1>
@@ -185,7 +185,7 @@ export default function JewelryRetouching() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10 max-w-xl"
+            className="text-xl md:text-2xl text-stone-800 mb-10 max-w-xl"
           >
             Transform your raw jewelry photos into breathtaking, high-end visuals. Our expert retouching services cover clipping, color correction, scratch removal, and flawless metallic enhancement to make every piece shine.
           </motion.p>
@@ -217,7 +217,7 @@ export default function JewelryRetouching() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-full md:w-[45%] hidden md:block relative z-10"
         >
-          <div className="w-full relative flex justify-center items-center pointer-events-none">
+          <div className="w-full relative flex justify-center items-center pointer-events-none transform scale-125 translate-x-4">
              <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-700" />
           </div>
         </motion.div>
