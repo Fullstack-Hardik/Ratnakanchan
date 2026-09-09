@@ -32,10 +32,10 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
 
         <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto relative border-t md:border-t-0 md:border-l border-stone-100 bg-stone-50 overflow-hidden min-h-[300px]">
           {beforeImg && (
-            <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+            <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
           )}
           {afterImg && (
-            <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
+            <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
           )}
           {hoverFadeImages && (
             <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out overflow-hidden bg-stone-50 ${beforeImg ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
@@ -61,10 +61,10 @@ function HoverFadeCard({ title, items, content, beforeImg, afterImg, hoverFadeIm
 
       <div className="w-full aspect-[4/3] relative border-y border-stone-100 bg-stone-50 overflow-hidden">
         {beforeImg && (
-          <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
+          <img src={beforeImg} alt={`${title}`} className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out ${afterImg || hoverFadeImages ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
         )}
         {afterImg && (
-          <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
+          <img src={afterImg} alt={`${title} After`} className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100" />
         )}
         {hoverFadeImages && (
           <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out overflow-hidden bg-stone-50 ${beforeImg ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}>
@@ -197,7 +197,7 @@ export default function JewelryRetouching() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full block md:hidden mb-12 relative pointer-events-none"
           >
-             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-[1.5] translate-y-6" />
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-110" />
           </motion.div>
 
           <motion.div
@@ -217,8 +217,8 @@ export default function JewelryRetouching() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-full md:w-[45%] hidden md:block relative z-10"
         >
-          <div className="w-[130%] -ml-[15%] relative flex justify-center items-center pointer-events-none">
-             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-[1.25] hover:scale-[1.35] transition-transform duration-700 translate-y-14" />
+          <div className="w-full relative flex justify-center items-center pointer-events-none">
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-700" />
           </div>
         </motion.div>
       </section>
@@ -256,7 +256,7 @@ export default function JewelryRetouching() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col mb-16 text-center items-center">
             <h2 className="text-4xl md:text-5xl font-heading font-medium text-stone-900 mb-6">
-              What We Do in <br /> <span className="italic text-[var(--color-gold)]">Our Retouching Services</span>
+              What We Do in <span className="italic text-[var(--color-gold)]">Our Retouching Services</span>
             </h2>
           </div>
 

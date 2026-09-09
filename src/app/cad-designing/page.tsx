@@ -79,17 +79,25 @@ export default function CadDesigningPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl md:text-2xl font-bold text-stone-800 mb-3"
+              className="text-xl md:text-2xl text-stone-800 mb-4"
             >
-              High-detail 3D modeling
+              Turn your jewelry concepts into precise, production-ready 3D CAD models with professional detailing and accurate proportions.
             </motion.p>
-            <motion.p 
+            <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-2xl md:text-3xl font-bold font-heading text-stone-900 mb-2 mt-2"
+            >
+              Render Sample
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="text-lg md:text-xl text-stone-600 mb-10"
             >
-              production-ready file, multiple formats
+              Photorealistic jewelry renders created with realistic metals, diamonds, gemstones, lighting and fine details.
             </motion.p>
           </motion.div>
 
@@ -109,7 +117,7 @@ export default function CadDesigningPage() {
       <section className="w-full max-w-7xl mx-auto px-6 py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12">
            <div className="w-full lg:w-1/2">
-             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">CAD Designing</h2>
+             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">CAD Designing & Render</h2>
              <p className="text-lg text-stone-700 leading-relaxed mb-6 font-medium">
                The most powerful software for 3D modeling are Rhino and Matrix. They are enabling jewelry CAD designers to create different types of 3D jewelry models according to initial jewelry drawing. The mentioned software are giving possibility to show jewelry models in different surfaces and in detail. Our jewelry CAD designers will complete the jewelry modeling process in reduced time keeping the quality of jewelry models. The concept of the model can be produced as a result of discussions between CAD designers and clients.
              </p>
@@ -122,7 +130,7 @@ export default function CadDesigningPage() {
 
       {/* Types of render and Animation */}
       <section className="w-full max-w-7xl mx-auto px-6 py-16">
-         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types Of render and Animation</h2>
+         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types of render and Animation</h2>
          
          <div className="space-y-6 text-stone-800 font-medium text-lg">
             <div>
