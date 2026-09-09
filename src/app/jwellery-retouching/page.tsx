@@ -215,9 +215,9 @@ export default function JewelryRetouching() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full md:w-[45%] hidden md:block relative z-10"
+          className="w-full md:w-[45%] hidden md:block relative z-10 pr-6"
         >
-          <div className="w-full relative flex justify-center items-center pointer-events-none transform scale-[1.2] translate-x-6">
+          <div className="w-full relative flex justify-center items-center pointer-events-none transform scale-[1.2]">
              <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-contain hover:scale-110 transition-transform duration-700" />
           </div>
         </motion.div>
