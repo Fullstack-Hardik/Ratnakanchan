@@ -26,7 +26,6 @@ export default function Footer() {
             <Link href="/about" className="hover:text-[#1A202C]">ABOUT</Link>
             <Link href="/jwellery-retouching" className="hover:text-[#1A202C]">JEWELRY RETOUCHING</Link>
             <Link href="/cad-designing" className="hover:text-[#1A202C]">CAD DESIGNING</Link>
-            <Link href="/cad-to-render-image" className="hover:text-[#1A202C]">CAD TO RENDER IMAGE</Link>
             <Link href="/gallery" className="hover:text-[#1A202C]">GALLERY</Link>
             <Link href="/cad-to-instagram" className="hover:text-[#1A202C]">CAD TO INSTAGRAM</Link>
             <Link href="/contact" className="hover:text-[#1A202C]">CONTACT</Link>

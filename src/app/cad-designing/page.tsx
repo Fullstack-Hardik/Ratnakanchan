@@ -1,105 +1,236 @@
 'use client';
 import FreeDemoSection from '@/components/FreeDemoSection';
-
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+
+function AnimatedCounter({ value, text, delay = 0 }: { value: number, text: string, delay?: number }) {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const spring = useSpring(0, {
+    mass: 1,
+    stiffness: 50,
+    damping: 15,
+  });
+
+  const display = useTransform(spring, (current) => 
+    Math.round(current).toLocaleString()
+  );
+
+  React.useEffect(() => {
+    if (inView) {
+      spring.set(value);
+    }
+  }, [inView, spring, value]);
+
+  return (
+    <motion.div 
+      className="flex flex-col items-center text-center p-6 relative z-10" 
+      ref={ref}
+      animate={{ y: [0, -6, 0] }}
+      transition={{ 
+        duration: 5, 
+        repeat: Infinity, 
+        ease: "easeInOut",
+        delay: delay 
+      }}
+    >
+      <div className="flex items-baseline mb-4">
+        <motion.h3 className="text-5xl md:text-6xl lg:text-7xl font-serif text-[var(--color-gold)]">
+          {display}
+        </motion.h3>
+        <span className="text-4xl md:text-5xl font-serif text-[var(--color-gold)] ml-1">+</span>
+      </div>
+      <p className="text-sm md:text-base uppercase tracking-widest font-light text-white/70">{text}</p>
+    </motion.div>
+  );
+}
 
 export default function CadDesigningPage() {
   return (
-    <main className="min-h-screen bg-[var(--color-neutral-light)] text-stone-900 pt-28  selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
+    <main className="min-h-screen bg-white text-stone-900 pt-28 selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
       
       {/* Hero Section */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-20 z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
-          
-          {/* Text Content */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start relative z-20">
-            <span className="text-sm font-bold text-[var(--color-gold)] mb-6 block font-body tracking-widest uppercase">
-              CAD Designing Service
-            </span>
-            <h1 className="text-5xl md:text-7xl font-medium tracking-tighter font-heading leading-[1.05] text-stone-900 mb-8">
-              CAD Designing
-            </h1>
-            <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
-              The most powerful software for 3D modeling are Rhino and Matrix. They are enabling jewelry CAD designers to create different types of 3D jewelry models according to initial jewelry drawing. The mentioned software are giving possibility to show jewelry models in different surfaces and in detail. Our jewelry CAD designers will complete the jewelry modeling process in reduced time keeping the quality of jewelry models. The concept of the model can be produced as a result of discussions between CAD designers and clients.
-            </p>
-            <p className="text-lg md:text-xl font-body text-stone-600 leading-relaxed mb-10">
-              Our jewelry CAD designing service helps transform sketches, reference images, physical jewelry and creative concepts into accurate three dimensional models. Every design is developed with careful attention to proportions, stone placement, settings, prongs, curves and fine details so that the digital model closely represents the intended jewelry piece.
-            </p>
-            <Link href="/contact" className="inline-flex items-center gap-3 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-colors px-8 py-4 rounded-full font-body font-semibold tracking-wide shadow-xl">
-              Start Your 3D Project <ArrowRight size={18} />
-            </Link>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2 }}
+            className="w-full lg:w-1/2 flex flex-col items-start relative z-20"
+          >
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-sm font-bold text-stone-500 mb-4 block font-body tracking-widest uppercase"
+            >
+              PRACTICE MAKES PERFECT
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-heading leading-[1.1] text-stone-900 mb-6"
+            >
+              Custom Jewelry CAD Design
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-xl md:text-2xl font-bold text-stone-800 mb-3"
+            >
+              High-detail 3D modeling
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-lg md:text-xl text-stone-600 mb-10"
+            >
+              production-ready file, multiple formats
+            </motion.p>
+          </motion.div>
 
-          {/* Image Container */}
           <div className="w-full lg:w-1/2 relative z-10">
-            <div className="rounded-[3rem] overflow-hidden shadow-2xl relative border-4 border-white">
+            <div className="rounded-[2rem] overflow-hidden shadow-xl relative border border-gray-200 bg-black">
                <img 
                   src="/images/uploads/upload-4.png" 
-                  alt="CAD Designing Hero"
-                  className="w-full h-full object-cover"
+                  alt="Custom Jewelry CAD Design"
+                  className="w-full h-auto object-cover"
                 />
             </div>
-            {/* Decorative Background Element */}
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-[var(--color-gold)]/20 rounded-full blur-3xl -z-10"></div>
           </div>
-          
         </div>
       </section>
 
-      {/* Stats Bar (Soluna Inspired Layout) */}
-      <section className="relative z-20 max-w-7xl mx-auto md:pr-6 mt-12 md:mt-0">
-        <div className="w-full md:w-[75%] bg-white text-stone-900 border border-stone-100 rounded-tr-[80px] md:rounded-tr-[120px] rounded-bl-3xl md:rounded-bl-none p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-gold)]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-           
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 relative z-10">
-              <div className="md:border-r border-stone-200 md:pr-8">
-                <div className="text-4xl font-heading font-bold text-[var(--color-gold)] mb-2">Rhino & Matrix</div>
-                <div className="text-sm font-body text-stone-400 uppercase tracking-widest">Industry Standard Tools</div>
-              </div>
-              <div className="md:border-r border-stone-200 md:px-8">
-                <div className="text-4xl font-heading font-bold text-[var(--color-gold)] mb-2">Fast Turnaround</div>
-                <div className="text-sm font-body text-stone-400 uppercase tracking-widest">Reduced Modeling Time</div>
-              </div>
-              <div className="md:pl-8">
-                <div className="text-4xl font-heading font-bold text-[var(--color-gold)] mb-2">100% Custom</div>
-                <div className="text-sm font-body text-stone-400 uppercase tracking-widest">Client Collaboration</div>
-              </div>
+      {/* CAD Designing */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+           <div className="w-full lg:w-1/2">
+             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">CAD Designing</h2>
+             <p className="text-lg text-stone-700 leading-relaxed mb-6 font-medium">
+               The most powerful software for 3D modeling are Rhino and Matrix. They are enabling jewelry CAD designers to create different types of 3D jewelry models according to initial jewelry drawing. The mentioned software are giving possibility to show jewelry models in different surfaces and in detail. Our jewelry CAD designers will complete the jewelry modeling process in reduced time keeping the quality of jewelry models. The concept of the model can be produced as a result of discussions between CAD designers and clients.
+             </p>
+           </div>
+           <div className="w-full lg:w-1/2">
+              <img src="/images/cad-designing/CAD Designing.jpg" alt="CAD Designing" className="w-full h-auto object-contain" />
            </div>
         </div>
       </section>
 
-      {/* CAD Portfolio Showcase */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-20 mt-10 relative z-10">
-         <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-tight mb-4">Our Latest Work</h2>
-            <p className="text-lg font-body text-stone-600">A glimpse into our high-quality CAD designs.</p>
-            <p className="text-lg font-body text-stone-600 mt-4 text-left">A professionally prepared jewelry CAD model provides a strong foundation for manufacturing, rendering and product presentation. Our designers can refine design details based on client feedback and prepare models that support the next stage of the jewelry production workflow. This approach helps reduce design uncertainty and allows the final concept to be reviewed before manufacturing begins.</p>
-         </div>
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-100 bg-white p-4">
-               <Image src="/images/cad/snapshot1.png" width={800} height={800} alt="CAD Render Showcase 1" className="w-full h-auto object-cover rounded-2xl" />
+      {/* Types of render and Animation */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-16">
+         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types Of render and Animation</h2>
+         
+         <div className="space-y-6 text-stone-800 font-medium text-lg">
+            <div>
+               <h3 className="text-xl font-bold mb-2">1. Basic Pack (E-Commerce)</h3>
+               <ul className="list-disc pl-6 space-y-1 text-stone-700">
+                  <li>On/Amazon 4-6 Images (Front, Side, Top, Perspective) on a plain white background.</li>
+                  <li>Animation 1920x1080px One Video on White Color.</li>
+                  <li>Best for: Standard online catalogs listings, Etsy, where raw details matter above overall</li>
+               </ul>
             </div>
-            <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-100 bg-white p-4">
-               <Image src="/images/cad/snapshot2.png" width={800} height={800} alt="CAD Render Showcase 2" className="w-full h-auto object-cover rounded-2xl" />
+            
+            <div>
+               <h3 className="text-xl font-bold mb-2">2. Standard Pack (360 Video)</h3>
+               <ul className="list-disc pl-6 space-y-1 text-stone-700">
+                  <li>On/Amazon 4 High-quality 360 videos (Yellow, White, and Rose Gold) hand/props.</li>
+                  <li>Animation 4 seconds to 8 seconds video (14-7 Sec/each & Color).</li>
+                  <li>Best for: Instagram Other Selling Platform</li>
+               </ul>
+            </div>
+            
+            <div>
+               <h3 className="text-xl font-bold mb-2">3. Premium Pack (Cinematic / Marketing)</h3>
+               <ul className="list-disc pl-6 space-y-1 text-stone-700">
+                  <li>On/Amazon High-resolution renders with realistic lighting, dark thematic background options, and macro close-up of set/settings.</li>
+               </ul>
             </div>
          </div>
       </section>
 
-      {/* Why Ratnakanchan.com Section */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-20 relative z-10">
-         <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-tight mb-6 text-[var(--color-gold)]">Why Ratnakanchan.com</h2>
-            <p className="text-lg font-body text-stone-600 leading-relaxed">
-              Our CAD workflow combines design understanding with attention to manufacturing requirements. We work with jewelry businesses that need reliable digital models for custom pieces, new collections, production development and visualization. Each project is handled according to the design specifications and the intended final use.
-            </p>
+      {/* Render Sample */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-16 bg-white">
+         <div className="border border-gray-200 shadow-sm p-8 max-w-6xl mx-auto">
+             <img src="/images/cad-designing/Render Sample Banner.jpg" alt="Render Sample" className="w-full h-auto object-contain" />
+         </div>
+      </section>
+
+      {/* CAD Render Image */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-20 mt-8">
+         <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2">
+               <img src="/images/cad-designing/CAD Render Image.jpg" alt="CAD Render Image" className="w-full h-auto object-contain" />
+            </div>
+            <div className="w-full md:w-1/2">
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD Render Image</h2>
+               <div className="space-y-4 text-stone-700 font-medium leading-relaxed">
+                  <p>High Quality Photo Rendering is very important, as they can be used to enhance proposals, presentations and website sales. The customer wants to see 3D models as they would appear in real life, using specific gemstones and material colors, in a specific environment or angle. We offer professional jewelry rendering for any type of project. The talented jewelry CAD designers are able to create realistic 3D photo renderings due to powerful software used where every single detail is visually represented. The visual simplicity of jewelry rendering is conditioned by jewelry CAD designers hard work for each detail.</p>
+                  <p>Our CAD to render service transform digital jewelry models into realistic product images that can be used for websites, catalogs, presentations and marketing campaigns. Materials, lighting, camera angles, backgrounds and gemstone appearance are carefully refined to create a professional, visual representation of the final jewelry design.</p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* Stats Bar */}
+      <section className="py-12 md:py-20 relative overflow-hidden bg-[#111] shadow-2xl mt-12 mb-12">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <AnimatedCounter value={500} text="Projects completed" delay={0} />
+            <AnimatedCounter value={1200} text="Happy clients" delay={0.2} />
+            <AnimatedCounter value={20000} text="Models rendered" delay={0.4} />
+            <AnimatedCounter value={2000} text="Hours of CAD" delay={0.6} />
+          </div>
+        </div>
+      </section>
+
+      {/* CAD to Render 360Animation */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-16">
+         <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2">
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD to Render 360Animation</h2>
+               <p className="text-stone-700 font-medium leading-relaxed">
+                  If a simple 3D photo rendering is not enough. We offer professional video rendering services. Whether it&apos;s for a YouTube channel or a presentation, we will offer impressive high resolution videos to render your project a success. Video rendering enables 3D models to be represented as video outputs.
+               </p>
+            </div>
+            <div className="w-full md:w-1/2 relative">
+               <video 
+                 src="/videos/CAD to Render 360Animation.mp4" 
+                 autoPlay 
+                 loop 
+                 muted 
+                 playsInline
+                 className="w-full h-auto rounded-xl shadow-lg border border-gray-200"
+               />
+            </div>
+         </div>
+      </section>
+
+      {/* High Render Images and 360Animation */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-16 mb-16">
+         <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2">
+               <img src="/images/cad-designing/High Render Images and 360Animation.jpg" alt="High Render" className="w-full h-auto object-contain bg-gray-100 p-8 rounded-xl" />
+            </div>
+            <div className="w-full md:w-1/2">
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">High Render Images and 360Animation</h2>
+               <p className="text-stone-700 font-medium leading-relaxed mb-6">
+                  If a simple 3D photo rendering is not enough. We offer professional video rendering services. Whether it&apos;s for a YouTube channel or a presentation, we will offer impressive high resolution videos to render your project a success. Video rendering enables 3D models to be represented as video outputs.
+               </p>
+               <ul className="space-y-3 text-stone-700 font-medium">
+                  <li className="flex items-center gap-2"><span className="text-stone-400">-</span> Can you see the diamond?</li>
+                  <li className="flex items-center gap-2"><span className="text-stone-400">-</span> Can replay rings on background?</li>
+                  <li className="flex items-center gap-2"><span className="text-stone-400">-</span> Jewelry details for 24 images including need Modeled</li>
+                  <li className="flex items-center gap-2"><span className="text-stone-400">-</span> Your High-End Video</li>
+               </ul>
+            </div>
          </div>
       </section>
 
       <FreeDemoSection />
-
 
     </main>
   );
