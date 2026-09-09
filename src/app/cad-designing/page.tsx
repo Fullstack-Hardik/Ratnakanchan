@@ -117,7 +117,7 @@ export default function CadDesigningPage() {
       <section className="w-full max-w-7xl mx-auto px-6 py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12">
            <div className="w-full lg:w-1/2">
-             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">CAD Designing & Render</h2>
+             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">CAD <span className="italic text-[var(--color-gold)]">Designing & Render</span></h2>
              <p className="text-lg text-stone-700 leading-relaxed mb-6 font-medium">
                The most powerful software for 3D modeling are Rhino and Matrix. They are enabling jewelry CAD designers to create different types of 3D jewelry models according to initial jewelry drawing. The mentioned software are giving possibility to show jewelry models in different surfaces and in detail. Our jewelry CAD designers will complete the jewelry modeling process in reduced time keeping the quality of jewelry models. The concept of the model can be produced as a result of discussions between CAD designers and clients.
              </p>
@@ -130,7 +130,7 @@ export default function CadDesigningPage() {
 
       {/* Types of render and Animation */}
       <section className="w-full max-w-7xl mx-auto px-6 py-16">
-         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types of render and Animation</h2>
+         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types of <span className="italic text-[var(--color-gold)]">render and Animation</span></h2>
          
          <div className="space-y-6 text-stone-800 font-medium text-lg">
             <div>
@@ -174,7 +174,7 @@ export default function CadDesigningPage() {
                <img src="/images/cad-designing/CAD Render Image.jpg" alt="CAD Render Image" className="w-full h-auto object-contain" />
             </div>
             <div className="w-full md:w-1/2">
-               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD Render Image</h2>
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD <span className="italic text-[var(--color-gold)]">Render Image</span></h2>
                <div className="space-y-4 text-stone-700 font-medium leading-relaxed">
                   <p>High Quality Photo Rendering is very important, as they can be used to enhance proposals, presentations and website sales. The customer wants to see 3D models as they would appear in real life, using specific gemstones and material colors, in a specific environment or angle. We offer professional jewelry rendering for any type of project. The talented jewelry CAD designers are able to create realistic 3D photo renderings due to powerful software used where every single detail is visually represented. The visual simplicity of jewelry rendering is conditioned by jewelry CAD designers hard work for each detail.</p>
                   <p>Our CAD to render service transform digital jewelry models into realistic product images that can be used for websites, catalogs, presentations and marketing campaigns. Materials, lighting, camera angles, backgrounds and gemstone appearance are carefully refined to create a professional, visual representation of the final jewelry design.</p>
@@ -199,7 +199,7 @@ export default function CadDesigningPage() {
       <section className="w-full max-w-7xl mx-auto px-6 py-16">
          <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2">
-               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD to Render 360Animation</h2>
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">CAD to Render <span className="italic text-[var(--color-gold)]">360Animation</span></h2>
                <p className="text-stone-700 font-medium leading-relaxed">
                   If a simple 3D photo rendering is not enough. We offer professional video rendering services. Whether it&apos;s for a YouTube channel or a presentation, we will offer impressive high resolution videos to render your project a success. Video rendering enables 3D models to be represented as video outputs.
                </p>
@@ -224,7 +224,7 @@ export default function CadDesigningPage() {
                <img src="/images/cad-designing/High Render Images and 360Animation.jpg" alt="High Render" className="w-full h-auto object-contain bg-gray-100 p-8 rounded-xl" />
             </div>
             <div className="w-full md:w-1/2">
-               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">High Render Images and 360Animation</h2>
+               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">High Render <span className="italic text-[var(--color-gold)]">Images and 360Animation</span></h2>
                <p className="text-stone-700 font-medium leading-relaxed mb-6">
                   If a simple 3D photo rendering is not enough. We offer professional video rendering services. Whether it&apos;s for a YouTube channel or a presentation, we will offer impressive high resolution videos to render your project a success. Video rendering enables 3D models to be represented as video outputs.
                </p>
