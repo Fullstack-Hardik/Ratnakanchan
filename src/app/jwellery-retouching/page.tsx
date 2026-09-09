@@ -164,7 +164,7 @@ export default function JewelryRetouching() {
 
       {/* Hero Text Content with Split Layout */}
       <section className="relative w-full max-w-7xl mx-auto px-6 pt-16 md:pt-20 pb-20 z-20 flex flex-col md:flex-row items-center gap-12">
-        <div className="w-full md:w-1/2 flex flex-col items-start text-left">
+        <div className="w-full md:w-[55%] flex flex-col items-start text-left relative z-30">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -197,7 +197,7 @@ export default function JewelryRetouching() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-full block md:hidden mb-12 relative pointer-events-none"
           >
-             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-[1.5] translate-y-8" />
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-[1.5] translate-y-6" />
           </motion.div>
 
           <motion.div
@@ -215,10 +215,10 @@ export default function JewelryRetouching() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full md:w-1/2 hidden md:block"
+          className="w-full md:w-[45%] hidden md:block relative z-10"
         >
-          <div className="w-full relative flex justify-center items-center pointer-events-none">
-             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-[120%] max-w-none h-auto object-cover scale-[1.4] hover:scale-[1.5] transition-transform duration-700 translate-y-16 -translate-x-12" />
+          <div className="w-[130%] -ml-[15%] relative flex justify-center items-center pointer-events-none">
+             <img src="/assets/images/retouching/retouchinghero.png" alt="High End Retouching Hero" className="w-full h-auto object-cover scale-[1.25] hover:scale-[1.35] transition-transform duration-700 translate-y-14" />
           </div>
         </motion.div>
       </section>
