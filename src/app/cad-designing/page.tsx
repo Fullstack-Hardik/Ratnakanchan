@@ -212,7 +212,7 @@ export default function CadDesigningPage() {
                  muted 
                  playsInline
                  className="w-full h-auto rounded-xl shadow-lg border border-gray-200"
-               defaultMuted suppressHydrationWarning preload="auto" />
+               suppressHydrationWarning preload="auto" />
             </div>
          </div>
       </section>
