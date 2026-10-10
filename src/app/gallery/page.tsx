@@ -236,7 +236,7 @@ export default function GalleryPage() {
                   muted 
                   playsInline 
                   className="w-full h-full object-cover"
-                 suppressHydrationWarning preload="auto">
+                 suppressHydrationWarning preload="none">
                   <source src={videoSrc} type="video/mp4" />
                 </video>
               </div>

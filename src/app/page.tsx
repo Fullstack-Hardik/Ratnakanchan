@@ -80,12 +80,9 @@ export default function Home() {
       
       {/* HERO SECTION */}
       <section className="pt-32 min-h-[95vh] flex flex-col relative overflow-hidden bg-[#FAFAFA]">
-        
         <Hero3DBackground />
-
         <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 w-full pt-2 md:pt-0">
           <div className="w-full md:w-1/2 flex flex-col justify-center md:items-end py-10 md:py-0 relative z-20">
-            
             <motion.div
               className="w-full max-w-[640px] px-6 md:px-12"
               initial={{ opacity: 0, y: 50 }}
@@ -153,52 +150,46 @@ export default function Home() {
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[96%] mx-auto md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0 animated-border-wrapper"
+            className="w-[96%] mx-auto md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
-            <div className="animated-border-content">
-              {heroMedia.map((media, idx) => {
-                if (media.type === 'video') {
-                  return (
-                    <motion.video
-                      key={media.src}
-                      src={media.src}
-                      ref={(el: HTMLVideoElement | null) => {
-                        if (el) {
-                          el.defaultMuted = true;
-                          el.muted = true;
-                          el.play().catch(() => {});
-                        }
-                      }}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
-                      transition={{ duration: 1.2, ease: "easeInOut" }}
-                      className="absolute inset-0 w-full h-full object-cover object-center"
-                    suppressHydrationWarning preload="auto" />
-                  );
-                }
-                return (
-                  <motion.img 
-                    key={media.src}
+            {/* Simple solid image/video implementation so playback NEVER fails */}
+            {heroMedia.map((media, idx) => (
+              <div 
+                key={media.src} 
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === activeHeroIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              >
+                {media.type === 'video' ? (
+                  <video
+                    src={media.src}
+                    ref={(el: HTMLVideoElement | null) => { 
+                      if (el) { 
+                        el.defaultMuted = true; 
+                        el.muted = true; 
+                        el.play().catch(() => {}); 
+                      } 
+                    }}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                    suppressHydrationWarning 
+                    preload="auto"
+                  />
+                ) : (
+                  <img 
                     src={media.src} 
                     alt={media.alt}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    loading="eager"
+                    className="w-full h-full object-cover"
                   />
-                );
-              })}
+                )}
+              </div>
+            ))}
 
-              {/* Soft gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-10"></div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-20"></div>
 
-            {/* Carousel Indicators */}
-            <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
               {heroMedia.map((_, idx) => (
                 <button
                   key={idx}
@@ -214,9 +205,6 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-
-
-
       </section>
 
       {/* WHAT YOU GET FROM US SECTION */}

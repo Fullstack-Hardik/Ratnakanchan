@@ -37,7 +37,7 @@ export default function CadToInstagramPage() {
               muted={true} 
               playsInline={true}
               className="w-full h-full object-cover"
-             suppressHydrationWarning preload="auto">
+             suppressHydrationWarning preload="none">
               <source src="/assets/videos/animations/shot-6.mp4" type="video/mp4" />
            </video>
            <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white pointer-events-none"></div>
@@ -148,7 +148,7 @@ export default function CadToInstagramPage() {
                     muted={true} 
                     playsInline={true}
                     className="w-full aspect-[4/3] object-cover"
-                   suppressHydrationWarning preload="auto">
+                   suppressHydrationWarning preload="none">
                     <source src="/assets/videos/animations/shot-7.mp4" type="video/mp4" />
                   </video>
                </div>
@@ -209,7 +209,7 @@ export default function CadToInstagramPage() {
                 muted 
                 playsInline 
                 className="w-full aspect-[4/5] object-cover bg-stone-100"
-               suppressHydrationWarning preload="auto">
+               suppressHydrationWarning preload="none">
                 <source src={video.src} type="video/mp4" />
               </video>
             </motion.div>
