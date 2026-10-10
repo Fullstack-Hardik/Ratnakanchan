@@ -170,7 +170,7 @@ export default function Home() {
                       animate={{ opacity: idx === activeHeroIndex ? 1 : 0 }}
                       transition={{ duration: 1.2, ease: "easeInOut" }}
                       className="absolute inset-0 w-full h-full object-cover object-center"
-                    />
+                    defaultMuted suppressHydrationWarning preload="auto" />
                   );
                 }
                 return (
@@ -286,7 +286,7 @@ export default function Home() {
                 {srv.isSlider ? (
                   <BeforeAfterSlider beforeImage={srv.before!} afterImage={srv.after!} alt={srv.name} />
                 ) : srv.img?.endsWith('.mp4') ? (
-                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" defaultMuted suppressHydrationWarning preload="auto" />
                 ) : (
                   <img src={srv.img} alt={srv.name} loading="lazy" className={`w-full h-full ${[2, 4, 5, 6].includes(srv.id) ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
                 )}
@@ -319,3 +319,5 @@ export default function Home() {
 </div>
   );
 }
+
+

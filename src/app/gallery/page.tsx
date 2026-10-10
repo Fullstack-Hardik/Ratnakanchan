@@ -236,7 +236,7 @@ export default function GalleryPage() {
                   muted 
                   playsInline 
                   className="w-full h-full object-cover"
-                >
+                 defaultMuted suppressHydrationWarning preload="auto">
                   <source src={videoSrc} type="video/mp4" />
                 </video>
               </div>
@@ -272,3 +272,4 @@ export default function GalleryPage() {
     </ReactLenis>
   );
 }
+

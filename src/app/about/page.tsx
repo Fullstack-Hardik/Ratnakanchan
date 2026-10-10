@@ -22,7 +22,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
+        <div className="max-w-4xl mx-auto relative z-10 text-left">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUpBlur}
-            className="text-lg text-gray-600 font-light leading-relaxed space-y-6 text-center"
+            className="text-lg text-gray-600 font-light leading-relaxed space-y-6 text-left"
           >
             <p>
               At Ratnakanchan Creations, we specialize in professional jewelry photo editing and CAD design services for jewelry brands, retailers, and e-commerce sellers across the United States. With over 17 years of hands on experience, our team understands exactly how to represent gold tones, diamond clarity, and gemstone color with precision, so your products look as stunning online as they do in person.
