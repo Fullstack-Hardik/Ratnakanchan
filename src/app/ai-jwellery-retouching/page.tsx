@@ -20,7 +20,7 @@ export default function AIJewelryRetouching() {
           <h1 className="text-4xl md:text-5xl font-heading text-black mb-6 uppercase tracking-wider">AI Jewelry Creative Services</h1>
           <h2 className="text-xl md:text-2xl font-heading text-gray-700 mb-6 font-bold uppercase">AI-Powered Jewelry Retouching & 3D Animation</h2>
           <p className="text-gray-600 font-body leading-relaxed max-w-4xl text-[15px] md:text-base">
-            <span className="font-bold text-black">Transform</span> your jewelry designs into stunning, photorealistic visuals with AI-powered creativity and professional craftsmanship. Your page can feature AI retouching, lifestyle photography,
+            <span className="text-black">Transform</span> your jewelry designs into stunning, photorealistic visuals with AI-powered creativity and professional craftsmanship. Your page can feature AI retouching, lifestyle photography,
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function AIJewelryRetouching() {
         <div className="mb-20">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-black mb-6 uppercase">AI jewelry retouching</h2>
           <p className="text-gray-600 font-body leading-relaxed max-w-4xl text-[15px] md:text-base mb-8">
-            <span className="font-bold text-black">Transform</span> your jewelry photos into stunning, professional-quality images with AI-powered retouching. Enhance diamond brilliance, refine gold and silver finishes, correct lighting and colors, remove imperfections, and create clean backgrounds for a premium look. Perfect for e-commerce listings, catalogs, and marketing campaigns.
+            <span className="text-black">Transform</span> your jewelry photos into stunning, professional-quality images with AI-powered retouching. Enhance diamond brilliance, refine gold and silver finishes, correct lighting and colors, remove imperfections, and create clean backgrounds for a premium look. Perfect for e-commerce listings, catalogs, and marketing campaigns.
           </p>
           
           <div className="flex flex-col lg:flex-row gap-6 items-stretch">
@@ -49,7 +49,7 @@ export default function AIJewelryRetouching() {
           <div className="w-full md:w-[50%]">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-black mb-6 uppercase">360° video animation</h2>
             <p className="text-gray-600 font-body leading-relaxed text-[15px] md:text-base">
-              <span className="font-bold text-black">Transform</span> your ring photos into captivating 360° video animations using AI-powered technology. Showcase your jewelry from multiple angles with smooth rotation, realistic lighting, and brilliant stone details. Perfect for e-commerce websites, product listings, social media, and digital marketing.
+              <span className="text-black">Transform</span> your ring photos into captivating 360° video animations using AI-powered technology. Showcase your jewelry from multiple angles with smooth rotation, realistic lighting, and brilliant stone details. Perfect for e-commerce websites, product listings, social media, and digital marketing.
             </p>
           </div>
           <div className="w-full md:w-[50%] relative">

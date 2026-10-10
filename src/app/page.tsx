@@ -79,81 +79,60 @@ export default function Home() {
     <div className="bg-white">
       
       {/* HERO SECTION */}
-      <section className="pt-32 min-h-[95vh] flex flex-col relative overflow-hidden bg-[#FAFAFA]">
+      <section className="relative w-full max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-20 z-20 flex flex-col md:flex-row items-center gap-12 bg-stone-50">
         <Hero3DBackground />
-        <div className="flex-1 flex flex-col-reverse md:flex-row relative z-10 w-full pt-2 md:pt-0">
-          <div className="w-full md:w-1/2 flex flex-col justify-center md:items-end py-10 md:py-0 relative z-20">
-            <motion.div
-              className="w-full max-w-[640px] px-6 md:px-12"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, staggerChildren: 0.2 }}
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-6xl md:text-7xl lg:text-8xl font-heading leading-[1.05] mb-6 text-black"
-              >
-                Elevating <br/>
-                <span className="italic font-normal text-[var(--color-gold)] relative inline-block">
-                  <motion.span
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                  >
-                    Jewelry
-                  </motion.span>
-                  <motion.span 
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="absolute -bottom-2 left-0 h-1 bg-[var(--color-gold)] opacity-50"
-                  ></motion.span>
-                </span> <br/>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                >
-                  Imagery.
-                </motion.span>
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                className="text-lg md:text-xl font-light text-gray-600 max-w-md mb-10 font-body leading-relaxed"
-              >
-                Premium photo retouching, precise CAD designing, and stunning 360° renders. Trusted by global brands since 2007.
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-center relative overflow-hidden bg-black text-white px-8 py-4 font-medium uppercase tracking-widest text-sm group rounded-sm shadow-xl hover:scale-105 transition-all">
-                  <span className="relative z-10">Get Free Sample</span>
-                  <div className="absolute inset-0 bg-[var(--color-gold)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-0 ease-out"></div>
-                </a>
-                <a href="#services" className="text-center border border-gray-300 text-black px-8 py-4 font-medium uppercase tracking-widest text-sm hover:bg-gray-50 transition-all duration-300 rounded-sm">
-                  Explore Services
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 100, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[96%] mx-auto md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
+        
+        <div className="w-full md:w-[55%] flex flex-col items-start text-left relative z-30">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm font-bold text-[var(--color-gold)] mb-6 block font-body tracking-widest uppercase"
           >
+            Digital Jewelry Excellence
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-heading leading-[1.1] text-stone-900 mb-8"
+          >
+            Elevating <br className="md:hidden" />
+            <span className="italic text-[var(--color-gold)]">Jewelry</span> Imagery.
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-xl md:text-2xl text-stone-800 mb-10 max-w-xl leading-relaxed"
+          >
+            Premium photo retouching, precise CAD designing, and stunning 360° renders. Trusted by global brands since 2007.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-4 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-xl hover:-translate-y-1">
+              Get Free Sample <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a href="#services" className="inline-flex items-center justify-center gap-4 border-2 border-stone-200 text-stone-900 hover:border-stone-900 transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-sm hover:-translate-y-1">
+              Explore Services
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="w-full md:w-[45%] relative z-10"
+        >
+          <div className="w-full relative flex justify-center items-center rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border-4 border-white bg-stone-50 aspect-[4/5] transform hover:scale-[1.02] transition-transform duration-500 group">
             {/* Active media rendered solely to prevent browser memory/autoplay issues */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 pointer-events-none">
               {heroMedia[activeHeroIndex].type === 'video' ? (
                 <motion.video
                   key={`video-${heroMedia[activeHeroIndex].src}`}
@@ -190,24 +169,28 @@ export default function Home() {
               )}
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-20"></div>
+            {/* Subtle Gradient for Indicators Visibility */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-900/60 to-transparent pointer-events-none z-20"></div>
 
-            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
-              {heroMedia.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveHeroIndex(idx)}
-                  aria-label={`Slide ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    idx === activeHeroIndex
-                      ? 'w-6 bg-[var(--color-gold)]'
-                      : 'w-2 bg-white/40 hover:bg-white/70'
-                  }`}
-                />
-              ))}
+            {/* Carousel Indicators */}
+            <div className="absolute bottom-6 inset-x-0 z-30 flex justify-center items-center pointer-events-auto">
+              <div className="bg-black/30 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/20 flex gap-3">
+                {heroMedia.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveHeroIndex(idx)}
+                    aria-label={`Slide ${idx + 1}`}
+                    className={`h-2.5 rounded-full transition-all duration-500 ${
+                      idx === activeHeroIndex
+                        ? 'w-8 bg-[var(--color-gold)]'
+                        : 'w-2.5 bg-white/50 hover:bg-white'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* WHAT YOU GET FROM US SECTION */}
