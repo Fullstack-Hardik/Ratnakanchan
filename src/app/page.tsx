@@ -67,13 +67,30 @@ function AnimatedCounter({ value, text, delay = 0 }: { value: number, text: stri
 
 export default function Home() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const videoRefs = React.useRef<(HTMLVideoElement | null)[]>([]);
 
+  // Handle hero carousel auto-play
   useEffect(() => {
-    const heroInterval = setInterval(() => {
+    const interval = setInterval(() => {
       setActiveHeroIndex((prev) => (prev + 1) % heroMedia.length);
-    }, 5000);
-    return () => clearInterval(heroInterval);
+    }, 5000); // 5 seconds per media
+    return () => clearInterval(interval);
   }, []);
+
+  // Handle video play/pause reliably
+  useEffect(() => {
+    videoRefs.current.forEach((video, idx) => {
+      if (video) {
+        if (idx === activeHeroIndex) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+          video.currentTime = 0; // Rewind for next time
+        }
+      }
+    });
+  }, [activeHeroIndex]);
+
 
   return (
     <div className="bg-white">
@@ -140,16 +157,14 @@ export default function Home() {
                 <video
                   src={media.src}
                   ref={(el: HTMLVideoElement | null) => { 
-                    if (el) { 
-                      el.defaultMuted = true; 
-                      el.muted = true; 
-                      // Only try to play if active to save resources, but we still mount them
-                      if (idx === activeHeroIndex) {
-                        el.play().catch(() => {}); 
-                      } else {
-                        el.pause();
-                      }
-                    } 
+                    videoRefs.current[idx] = el;
+                    if (el) {
+                      el.defaultMuted = true;
+                      el.muted = true;
+                      el.setAttribute('playsinline', '');
+                      el.setAttribute('muted', '');
+                      el.setAttribute('autoplay', '');
+                    }
                   }}
                   autoPlay
                   muted
