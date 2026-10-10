@@ -152,40 +152,43 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-[96%] mx-auto md:w-1/2 h-[50vh] md:h-auto min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-2xl z-10 mb-8 md:mb-0 md:mt-0"
           >
-            {/* Simple solid image/video implementation so playback NEVER fails */}
-            {heroMedia.map((media, idx) => (
-              <div 
-                key={media.src} 
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === activeHeroIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-              >
-                {media.type === 'video' ? (
-                  <video
-                    src={media.src}
-                    ref={(el: HTMLVideoElement | null) => { 
-                      if (el) { 
-                        el.defaultMuted = true; 
-                        el.muted = true; 
-                        el.play().catch(() => {}); 
-                      } 
-                    }}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                    suppressHydrationWarning 
-                    preload="auto"
-                  />
-                ) : (
-                  <img 
-                    src={media.src} 
-                    alt={media.alt}
-                    loading="eager"
-                    className="w-full h-full object-cover"
-                  />
-                )}
-              </div>
-            ))}
+            {/* Active media rendered solely to prevent browser memory/autoplay issues */}
+            <div className="absolute inset-0">
+              {heroMedia[activeHeroIndex].type === 'video' ? (
+                <motion.video
+                  key={`video-${heroMedia[activeHeroIndex].src}`}
+                  src={heroMedia[activeHeroIndex].src}
+                  ref={(el: HTMLVideoElement | null) => { 
+                    if (el) { 
+                      el.defaultMuted = true; 
+                      el.muted = true; 
+                      el.play().catch(() => {}); 
+                    } 
+                  }}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  className="w-full h-full object-cover"
+                  suppressHydrationWarning 
+                  preload="auto"
+                />
+              ) : (
+                <motion.img 
+                  key={`img-${heroMedia[activeHeroIndex].src}`}
+                  src={heroMedia[activeHeroIndex].src} 
+                  alt={heroMedia[activeHeroIndex].alt}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  loading="eager"
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </div>
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-20"></div>
 
