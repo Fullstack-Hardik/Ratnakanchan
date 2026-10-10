@@ -17,7 +17,7 @@ const heroMedia = [
   },
   {
     type: 'video',
-    src: '/assets/videos/model.mp4',
+    src: '/images/hero/model.mp4',
     alt: 'Model Video',
   },
 ];
@@ -125,70 +125,66 @@ export default function Home() {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="w-full md:w-[45%] relative z-10"
+          initial={{ opacity: 0, x: 100, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-[96%] mx-auto md:w-[45%] h-[50vh] md:h-[80vh] min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] z-10 mb-8 md:mb-0 mt-8 md:mt-0"
         >
-          <div className="w-full relative flex justify-center items-center rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border-4 border-white bg-stone-50 aspect-[4/5] transform hover:scale-[1.02] transition-transform duration-500 group">
-            {/* Active media rendered solely to prevent browser memory/autoplay issues */}
-            <div className="absolute inset-0 pointer-events-none">
-              {heroMedia[activeHeroIndex].type === 'video' ? (
-                <motion.video
-                  key={`video-${heroMedia[activeHeroIndex].src}`}
-                  src={heroMedia[activeHeroIndex].src}
+          {/* Active media rendered solely to prevent browser memory/autoplay issues */}
+          {heroMedia.map((media, idx) => (
+            <div 
+              key={media.src} 
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === activeHeroIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            >
+              {media.type === 'video' ? (
+                <video
+                  src={media.src}
                   ref={(el: HTMLVideoElement | null) => { 
                     if (el) { 
                       el.defaultMuted = true; 
                       el.muted = true; 
-                      el.play().catch(() => {}); 
+                      // Only try to play if active to save resources, but we still mount them
+                      if (idx === activeHeroIndex) {
+                        el.play().catch(() => {}); 
+                      } else {
+                        el.pause();
+                      }
                     } 
                   }}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
                   className="w-full h-full object-cover"
                   suppressHydrationWarning 
                   preload="auto"
                 />
               ) : (
-                <motion.img 
-                  key={`img-${heroMedia[activeHeroIndex].src}`}
-                  src={heroMedia[activeHeroIndex].src} 
-                  alt={heroMedia[activeHeroIndex].alt}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
+                <img 
+                  src={media.src} 
+                  alt={media.alt}
                   loading="eager"
                   className="w-full h-full object-cover"
                 />
               )}
             </div>
+          ))}
 
-            {/* Subtle Gradient for Indicators Visibility */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-900/60 to-transparent pointer-events-none z-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-20"></div>
 
-            {/* Carousel Indicators */}
-            <div className="absolute bottom-6 inset-x-0 z-30 flex justify-center items-center pointer-events-auto">
-              <div className="bg-black/30 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/20 flex gap-3">
-                {heroMedia.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveHeroIndex(idx)}
-                    aria-label={`Slide ${idx + 1}`}
-                    className={`h-2.5 rounded-full transition-all duration-500 ${
-                      idx === activeHeroIndex
-                        ? 'w-8 bg-[var(--color-gold)]'
-                        : 'w-2.5 bg-white/50 hover:bg-white'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+          <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-auto">
+            {heroMedia.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveHeroIndex(idx)}
+                aria-label={`Slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  idx === activeHeroIndex
+                    ? 'w-6 bg-[var(--color-gold)]'
+                    : 'w-2 bg-white/40 hover:bg-white/70'
+                }`}
+              />
+            ))}
           </div>
         </motion.div>
       </section>
