@@ -162,6 +162,13 @@ export default function Home() {
                     <motion.video
                       key={media.src}
                       src={media.src}
+                      ref={(el: HTMLVideoElement | null) => {
+                        if (el) {
+                          el.defaultMuted = true;
+                          el.muted = true;
+                          el.play().catch(() => {});
+                        }
+                      }}
                       autoPlay
                       muted
                       loop
@@ -286,7 +293,23 @@ export default function Home() {
                 {srv.isSlider ? (
                   <BeforeAfterSlider beforeImage={srv.before!} afterImage={srv.after!} alt={srv.name} />
                 ) : srv.img?.endsWith('.mp4') ? (
-                  <video src={srv.img} autoPlay muted loop playsInline className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" suppressHydrationWarning preload="auto" />
+                  <video 
+                    src={srv.img} 
+                    ref={(el: HTMLVideoElement | null) => {
+                      if (el) {
+                        el.defaultMuted = true;
+                        el.muted = true;
+                        el.play().catch(() => {});
+                      }
+                    }}
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out" 
+                    suppressHydrationWarning 
+                    preload="auto" 
+                  />
                 ) : (
                   <img src={srv.img} alt={srv.name} loading="lazy" className={`w-full h-full ${[2, 4, 5, 6].includes(srv.id) ? 'object-contain' : 'object-cover'} transform scale-[1.02] group-hover:scale-105 transition-transform duration-[1.5s] ease-out`} />
                 )}

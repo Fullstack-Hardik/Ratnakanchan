@@ -9,7 +9,7 @@ export default function AIJewelryRetouching() {
       {/* Hero Banner Section */}
       <section className="w-full max-w-[1400px] mx-auto px-6 mb-16">
         <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-stone-100">
-          <img src="/images/ai-page/hero.jpeg" alt="CAD to Realistic Model Hand Images" className="w-full h-auto object-contain" />
+          <img src="/images/ai-page/hero-banner.jpeg" alt="CAD to Realistic Model Hand Images" className="w-full h-auto object-contain" />
         </div>
       </section>
 
@@ -33,14 +33,14 @@ export default function AIJewelryRetouching() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white shadow-2xl shadow-stone-200/50 rounded-xl p-4 md:p-8 border border-stone-100">
             <div className="flex flex-col items-center justify-center h-full">
-               <img src="/images/ai-page/card1.jpeg" alt="AI Jewelry Retouching" className="w-full h-auto rounded object-contain shadow-sm mb-2" />
+               <img src="/images/ai-page/retouching-before-after.jpeg" alt="AI Jewelry Retouching" className="w-full h-auto rounded object-contain shadow-sm mb-2" />
             </div>
             <div className="flex flex-col items-center justify-center h-full">
-               <img src="/images/ai-page/card2.jpeg" alt="AI Background & Lifestyle Images" className="w-full h-auto rounded object-contain shadow-sm mb-2" />
+               <img src="/images/ai-page/retouching-lifestyle.jpeg" alt="AI Background & Lifestyle Images" className="w-full h-auto rounded object-contain shadow-sm mb-2" />
             </div>
             <div className="flex flex-col items-center justify-start h-full pt-2">
                <h3 className="text-[13px] font-serif text-stone-800 mb-3 text-center tracking-wide font-medium">AI Hand View</h3>
-               <img src="/images/ai-page/card3.jpeg" alt="AI Hand View" className="w-full h-auto rounded object-cover shadow-sm border border-stone-100" />
+               <img src="/images/ai-page/hand-view.jpeg" alt="AI Hand View" className="w-full h-auto rounded object-cover shadow-sm border border-stone-100" />
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function AIJewelryRetouching() {
             </p>
           </div>
           <div className="w-full md:w-[45%] relative">
-             <img src="/images/ai-page/image360.jpeg" alt="360 video animation" className="w-full h-auto" />
+             <img src="/images/ai-page/360-ring.jpeg" alt="360 video animation" className="w-full h-auto" />
           </div>
         </div>
 
