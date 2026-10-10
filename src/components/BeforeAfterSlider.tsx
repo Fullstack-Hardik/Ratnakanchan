@@ -40,7 +40,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }: { be
       onTouchStart={() => isDragging.current = true}
     >
       {/* After Image (Background, Right Side) */}
-      <img src={afterImage} alt={alt + " After"} className="absolute inset-0 w-full h-full object-contain pointer-events-none" draggable={false} />
+      <img src={afterImage} alt={alt + " After"} className="absolute inset-0 w-full h-full object-contain p-6 md:p-8 pointer-events-none" draggable={false} />
 
       {/* Before Image (Foreground, Left Side, Clipped) */}
       <div
@@ -48,7 +48,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }: { be
         className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
         style={{ clipPath: `inset(0 50% 0 0)` }}
       >
-        <img src={beforeImage} alt={alt + " Before"} className="absolute inset-0 w-full h-full object-contain pointer-events-none" draggable={false} />
+        <img src={beforeImage} alt={alt + " Before"} className="absolute inset-0 w-full h-full object-contain p-6 md:p-8 pointer-events-none" draggable={false} />
       </div>
 
       {/* Slider Line & Handle */}
