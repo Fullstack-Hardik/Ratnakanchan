@@ -7,18 +7,18 @@ import FreeDemoSection from '@/components/FreeDemoSection';
 const heroMedia = [
   {
     type: 'image',
-    src: '/images/hero/image.png',
-    alt: 'Premium Yellow Diamond Ring Retouching',
+    src: '/images/hero/retouching-banner-front-page.jpg',
+    alt: 'Jewelry Retouching Banner',
+  },
+  {
+    type: 'image',
+    src: '/images/hero/02.jpg',
+    alt: 'Luxury Jewelry Banner',
   },
   {
     type: 'video',
-    src: '/images/hero/yg.mp4',
-    alt: 'Jewelry Video',
-  },
-  {
-    type: 'video',
-    src: '/images/hero/model.mp4',
-    alt: 'Model Video',
+    src: '/images/hero/hero-animation.mp4',
+    alt: 'Jewelry 3D Animation Video',
   },
 ];
 
