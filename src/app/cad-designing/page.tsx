@@ -128,37 +128,7 @@ export default function CadDesigningPage() {
         </div>
       </section>
 
-      {/* Types of render and Animation */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-16">
-         <h2 className="text-4xl md:text-5xl font-bold font-heading mb-8">Types of <span className="italic text-[var(--color-gold)]">render and Animation</span></h2>
-         
-         <div className="space-y-6 text-stone-800 font-medium text-lg">
-            <div>
-               <h3 className="text-xl font-bold mb-2">1. Basic Pack (E-Commerce)</h3>
-               <ul className="list-disc pl-6 space-y-1 text-stone-700">
-                  <li>On/Amazon 4-6 Images (Front, Side, Top, Perspective) on a plain white background.</li>
-                  <li>Animation 1920x1080px One Video on White Color.</li>
-                  <li>Best for: Standard online catalogs listings, Etsy, where raw details matter above overall</li>
-               </ul>
-            </div>
-            
-            <div>
-               <h3 className="text-xl font-bold mb-2">2. Standard Pack (360 Video)</h3>
-               <ul className="list-disc pl-6 space-y-1 text-stone-700">
-                  <li>On/Amazon 4 High-quality 360 videos (Yellow, White, and Rose Gold) hand/props.</li>
-                  <li>Animation 4 seconds to 8 seconds video (14-7 Sec/each & Color).</li>
-                  <li>Best for: Instagram Other Selling Platform</li>
-               </ul>
-            </div>
-            
-            <div>
-               <h3 className="text-xl font-bold mb-2">3. Premium Pack (Cinematic / Marketing)</h3>
-               <ul className="list-disc pl-6 space-y-1 text-stone-700">
-                  <li>On/Amazon High-resolution renders with realistic lighting, dark thematic background options, and macro close-up of set/settings.</li>
-               </ul>
-            </div>
-         </div>
-      </section>
+
 
       {/* Render Sample */}
       <section className="w-full max-w-7xl mx-auto px-6 py-16 bg-white">
@@ -217,41 +187,7 @@ export default function CadDesigningPage() {
          </div>
       </section>
 
-      {/* Ultra Realistic Jewelry Renders & 360° Animation */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-16 mb-16">
-         <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2">
-               <img src="/images/cad-designing/High Render Images and 360Animation.jpg" alt="High Render" className="w-full h-auto object-contain bg-gray-100 p-8 rounded-xl" />
-            </div>
-            <div className="w-full md:w-1/2">
-               <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">Ultra Realistic Jewelry <span className="italic text-[var(--color-gold)]">Renders & 360° Animation</span></h2>
-               <div className="space-y-6 text-stone-800 font-medium text-lg">
-                  <div>
-                     <h3 className="text-xl font-bold mb-2">1. Basic Pack (E-Commerce)</h3>
-                     <ul className="list-disc pl-6 space-y-1 text-stone-700 text-base">
-                        <li>On/Amazon 4-6 Images (Front, Side, Top, Perspective) on a plain white background.</li>
-                        <li>Animation 1920x1080px One Video on White Color.</li>
-                        <li>Best for: Standard online catalogs listings, Etsy, where raw details matter above overall</li>
-                     </ul>
-                  </div>
-                  <div>
-                     <h3 className="text-xl font-bold mb-2">2. Standard Pack (360 Video)</h3>
-                     <ul className="list-disc pl-6 space-y-1 text-stone-700 text-base">
-                        <li>On/Amazon 4 High-quality 360 videos (Yellow, White, and Rose Gold) hand/props.</li>
-                        <li>Animation 4 seconds to 8 seconds video (14-7 Sec/each & Color).</li>
-                        <li>Best for: Instagram Other Selling Platform</li>
-                     </ul>
-                  </div>
-                  <div>
-                     <h3 className="text-xl font-bold mb-2">3. Premium Pack (Cinematic / Marketing)</h3>
-                     <ul className="list-disc pl-6 space-y-1 text-stone-700 text-base">
-                        <li>On/Amazon High-resolution renders with realistic lighting, dark thematic background options, and macro close-up of set/settings.</li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+
 
       <FreeDemoSection />
 
