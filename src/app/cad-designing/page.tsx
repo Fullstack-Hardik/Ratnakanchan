@@ -52,7 +52,17 @@ export default function CadDesigningPage() {
   return (
     <main className="min-h-screen bg-white text-stone-900 pt-24 selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
       
-
+      {/* 1. HERO BANNER: CAD TO RENDER */}
+      <section className="relative w-full bg-[#050B14] overflow-hidden text-white min-h-[420px] md:min-h-[560px] flex items-center">
+        {/* Background Graphic Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <img 
+            src="/images/cad-designing/hero-cad-to-render.png" 
+            alt="CAD to Render - Bring Your Jewelry Designs to Life" 
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      </section>
 
       {/* 2. CAD DESIGNING SECTION (with 2nd img) */}
       <section className="w-full max-w-7xl mx-auto px-6 py-20 lg:py-28">
