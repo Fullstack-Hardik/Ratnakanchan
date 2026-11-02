@@ -199,10 +199,10 @@ export default function CadDesigningPage() {
         </div>
       </section>
 
-      {/* 7. 3D JEWELRY CAD TO REALISTIC MODEL PHOTOGRAPHY & VIDEO (Hand section) */}
+      {/* 7. 3D JEWELRY CAD TO REALISTIC MODEL HAND RENDERING */}
       <section className="w-full max-w-7xl mx-auto px-6 py-16 lg:py-20 border-t border-stone-200">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-          {/* Left Media (Video with clean square proportion) */}
+          {/* Left Media */}
           <div className="w-full lg:w-5/12 flex justify-center">
             <div className="w-full max-w-md aspect-square rounded-lg overflow-hidden bg-stone-100 shadow-sm border border-stone-200 relative">
               <video 
@@ -222,35 +222,22 @@ export default function CadDesigningPage() {
           {/* Right Text Content */}
           <div className="w-full lg:w-7/12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 mb-5 leading-tight">
-              3D Jewelry CAD to Realistic Model Photography & Video
+              3D Jewelry CAD to Realistic Model Hand Rendering
             </h2>
 
-            <div className="space-y-3 text-stone-800 text-sm sm:text-base leading-relaxed">
-              <p>
-                Bring your 3D jewelry CAD designs to life by showcasing them on realistic human models. We seamlessly integrate your jewelry designs onto realistic model hands, ears, necks, and fingers to create stunning, lifelike jewelry visuals that look like professional jewelry photography and video. Using advanced 3D rendering, jewelry compositing, and realistic lighting techniques, we transform your CAD models into high-quality product images and cinematic videos that showcase how your jewelry looks when worn.
-              </p>
-
-              <ul className="list-disc pl-5 space-y-1.5 py-1 text-stone-900 text-sm sm:text-base">
-                <li>
-                  <strong>Realistic Ring on Model Hand:</strong> Showcase engagement rings, wedding bands, and fashion rings on realistic human hands and fingers.
-                </li>
-                <li>
-                  <strong>Realistic Earrings on Model Ears:</strong> Display diamond studs, hoops, drops, and statement earrings on lifelike model ears.
-                </li>
-              </ul>
-
+            <div className="space-y-4 text-stone-800 text-sm sm:text-base leading-relaxed">
               <p>
                 We transform 3D jewelry CAD files into photorealistic renders featuring rings on realistic model hands. Using Blender and Cinema 4D, we create natural finger fitting, lifelike skin textures, realistic metal reflections, and brilliant gemstone details for professional e-commerce listings, websites, and marketing campaigns.
               </p>
 
-              <div className="pt-2 text-sm text-stone-900 space-y-1 font-medium">
-                <p>
+              <ul className="list-disc pl-5 space-y-1.5 py-1 text-stone-900 text-sm sm:text-base">
+                <li>
                   <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
-                </p>
-                <p>
-                  <strong>Software:</strong> Cinema 4D, Blender, and Other .
-                </p>
-              </div>
+                </li>
+                <li>
+                  <strong>Software:</strong> Cinema4d, Blender and Other .
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -277,20 +264,20 @@ export default function CadDesigningPage() {
             </div>
           </div>
 
-          {/* Right: Packages List (Clean Editorial Style as per reference) */}
+          {/* Right: Packages List */}
           <div className="w-full lg:w-7/12 space-y-6 text-stone-900">
             
             {/* Package 1 */}
             <div>
               <h3 className="text-base sm:text-lg font-bold text-stone-900">
-                1. Basic Pack — E Commerce Essentials
+                1. Basic Pack — E-Commerce Essentials
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 mb-2">
                 Clean, professional visuals for online product listings.
               </p>
               <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
                 <li>
-                  <strong>4 High Quality Images:</strong> Front, side, top, and perspective views(1000X1000Pixel) of your jewelry.
+                  <strong>4 High-Quality Images:</strong> Front, side, top, and perspective views(1000X1000Pixel) of your jewelry.
                 </li>
                 <li>
                   <strong>White Background Rendering:</strong> Clean, consistent product images ideal for e-commerce platforms.
@@ -299,10 +286,10 @@ export default function CadDesigningPage() {
                   <strong>Product Animation:</strong> One 720X720 Full HD video featuring your jewelry on a white background.
                 </li>
                 <li>
-                  <strong>Best For:</strong> Amazon, Etsy, online stores, jewelry catalogs, and e commerce product listings.
+                  <strong>Software:</strong> I-Jewel and Other .
                 </li>
                 <li>
-                  <strong>Software:</strong> I Jewel and Other .
+                  <strong>Best For:</strong> Amazon, Etsy, online stores, jewelry catalogs, and e-commerce product listings.
                 </li>
               </ul>
             </div>
@@ -317,19 +304,19 @@ export default function CadDesigningPage() {
               </p>
               <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
                 <li>
-                  <strong>4 to 5 High Quality Images:</strong> Front, side, top, perspective and Hand views(1200X1200Pixel) of your jewelry.
+                  <strong>4 to 5 High-Quality Images:</strong> Front, side, top, perspective and Hand views(1200X1200Pixel) of your jewelry.
                 </li>
                 <li>
-                  <strong>White Background Rendering:</strong> Clean, consistent product images ideal for e commerce platforms.
+                  <strong>White Background Rendering:</strong> Clean, consistent product images ideal for e-commerce platforms.
                 </li>
                 <li>
-                  <strong>High Quality 360° Videos:</strong> One 720X720 Full HD video featuring your jewelry on a white background with 3 Metal colors(White, yellow and Rose Gold).
-                </li>
-                <li>
-                  <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
+                  <strong>High-Quality 360° Videos:</strong> One 720X720 Full HD video featuring your jewelry on a white background with 3 Metal colors(White, yellow and Rose Gold).
                 </li>
                 <li>
                   <strong>Software:</strong> Keyshot and Other .
+                </li>
+                <li>
+                  <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
                 </li>
               </ul>
             </div>
@@ -344,13 +331,13 @@ export default function CadDesigningPage() {
               </p>
               <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
                 <li>
-                  <strong>4-6 High Quality Images:</strong> Front, side, top, and perspective and Hand views(1500X1500Pixel) of your jewelry.
+                  <strong>4-6 High-Quality Images:</strong> Front, side, top, and perspective and Realistic Hand views(1500X1500Pixel) of your jewelry.
                 </li>
                 <li>
-                  <strong>Image Rendering:</strong> Photorealistic Luxury Renders: Stunning, high detail jewelry renders with realistic lighting, reflective gold finishes, brilliant diamonds, and elegant backgrounds for a premium luxury look.
+                  <strong>Image Rendering:</strong> Photorealistic Luxury Renders: Stunning, high-detail jewelry renders with realistic lighting, reflective gold finishes, brilliant diamonds, and elegant backgrounds for a premium luxury look.
                 </li>
                 <li>
-                  <strong>Cinematic 3D Jewelry Animation:</strong> Premium, photorealistic jewelry videos featuring smooth camera movements, dramatic lighting, 360° rotations, macro close ups, and stunning reflections to highlight every detail and deliver a luxurious brand experience.
+                  <strong>Cinematic 3D Jewelry Animation:</strong> Premium, photorealistic jewelry videos featuring smooth camera movements, dramatic lighting, 360° rotations, macro close-ups, and stunning reflections to highlight every detail and deliver a luxurious brand experience.
                 </li>
                 <li>
                   <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
