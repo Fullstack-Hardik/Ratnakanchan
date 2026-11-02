@@ -200,10 +200,11 @@ export default function CadDesigningPage() {
       </section>
 
       {/* 7. 3D JEWELRY CAD TO REALISTIC MODEL PHOTOGRAPHY & VIDEO (Hand section) */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-20 lg:py-24 border-t border-stone-100">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="w-full lg:w-1/2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-stone-900 border border-stone-200 aspect-[4/5] sm:aspect-square flex items-center justify-center">
+      <section className="w-full max-w-7xl mx-auto px-6 py-16 lg:py-20 border-t border-stone-200">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          {/* Left Media (Video with clean square proportion) */}
+          <div className="w-full lg:w-5/12 flex justify-center">
+            <div className="w-full max-w-md aspect-square rounded-lg overflow-hidden bg-stone-100 shadow-sm border border-stone-200 relative">
               <video 
                 src="/assets/videos/animations/shot-6.mp4" 
                 poster="/images/cad-designing/model-hand-ring-preview.jpg"
@@ -215,55 +216,40 @@ export default function CadDesigningPage() {
                 suppressHydrationWarning 
                 preload="auto" 
               />
-              <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-white tracking-wider uppercase border border-white/10">
-                Model Photography & Video
-              </div>
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2">
-            <span className="text-xs font-bold text-[var(--color-gold)] uppercase tracking-[0.2em] block mb-3">
-              Photorealistic Human Compositing
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading mb-6 leading-tight text-stone-900">
-              3D Jewelry CAD to Realistic <span className="italic text-[var(--color-gold)]">Model Photography & Video</span>
+          {/* Right Text Content */}
+          <div className="w-full lg:w-7/12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 mb-5 leading-tight">
+              3D Jewelry CAD to Realistic Model Photography & Video
             </h2>
-            <div className="space-y-4 text-stone-700 text-base leading-relaxed">
-              <p>
-                Bring your 3D jewelry CAD designs to life by showcasing them on realistic human models. We seamlessly integrate your jewelry designs onto realistic model hands, ears, necks, and fingers to create stunning, lifelike jewelry visuals that look like professional jewelry photography and video.
-              </p>
-              <p>
-                Using advanced 3D rendering, jewelry compositing, and realistic lighting techniques, we transform your CAD models into high-quality product images and cinematic videos that showcase how your jewelry looks when worn.
-              </p>
-            </div>
 
-            <ul className="my-6 space-y-3">
-              <li className="flex items-start gap-3">
-                <Check className="text-[var(--color-gold)] w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span className="text-stone-800 text-sm">
+            <div className="space-y-3 text-stone-800 text-sm sm:text-base leading-relaxed">
+              <p>
+                Bring your 3D jewelry CAD designs to life by showcasing them on realistic human models. We seamlessly integrate your jewelry designs onto realistic model hands, ears, necks, and fingers to create stunning, lifelike jewelry visuals that look like professional jewelry photography and video. Using advanced 3D rendering, jewelry compositing, and realistic lighting techniques, we transform your CAD models into high-quality product images and cinematic videos that showcase how your jewelry looks when worn.
+              </p>
+
+              <ul className="list-disc pl-5 space-y-1.5 py-1 text-stone-900 text-sm sm:text-base">
+                <li>
                   <strong>Realistic Ring on Model Hand:</strong> Showcase engagement rings, wedding bands, and fashion rings on realistic human hands and fingers.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="text-[var(--color-gold)] w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span className="text-stone-800 text-sm">
+                </li>
+                <li>
                   <strong>Realistic Earrings on Model Ears:</strong> Display diamond studs, hoops, drops, and statement earrings on lifelike model ears.
-                </span>
-              </li>
-            </ul>
+                </li>
+              </ul>
 
-            <p className="text-stone-700 text-sm leading-relaxed mb-6">
-              We transform 3D jewelry CAD files into photorealistic renders featuring rings on realistic model hands. Using Blender and Cinema 4D, we create natural finger fitting, lifelike skin textures, realistic metal reflections, and brilliant gemstone details for professional e-commerce listings, websites, and marketing campaigns.
-            </p>
+              <p>
+                We transform 3D jewelry CAD files into photorealistic renders featuring rings on realistic model hands. Using Blender and Cinema 4D, we create natural finger fitting, lifelike skin textures, realistic metal reflections, and brilliant gemstone details for professional e-commerce listings, websites, and marketing campaigns.
+              </p>
 
-            <div className="bg-[#FAF9F6] border border-stone-200 rounded-xl p-4 flex flex-col sm:flex-row gap-4 justify-between text-xs text-stone-600">
-              <div>
-                <span className="font-bold text-stone-900 block mb-1">Best For:</span>
-                Instagram, social media advertising, jewelry websites, and online selling platforms.
-              </div>
-              <div className="sm:border-l sm:border-stone-200 sm:pl-4">
-                <span className="font-bold text-stone-900 block mb-1">Software:</span>
-                Cinema 4D, Blender, and other industry standard suites.
+              <div className="pt-2 text-sm text-stone-900 space-y-1 font-medium">
+                <p>
+                  <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
+                </p>
+                <p>
+                  <strong>Software:</strong> Cinema 4D, Blender, and Other .
+                </p>
               </div>
             </div>
           </div>
@@ -271,131 +257,108 @@ export default function CadDesigningPage() {
       </section>
 
       {/* 8. RENDER IMAGES AND 360ANIMATION PACKAGES (with 6th img) */}
-      <section id="packages" className="w-full max-w-7xl mx-auto px-6 py-20 lg:py-28 border-t border-stone-100">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-[var(--color-gold)] uppercase tracking-[0.2em] block mb-3">
-            Tailored Solutions
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-stone-900 mb-4">
-            Render Images and <span className="italic text-[var(--color-gold)]">360Animation</span>
+      <section id="packages" className="w-full max-w-7xl mx-auto px-6 py-16 lg:py-20 border-t border-stone-200">
+        {/* Section Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-stone-900">
+            Render Images and 360Animation
           </h2>
-          <p className="text-stone-600 text-base">
-            Select the perfect rendering package engineered to elevate your jewelry brand, boost conversion rates, and mesmerize customers.
-          </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* 6th Image Illustration */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          {/* Left: 6th Image (Ring render) */}
           <div className="w-full lg:w-5/12 flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-white border border-stone-200 p-6 group max-w-md">
+            <div className="w-full max-w-md aspect-square rounded-lg overflow-hidden bg-stone-50 border border-stone-200 p-6 flex items-center justify-center">
               <img 
                 src="/images/cad-designing/render-packages-ring.jpg" 
-                alt="High Detail Jewelry Render Ring" 
-                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                alt="Render Images and 360Animation" 
+                className="w-full h-full object-contain" 
               />
-              <div className="mt-4 text-center">
-                <span className="text-xs uppercase tracking-widest text-stone-400 font-semibold">Photorealistic Precision</span>
-                <p className="text-sm font-medium text-stone-700 mt-1">Multi-angle gemstone & band clarity</p>
-              </div>
             </div>
           </div>
 
-          {/* 3 Packages List */}
-          <div className="w-full lg:w-7/12 space-y-6">
+          {/* Right: Packages List (Clean Editorial Style as per reference) */}
+          <div className="w-full lg:w-7/12 space-y-6 text-stone-900">
             
             {/* Package 1 */}
-            <div className="p-6 md:p-8 rounded-2xl border border-stone-200 bg-white hover:border-[var(--color-gold)] transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-stone-900">
-                  1. Basic Pack – E-Commerce Essentials
-                </h3>
-                <span className="text-xs uppercase px-2.5 py-1 rounded bg-stone-100 font-semibold text-stone-600">Essential</span>
-              </div>
-              <p className="text-stone-600 text-sm mb-4">Clean, professional visuals for online product listings.</p>
-              
-              <ul className="space-y-2.5 text-sm text-stone-700 mb-5">
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>4 High-Quality Images:</strong> Front, side, top, and perspective views (1000x1000 Pixel) of your jewelry.</span>
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-stone-900">
+                1. Basic Pack — E Commerce Essentials
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-600 mb-2">
+                Clean, professional visuals for online product listings.
+              </p>
+              <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
+                <li>
+                  <strong>4 High Quality Images:</strong> Front, side, top, and perspective views(1000X1000Pixel) of your jewelry.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>White Background Rendering:</strong> Clean, consistent product images ideal for e-commerce platforms.</span>
+                <li>
+                  <strong>White Background Rendering:</strong> Clean, consistent product images ideal for e-commerce platforms.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>Product Animation:</strong> One 720x720 Full HD video featuring your jewelry on a white background.</span>
+                <li>
+                  <strong>Product Animation:</strong> One 720X720 Full HD video featuring your jewelry on a white background.
+                </li>
+                <li>
+                  <strong>Best For:</strong> Amazon, Etsy, online stores, jewelry catalogs, and e commerce product listings.
+                </li>
+                <li>
+                  <strong>Software:</strong> I Jewel and Other .
                 </li>
               </ul>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-stone-500 border-t border-stone-100 pt-3">
-                <div><strong>Software:</strong> I-Jewel and other</div>
-                <div><strong>Best For:</strong> Amazon, Etsy, online stores, jewelry catalogs, and product listings</div>
-              </div>
             </div>
 
             {/* Package 2 */}
-            <div className="p-6 md:p-8 rounded-2xl border-2 border-[var(--color-gold)] bg-gradient-to-br from-amber-50/20 via-white to-white transition-all duration-300 shadow-md relative">
-              <div className="absolute top-4 right-4 bg-[var(--color-gold)] text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
-                Most Popular
-              </div>
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-stone-900">
-                  2. Standard Pack – 360° Jewelry Showcase
-                </h3>
-              </div>
-              <p className="text-stone-600 text-sm mb-4">Bring every detail to life with stunning 360° views and dynamic product animations.</p>
-              
-              <ul className="space-y-2.5 text-sm text-stone-700 mb-5">
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>4 to 5 High-Quality Images:</strong> Front, side, top, perspective, and Hand views (1200x1200 Pixel) of your jewelry.</span>
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-stone-900">
+                2. Standard Pack — 360° Jewelry Showcase
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-600 mb-2">
+                Bring every detail to life with stunning 360° views and dynamic product animations.
+              </p>
+              <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
+                <li>
+                  <strong>4 to 5 High Quality Images:</strong> Front, side, top, perspective and Hand views(1200X1200Pixel) of your jewelry.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>White Background Rendering:</strong> Clean, consistent product images ideal for e-commerce platforms.</span>
+                <li>
+                  <strong>White Background Rendering:</strong> Clean, consistent product images ideal for e commerce platforms.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>High-Quality 360° Videos:</strong> One 720x720 Full HD video featuring your jewelry on a white background with 3 Metal colors (White, Yellow, and Rose Gold).</span>
+                <li>
+                  <strong>High Quality 360° Videos:</strong> One 720X720 Full HD video featuring your jewelry on a white background with 3 Metal colors(White, yellow and Rose Gold).
+                </li>
+                <li>
+                  <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
+                </li>
+                <li>
+                  <strong>Software:</strong> Keyshot and Other .
                 </li>
               </ul>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-stone-500 border-t border-stone-100 pt-3">
-                <div><strong>Software:</strong> Keyshot and other</div>
-                <div><strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms</div>
-              </div>
             </div>
 
             {/* Package 3 */}
-            <div className="p-6 md:p-8 rounded-2xl border border-stone-200 bg-white hover:border-[var(--color-gold)] transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-stone-900">
-                  3. Premium Pack – Cinematic & Marketing Visuals
-                </h3>
-                <span className="text-xs uppercase px-2.5 py-1 rounded bg-stone-900 text-white font-semibold">Luxury Tier</span>
-              </div>
-              <p className="text-stone-600 text-sm mb-4">Create a luxurious brand experience with photorealistic renders and cinematic jewelry animations.</p>
-              
-              <ul className="space-y-2.5 text-sm text-stone-700 mb-5">
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>4 to 6 High-Quality Images:</strong> Front, side, top, perspective, and Realistic Hand views (1500x1500 Pixel) of your jewelry.</span>
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-stone-900">
+                3. Premium Pack — Cinematic & Marketing Visuals
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-600 mb-2">
+                Create a luxurious brand experience with photorealistic renders and cinematic jewelry animations.
+              </p>
+              <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-stone-800 leading-relaxed">
+                <li>
+                  <strong>4-6 High Quality Images:</strong> Front, side, top, and perspective and Hand views(1500X1500Pixel) of your jewelry.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>Photorealistic Luxury Renders:</strong> Stunning, high-detail jewelry renders with realistic lighting, reflective gold finishes, brilliant diamonds, and elegant backgrounds for a premium luxury look.</span>
+                <li>
+                  <strong>Image Rendering:</strong> Photorealistic Luxury Renders: Stunning, high detail jewelry renders with realistic lighting, reflective gold finishes, brilliant diamonds, and elegant backgrounds for a premium luxury look.
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="text-[var(--color-gold)] w-4 h-4 mt-1 flex-shrink-0" />
-                  <span><strong>Cinematic 3D Jewelry Animation:</strong> Premium, photorealistic jewelry videos featuring smooth camera movements, dramatic lighting, 360° rotations, macro close-ups, and stunning reflections.</span>
+                <li>
+                  <strong>Cinematic 3D Jewelry Animation:</strong> Premium, photorealistic jewelry videos featuring smooth camera movements, dramatic lighting, 360° rotations, macro close ups, and stunning reflections to highlight every detail and deliver a luxurious brand experience.
+                </li>
+                <li>
+                  <strong>Best For:</strong> Instagram, social media advertising, jewelry websites, and online selling platforms.
+                </li>
+                <li>
+                  <strong>Software:</strong> Cinema4d, Blender and Other .
                 </li>
               </ul>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-stone-500 border-t border-stone-100 pt-3">
-                <div><strong>Software:</strong> Cinema 4D, Blender, and other</div>
-                <div><strong>Best For:</strong> Instagram, social media advertising, luxury jewelry websites, and global brands</div>
-              </div>
             </div>
 
           </div>
