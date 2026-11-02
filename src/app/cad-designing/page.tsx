@@ -52,63 +52,7 @@ export default function CadDesigningPage() {
   return (
     <main className="min-h-screen bg-white text-stone-900 pt-24 selection:bg-[var(--color-gold)] selection:text-white relative overflow-hidden">
       
-      {/* 1. HERO BANNER: CAD TO RENDER */}
-      <section className="relative w-full bg-[#050B14] overflow-hidden text-white min-h-[580px] md:min-h-[640px] flex items-center">
-        {/* Background Graphic Image */}
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/images/cad-designing/hero-cad-to-render.png" 
-            alt="CAD to Render - Bring Your Jewelry Designs to Life" 
-            className="w-full h-full object-cover object-center md:object-right opacity-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050B14] via-[#050B14]/80 to-transparent md:w-3/5"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-transparent to-transparent h-28 bottom-0"></div>
-        </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[var(--color-gold)] text-xs font-semibold tracking-widest uppercase mb-6">
-              <Sparkles size={14} />
-              <span>Next-Gen 3D Rendering</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight font-heading leading-[1.08] text-white mb-6 uppercase">
-              CAD <span className="font-light text-gray-300">TO</span> <span className="text-[var(--color-gold)]">RENDER</span>
-            </h1>
-
-            <div className="w-24 h-1 bg-gradient-to-r from-[var(--color-gold)] to-amber-200 mb-6"></div>
-
-            <p className="text-2xl sm:text-3xl font-serif text-white/95 mb-4 font-light tracking-wide">
-              Bring Your Jewelry Designs to Life
-            </p>
-
-            <p className="text-base sm:text-lg text-stone-300 max-w-xl leading-relaxed mb-8">
-              Photorealistic jewelry renders for e-commerce, marketing, and presentations.
-            </p>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <Link 
-                href="/contact#contact-form" 
-                className="bg-[var(--color-gold)] text-white px-8 py-3.5 rounded-sm font-medium text-xs tracking-widest uppercase hover:bg-yellow-700 transition-all duration-300 shadow-lg hover:shadow-yellow-600/30 inline-flex items-center gap-2"
-              >
-                <span>Get Free Sample</span>
-                <ArrowRight size={14} />
-              </Link>
-              <a 
-                href="#packages" 
-                className="border border-white/30 text-white hover:bg-white/10 px-7 py-3.5 rounded-sm font-medium text-xs tracking-widest uppercase transition-colors"
-              >
-                View Packages
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* 2. CAD DESIGNING SECTION (with 2nd img) */}
       <section className="w-full max-w-7xl mx-auto px-6 py-20 lg:py-28">
@@ -195,17 +139,6 @@ export default function CadDesigningPage() {
             alt="Luxury Jewelry CAD Render Banner" 
             className="w-full h-auto min-h-[460px] md:min-h-[540px] object-cover" 
           />
-          {/* Subtle overlay gradient to ensure readability for the headline & paragraph if desired */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-black/85 via-black/40 to-transparent flex items-end md:items-center justify-end p-8 md:p-16">
-            <div className="max-w-xl text-right md:text-right text-white">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading mb-5 leading-tight">
-                CAD <span className="italic text-[var(--color-gold)]">Render Image</span>
-              </h2>
-              <p className="text-base sm:text-lg text-stone-200 font-light leading-relaxed">
-                Transform your 3D jewelry CAD designs into stunning, photorealistic render images. We create high-quality jewelry visuals featuring realistic diamonds, precious metals, lighting, and reflections, perfect for e-commerce websites, product catalogs, social media, and digital marketing.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
