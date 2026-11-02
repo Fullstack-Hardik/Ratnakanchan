@@ -162,17 +162,17 @@ export default function CadToInstagramPage() {
         </p>
       </section>
 
-      {/* 6. ADS PORTFOLIO ROW 3 (Real Model Changing CAD - Proper aspect ratio and borderless) */}
+      {/* 6. ADS PORTFOLIO ROW 3 (Real Model Changing CAD - Borderless without side black bars) */}
       <section className="w-full max-w-5xl mx-auto px-6 py-8 pb-16">
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-3xl aspect-[16/9] overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="w-full max-w-2xl aspect-[4/3] sm:aspect-[1.4/1] overflow-hidden bg-transparent flex items-center justify-center">
             <video 
               src="/images/cad-to-insta/portfolio vid 6.mp4" 
               autoPlay 
               loop 
               muted 
               playsInline
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover scale-[1.02]"
               suppressHydrationWarning 
               preload="auto" 
             />
