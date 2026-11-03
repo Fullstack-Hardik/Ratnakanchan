@@ -93,11 +93,12 @@ export default function Home() {
 
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       
       {/* HERO SECTION */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-20 z-20 flex flex-col md:flex-row items-center gap-12 bg-stone-50">
-        <Hero3DBackground />
+      <section className="relative w-full bg-stone-50 border-b border-stone-200/60 overflow-hidden">
+        <div className="relative w-full max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-16 md:pb-24 z-20 flex flex-col md:flex-row items-center gap-10 lg:gap-14">
+          <Hero3DBackground />
         
         <div className="w-full md:w-[55%] flex flex-col items-start text-left relative z-30">
           <motion.span 
@@ -142,67 +143,70 @@ export default function Home() {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 100, scale: 0.9 }}
+          initial={{ opacity: 0, x: 60, scale: 0.95 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="w-[96%] mx-auto md:w-[45%] h-[50vh] md:h-[80vh] min-h-[400px] relative bg-gray-100 overflow-hidden md:rounded-bl-[100px] rounded-2xl md:rounded-b-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] z-10 mb-8 md:mb-0 mt-8 md:mt-0"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full md:w-[45%] flex justify-center items-center z-10"
         >
-          {/* Active media rendered solely to prevent browser memory/autoplay issues */}
-          {heroMedia.map((media, idx) => (
-            <div 
-              key={media.src} 
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === activeHeroIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-            >
-              {media.type === 'video' ? (
-                <video
-                  src={media.src}
-                  ref={(el: HTMLVideoElement | null) => { 
-                    videoRefs.current[idx] = el;
-                    if (el) {
-                      el.defaultMuted = true;
-                      el.muted = true;
-                      el.setAttribute('playsinline', '');
-                      el.setAttribute('muted', '');
-                      el.setAttribute('autoplay', '');
-                    }
-                  }}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-contain"
-                  suppressHydrationWarning 
-                  preload="auto"
-                />
-              ) : (
-                <img 
-                  src={media.src} 
-                  alt={media.alt}
-                  loading="eager"
-                  className="w-full h-full object-contain"
-                />
-              )}
-            </div>
-          ))}
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-20"></div>
-
-          <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-auto">
-            {heroMedia.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveHeroIndex(idx)}
-                aria-label={`Slide ${idx + 1}`}
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  idx === activeHeroIndex
-                    ? 'w-6 bg-[var(--color-gold)]'
-                    : 'w-2 bg-white/40 hover:bg-white/70'
-                }`}
-              />
+          {/* Framed card matched to the media proportions without artificial borders/letterbox */}
+          <div className="w-full max-w-[560px] aspect-[4/3] relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-white">
+            {heroMedia.map((media, idx) => (
+              <div 
+                key={media.src} 
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === activeHeroIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              >
+                {media.type === 'video' ? (
+                  <video
+                    src={media.src}
+                    ref={(el: HTMLVideoElement | null) => { 
+                      videoRefs.current[idx] = el;
+                      if (el) {
+                        el.defaultMuted = true;
+                        el.muted = true;
+                        el.setAttribute('playsinline', '');
+                        el.setAttribute('muted', '');
+                        el.setAttribute('autoplay', '');
+                      }
+                    }}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                    suppressHydrationWarning 
+                    preload="auto"
+                  />
+                ) : (
+                  <img 
+                    src={media.src} 
+                    alt={media.alt}
+                    loading="eager"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
             ))}
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none z-20"></div>
+
+            <div className="absolute bottom-5 right-5 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-auto">
+              {heroMedia.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveHeroIndex(idx)}
+                  aria-label={`Slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    idx === activeHeroIndex
+                      ? 'w-6 bg-[var(--color-gold)]'
+                      : 'w-2 bg-white/40 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
-      </section>
+      </div>
+    </section>
 
       {/* WHAT YOU GET FROM US SECTION */}
       <section className="py-12 md:py-16 bg-white max-w-7xl mx-auto px-6">
