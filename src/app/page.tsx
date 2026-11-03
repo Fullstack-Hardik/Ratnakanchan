@@ -170,7 +170,7 @@ export default function Home() {
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   suppressHydrationWarning 
                   preload="auto"
                 />
@@ -179,7 +179,7 @@ export default function Home() {
                   src={media.src} 
                   alt={media.alt}
                   loading="eager"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               )}
             </div>
