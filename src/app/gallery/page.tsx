@@ -156,7 +156,6 @@ export default function GalleryPage() {
     { id: 2, image: "/images/gallery_new/25.webp", alt: "Gold Diamond Ring" },
     { id: 3, image: "/images/gallery_new/01.jpg", alt: "Jewelry Render" },
     { id: 4, image: "/images/gallery_new/dsc-9239-r.jpg", alt: "Necklace Piece" },
-    { id: 5, image: "/images/gallery_new/retouch.jpg", alt: "Retouch Example" },
     { id: 6, image: "/images/gallery/lotus-halo-ov-02.jpg", alt: "Lotus Halo OV" },
     { id: 9, image: "/images/gallery/lotus-halo-ov-02yg.jpg", alt: "Lotus Halo OV Yellow Gold" },
   ];
