@@ -248,7 +248,7 @@ export default function GalleryPage() {
             Ready for pixel-perfect clarity?
           </h2>
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/919820892246"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 border-b-2 border-white pb-1 uppercase tracking-widest text-sm font-semibold text-white hover:text-[var(--color-gold)] hover:border-[var(--color-gold)] transition-colors"

@@ -122,7 +122,7 @@ export default function PricingPage() {
 
                 {/* WhatsApp Button */}
                 <a 
-                  href={`https://wa.me/919876543210?text=${encodeURIComponent(tier.message)}`} 
+                  href={`https://wa.me/919820892246?text=${encodeURIComponent(tier.message)}`} 
                   target="_blank" 
                   rel="noreferrer"
                   className="mt-8 w-full block text-center bg-white text-black font-semibold uppercase tracking-widest text-xs py-4 rounded-sm hover:bg-[var(--color-gold)] transition-colors shadow-md"

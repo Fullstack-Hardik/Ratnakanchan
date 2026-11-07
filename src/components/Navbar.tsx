@@ -8,7 +8,7 @@ import { FaInstagram, FaFacebookF, FaWhatsapp, FaYoutube } from 'react-icons/fa'
 const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/ratnakanchan.creations/',
   facebook: 'https://www.facebook.com/people/Ratnakanchan-Creations/61571611845871/',
-  whatsapp: 'https://wa.me/919876543210',
+  whatsapp: 'https://wa.me/919820892246',
   youtube: 'https://www.youtube.com/@ratnakanchancreations2946/shorts',
 };
 
@@ -68,7 +68,7 @@ export default function Navbar() {
         {/* RIGHT SECTION: SOCIAL & CALL (Desktop) */}
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center gap-4">
-            <a href="tel:+919876543210" aria-label="Call Us" className="text-black/50 hover:text-[var(--color-gold)] transition-colors duration-300">
+            <a href="tel:+919820892246" aria-label="Call Us" className="text-black/50 hover:text-[var(--color-gold)] transition-colors duration-300">
               <Phone size={17} />
             </a>
             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/50 hover:text-[#E1306C] transition-colors duration-300">
@@ -138,7 +138,7 @@ export default function Navbar() {
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-sm uppercase tracking-widest font-medium text-black/70 hover:text-[var(--color-gold)] transition-colors">Contact</Link>
           
           <div className="border-t border-gray-100 pt-8 mt-auto flex flex-col gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-3 text-xs tracking-widest uppercase text-black/60 hover:text-[var(--color-gold)] transition-colors"><Phone size={16}/> Call Us</a>
+            <a href="tel:+919820892246" className="flex items-center gap-3 text-xs tracking-widest uppercase text-black/60 hover:text-[var(--color-gold)] transition-colors"><Phone size={16}/> Call Us</a>
             
             {/* Social Media Icons */}
             <div className="flex items-center gap-5 pt-2">

@@ -133,7 +133,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-4 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-xl hover:-translate-y-1">
+            <a href="https://wa.me/919820892246" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-4 bg-stone-900 text-white hover:bg-[var(--color-gold)] transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-xl hover:-translate-y-1">
               Get Free Sample <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
             <a href="#services" className="inline-flex items-center justify-center gap-4 border-2 border-stone-200 text-stone-900 hover:border-stone-900 transition-all duration-300 px-10 py-5 rounded-full font-body font-bold tracking-widest uppercase shadow-sm hover:-translate-y-1">

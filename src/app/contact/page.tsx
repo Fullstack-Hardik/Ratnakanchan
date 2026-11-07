@@ -16,7 +16,7 @@ export default function ContactPage() {
     e.preventDefault();
     const { firstName, lastName, email, phone, inquiry, details } = formData;
     const message = `Hi Ratnakanchan Creations,%0A%0AI am ${firstName} ${lastName}.%0A%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Inquiry:* ${inquiry}%0A%0A*Details:*%0A${details}`;
-    window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+    window.open(`https://wa.me/919820892246?text=${message}`, '_blank');
   };
 
   return (
@@ -151,7 +151,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Headquarters</h4>
-                  <p className="text-gray-500 font-light text-sm">Rameshwar Gruh Nirman Society, Sandesh Nagar,<br />Kurla (W), Mumbai – 400072, India</p>
+                  <p className="text-gray-500 font-light text-sm">Ratnakanchan Creations<br />Kurla-Andheri Road,<br />Kurla, Mumbai 400072</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
@@ -160,7 +160,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold uppercase tracking-widest text-sm text-black mb-1">Phone</h4>
-                  <p className="text-gray-500 font-light text-sm">+91 98765 43210</p>
+                  <p className="text-gray-500 font-light text-sm">+91 98208 92246</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">

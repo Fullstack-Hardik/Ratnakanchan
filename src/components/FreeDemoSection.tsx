@@ -22,7 +22,7 @@ export default function FreeDemoSection() {
             const message = formData.get('message');
             
             const waText = `*New Free Demo Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-            window.open(`https://wa.me/919876543210?text=${waText}`, "_blank");
+            window.open(`https://wa.me/919820892246?text=${waText}`, "_blank");
           }}
         >
           <input name="name" type="text" placeholder="Name *" className="w-full bg-white text-black px-5 py-4 text-sm focus:outline-none border border-transparent focus:border-black transition-colors" required />

@@ -35,11 +35,12 @@ export default function Footer() {
           <ul className="space-y-4 text-[14px] text-[#4A5568] font-normal leading-relaxed">
             <li>
               <span className="underline decoration-1 underline-offset-4">ADDRESS :</span><br/>
-              Rameshwar Gruh Nirman Society, Sandesh<br/>
-              Nagar, Kurla(W), Mumbai - 400 072.
+              Ratnakanchan Creations<br/>
+              Kurla-Andheri Road,<br/>
+              Kurla, Mumbai 400072
             </li>
             <li>
-              <span className="underline decoration-1 underline-offset-4">Mobile :</span> <a href="tel:+919820892246" className="text-[#2F80ED] hover:text-[#1A202C]">+(91) -9820892246</a>
+              <span className="underline decoration-1 underline-offset-4">Mobile :</span> <a href="tel:+919820892246" className="text-[#2F80ED] hover:text-[#1A202C]">982 089 2246</a>
             </li>
             <li>
               <span className="underline decoration-1 underline-offset-4">E-mail :</span>{' '}
