@@ -209,7 +209,7 @@ export default function GalleryPage() {
           </div>
           {/* Simple Clean Static Grid */}
           <SimpleGallery
-            cards={[...galleryImages, { id: 7, image: "/images/gallery/lifestyle-image.jpg", alt: "Lifestyle Jewelry" }]}
+            cards={[...galleryImages, { id: 7, image: "/images/gallery/lifestyle-image.webp", alt: "Lifestyle Jewelry" }]}
             onImageClick={handleImageClick}
           />
         </section>
