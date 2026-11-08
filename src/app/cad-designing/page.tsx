@@ -141,12 +141,12 @@ export default function CadDesigningPage() {
       </section>
 
       {/* 5. CAD RENDER IMAGE HERO / BANNER SECTION (with Luxury Jewelry CAD Render Banner.png) */}
-      <section className="relative w-full max-w-7xl mx-auto px-6 py-20 lg:py-24">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0b0c10] border border-stone-200">
+      <section className="relative w-full max-w-7xl mx-auto px-6 py-12 md:py-20 lg:py-24">
+        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-[#0b0c10] border border-stone-200">
           <img 
             src="/images/cad-designing/luxury-cad-render-banner.png" 
             alt="Luxury Jewelry CAD Render Banner" 
-            className="w-full h-auto min-h-[460px] md:min-h-[540px] object-cover" 
+            className="w-full h-auto object-contain block mx-auto" 
           />
         </div>
       </section>
